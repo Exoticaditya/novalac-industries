@@ -1,0 +1,20 @@
+# OS and Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Backup files
+*.bak
+*.tmp
+
+# Node modules (if using build tools later)
+node_modules/
+
+# Optional: Uncomment if you want to exclude large image files during development
+# images/**/*.jpg
+# images/**/*.png
+# !images/**/.gitkeep
