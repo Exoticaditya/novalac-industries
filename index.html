@@ -3,178 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novalac Industries - Premium Paints & Coatings | Super Duro Care, Nova Care</title>
-    <meta name="description" content="Novalac Industries - Leading manufacturer of premium quality exterior and interior paints, waterproof coatings, wall putty, and emulsions. Serving across India with brands like Super Duro Care, Nova Care, All Weather, and Mr. CRETE.">
+    <title>NOVALAC INDUSTRIES | Future of Paint Technology 2026</title>
+    <meta name="description" content="Experience the future of paint innovation. Revolutionary nano-coatings, AI color matching, and smart paint solutions from Novalac Industries.">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Loading Animation -->
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Cyber Grid Background -->
+    <div class="cyber-grid"></div>
+    
+    <!-- Futuristic Loader -->
     <div class="loader" id="loader">
-        <div class="paint-bucket">
-            <div class="paint-drop"></div>
-            <div class="paint-drop"></div>
-            <div class="paint-drop"></div>
+        <div class="loader-ring">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
         </div>
-        <h2>NOVALAC INDUSTRIES</h2>
+        <h2 class="glitch" data-text="NOVALAC">NOVALAC</h2>
+        <p class="loader-status">INITIALIZING SYSTEMS...</p>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <i class="fas fa-paint-roller"></i>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-hex">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <div class="logo-text">
                     <span>NOVALAC</span>
-                    <small>INDUSTRIES</small>
+                    <small>INDUSTRIES 2.0</small>
                 </div>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#products" class="nav-link">Products</a></li>
-                    <li><a href="#brands" class="nav-link">Our Brands</a></li>
-                    <li><a href="#visualizer" class="nav-link">Color Visualizer</a></li>
-                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="#" class="nav-link btn-quote">Get Quote</a></li>
-                </ul>
             </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">HOME</a></li>
+                <li><a href="#tech" class="nav-link">TECH</a></li>
+                <li><a href="#products" class="nav-link">PRODUCTS</a></li>
+                <li><a href="#brands" class="nav-link">BRANDS</a></li>
+                <li><a href="#lab" class="nav-link">AI LAB</a></li>
+                <li><a href="#showcase" class="nav-link">SHOWCASE</a></li>
+                <li><a href="#contact" class="nav-link">CONTACT</a></li>
+                <li><a href="#" class="btn-cyber" onclick="openQuoteModal()">GET QUOTE</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
+        <div class="hero-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text" data-aos="fade-right">
+                <div class="hero-left">
+                    <div class="badge-tech">
+                        <span class="pulse"></span>
+                        NEXT-GEN COATING TECH
+                    </div>
+                    
                     <h1 class="hero-title">
-                        Transform Your Space with
-                        <span class="gradient-text">Premium Colors</span>
+                        <span class="title-sm">THE FUTURE OF</span>
+                        <span class="title-lg glitch" data-text="PAINT">PAINT</span>
+                        <span class="title-gradient">INNOVATION</span>
                     </h1>
-                    <p class="hero-subtitle">Experience the finest quality paints and coatings that bring your vision to life. Over 21 years of excellence in the paint industry.</p>
-                    <div class="hero-buttons">
-                        <a href="#products" class="btn btn-primary">
-                            <i class="fas fa-palette"></i>
-                            Explore Products
+                    
+                    <p class="hero-desc">Revolutionary nano-coating technology meets AI-powered color intelligence. Transform any surface with self-healing, weather-adaptive paint solutions engineered for tomorrow.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="#products" class="btn-primary">
+                            <span>EXPLORE TECH</span>
+                            <i class="fas fa-rocket"></i>
                         </a>
-                        <a href="#visualizer" class="btn btn-secondary">
-                            <i class="fas fa-wand-magic-sparkles"></i>
-                            Try Color Visualizer
+                        <a href="#lab" class="btn-glass">
+                            <span>AI COLOR LAB</span>
+                            <i class="fas fa-brain"></i>
                         </a>
                     </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <h3>21+</h3>
-                            <p>Years Experience</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <h3><span class="counter" data-target="21">0</span>+</h3>
+                            <p>Years Innovation</p>
                         </div>
-                        <div class="stat-item">
-                            <h3>500+</h3>
-                            <p>Color Options</p>
+                        <div class="stat">
+                            <h3><span class="counter" data-target="500">0</span>+</h3>
+                            <p>AI Colors</p>
                         </div>
-                        <div class="stat-item">
-                            <h3>10K+</h3>
-                            <p>Happy Customers</p>
+                        <div class="stat">
+                            <h3><span class="counter" data-target="10">0</span>K+</h3>
+                            <p>Projects</p>
                         </div>
-                        <div class="stat-item">
-                            <h3>4</h3>
-                            <p>Premium Brands</p>
+                        <div class="stat">
+                            <h3><span class="counter" data-target="4">0</span></h3>
+                            <p>Elite Brands</p>
                         </div>
                     </div>
                 </div>
-                <div class="hero-image" data-aos="fade-left">
-                    <div class="floating-card card-1">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Waterproof</span>
+                
+                <div class="hero-right">
+                    <div class="paint-can-3d">
+                        <div class="can"></div>
+                        <div class="lid"></div>
+                        <div class="splash"></div>
                     </div>
-                    <div class="floating-card card-2">
-                        <i class="fas fa-leaf"></i>
-                        <span>Eco-Friendly</span>
-                    </div>
-                    <div class="floating-card card-3">
-                        <i class="fas fa-award"></i>
-                        <span>Premium Quality</span>
+                    <div class="float-badges">
+                        <div class="float-badge">
+                            <i class="fas fa-shield"></i>
+                            <span>NANO-SHIELD</span>
+                        </div>
+                        <div class="float-badge">
+                            <i class="fas fa-leaf"></i>
+                            <span>ECO-TECH</span>
+                        </div>
+                        <div class="float-badge">
+                            <i class="fas fa-brain"></i>
+                            <span>AI-POWERED</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
+        
+        <div class="scroll-hint">
+            <div class="mouse"></div>
+            <p>SCROLL</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
+    <!-- Tech Section -->
+    <section class="tech" id="tech">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">About Novalac</span>
-                <h2 class="section-title">Crafting Colors, Creating Memories</h2>
-                <p class="section-desc">Since our inception, we've been committed to delivering premium quality paints and coatings that stand the test of time.</p>
+            <div class="section-head">
+                <span class="tag-cyber">
+                    <i class="fas fa-microchip"></i> ADVANCED TECHNOLOGY
+                </span>
+                <h2>
+                    <span>REVOLUTIONARY</span>
+                    <span class="gradient-text">COATING SCIENCE</span>
+                </h2>
             </div>
-            <div class="about-content">
-                <div class="about-image" data-aos="fade-right">
-                    <img src="images/about/factory.jpg" alt="Novalac Industries Factory">
-                    <div class="about-badge">
-                        <i class="fas fa-certificate"></i>
-                        <div>
-                            <h4>ISO Certified</h4>
-                            <p>Quality Assured</p>
-                        </div>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>NANO COATING</h3>
+                    <p>Molecular-level protection with self-healing properties</p>
+                    <div class="tech-specs">
+                        <span><i class="fas fa-check"></i> 99.9% Protection</span>
+                        <span><i class="fas fa-check"></i> Self-Repair</span>
                     </div>
                 </div>
-                <div class="about-text" data-aos="fade-left">
-                    <h3>Leading Manufacturer of Premium Paints & Coatings</h3>
-                    <p>NOVALAC INDUSTRIES PVT. LTD. has become the reckoned manufacturer and supplier of a wide assortment of premium quality exterior and interior paints and coatings. Our commitment to excellence and innovation drives us to deliver products that exceed expectations.</p>
-                    
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Excellent Adhesion</h4>
-                                <p>Superior bonding for long-lasting finish</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Water Resistant</h4>
-                                <p>Advanced waterproofing technology</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Stain Resistant</h4>
-                                <p>Easy to clean and maintain</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Accurate Composition</h4>
-                                <p>Precisely formulated for best results</p>
-                            </div>
-                        </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-brain"></i>
                     </div>
-
-                    <div class="about-locations">
-                        <h4><i class="fas fa-map-marker-alt"></i> Our Locations</h4>
-                        <ul>
-                            <li><strong>Head Office:</strong> Saharanpur, Uttar Pradesh</li>
-                            <li><strong>Branch Office:</strong> Dehradun, Uttarakhand</li>
-                            <li><strong>Branch Office:</strong> Karnal, Haryana</li>
-                        </ul>
+                    <h3>AI COLOR MATCH</h3>
+                    <p>Neural networks for perfect color intelligence</p>
+                    <div class="tech-specs">
+                        <span><i class="fas fa-check"></i> Smart Analysis</span>
+                        <span><i class="fas fa-check"></i> Instant Match</span>
+                    </div>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>ECO FORMULA</h3>
+                    <p>Zero-VOC sustainable coating solutions</p>
+                    <div class="tech-specs">
+                        <span><i class="fas fa-check"></i> Carbon Neutral</span>
+                        <span><i class="fas fa-check"></i> Bio-Safe</span>
+                    </div>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>ANTI-MICROBIAL</h3>
+                    <p>Advanced protection for healthier spaces</p>
+                    <div class="tech-specs">
+                        <span><i class="fas fa-check"></i> 24/7 Defense</span>
+                        <span><i class="fas fa-check"></i> Medical Grade</span>
                     </div>
                 </div>
             </div>
@@ -184,55 +215,71 @@
     <!-- Brands Section -->
     <section class="brands" id="brands">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Our Brands</span>
-                <h2 class="section-title">Trusted Names in Quality</h2>
-                <p class="section-desc">We offer our products under premium trademarks known for excellence</p>
+            <div class="section-head">
+                <span class="tag-cyber">
+                    <i class="fas fa-gem"></i> PREMIUM BRANDS
+                </span>
+                <h2>
+                    <span>ELITE</span>
+                    <span class="gradient-text">PRODUCT LINES</span>
+                </h2>
             </div>
+            
             <div class="brands-grid">
-                <div class="brand-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="brand-card">
+                    <div class="brand-bg bg-1"></div>
+                    <div class="brand-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>SUPER DURO CARE</h3>
+                    <p>Extreme protection series for professional applications</p>
+                    <div class="brand-tags">
+                        <span>ALL-WEATHER</span>
+                        <span>HEAVY DUTY</span>
+                    </div>
+                    <button class="btn-brand" onclick="openQuoteModal('Super Duro Care')">REQUEST INFO</button>
+                </div>
+                
+                <div class="brand-card">
+                    <div class="brand-bg bg-2"></div>
                     <div class="brand-icon">
                         <i class="fas fa-star"></i>
                     </div>
-                    <h3>Super Duro Care</h3>
-                    <p>Premium exterior coatings for lasting protection</p>
-                    <div class="brand-features">
-                        <span><i class="fas fa-shield"></i> All Weather</span>
-                        <span><i class="fas fa-droplet"></i> Waterproof</span>
+                    <h3>SUPER NOVA CARE</h3>
+                    <p>Premium interior luxury finish collection</p>
+                    <div class="brand-tags">
+                        <span>LUXURY</span>
+                        <span>WASHABLE</span>
                     </div>
+                    <button class="btn-brand" onclick="openQuoteModal('Super Nova Care')">REQUEST INFO</button>
                 </div>
-                <div class="brand-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="brand-icon">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <h3>Super Nova Care</h3>
-                    <p>Advanced interior solutions for beautiful spaces</p>
-                    <div class="brand-features">
-                        <span><i class="fas fa-brush"></i> Premium Finish</span>
-                        <span><i class="fas fa-sparkles"></i> Washable</span>
-                    </div>
-                </div>
-                <div class="brand-card" data-aos="zoom-in" data-aos-delay="300">
+                
+                <div class="brand-card">
+                    <div class="brand-bg bg-3"></div>
                     <div class="brand-icon">
                         <i class="fas fa-cloud-sun"></i>
                     </div>
-                    <h3>All Weather</h3>
-                    <p>Designed to withstand extreme conditions</p>
-                    <div class="brand-features">
-                        <span><i class="fas fa-sun"></i> UV Resistant</span>
-                        <span><i class="fas fa-snowflake"></i> Temperature Stable</span>
+                    <h3>ALL WEATHER</h3>
+                    <p>Climate-adaptive defense coating system</p>
+                    <div class="brand-tags">
+                        <span>UV SHIELD</span>
+                        <span>WEATHERPROOF</span>
                     </div>
+                    <button class="btn-brand" onclick="openQuoteModal('All Weather')">REQUEST INFO</button>
                 </div>
-                <div class="brand-card" data-aos="zoom-in" data-aos-delay="400">
+                
+                <div class="brand-card">
+                    <div class="brand-bg bg-4"></div>
                     <div class="brand-icon">
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-industry"></i>
                     </div>
-                    <h3>Mr. CRETE</h3>
-                    <p>Specialized waterproofing and cement solutions</p>
-                    <div class="brand-features">
-                        <span><i class="fas fa-wrench"></i> Industrial Grade</span>
-                        <span><i class="fas fa-lock"></i> High Strength</span>
+                    <h3>MR. CRETE</h3>
+                    <p>Industrial-grade waterproofing solutions</p>
+                    <div class="brand-tags">
+                        <span>INDUSTRIAL</span>
+                        <span>HEAVY DUTY</span>
                     </div>
+                    <button class="btn-brand" onclick="openQuoteModal('Mr. CRETE')">REQUEST INFO</button>
                 </div>
             </div>
         </div>
@@ -241,521 +288,125 @@
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Our Products</span>
-                <h2 class="section-title">Premium Paint Solutions</h2>
-                <p class="section-desc">Explore our comprehensive range of high-quality paints and coatings</p>
+            <div class="section-head">
+                <span class="tag-cyber">
+                    <i class="fas fa-flask"></i> PRODUCT CATALOG
+                </span>
+                <h2>
+                    <span>ADVANCED</span>
+                    <span class="gradient-text">COATING SOLUTIONS</span>
+                </h2>
             </div>
-
-            <!-- Product Filter -->
-            <div class="product-filter" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">All Products</button>
-                <button class="filter-btn" data-filter="emulsion">Emulsions</button>
-                <button class="filter-btn" data-filter="putty">Wall Putty</button>
-                <button class="filter-btn" data-filter="waterproof">Waterproofing</button>
-                <button class="filter-btn" data-filter="specialty">Specialty</button>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">ALL PRODUCTS</button>
+                <button class="filter-btn" data-filter="emulsion">EMULSIONS</button>
+                <button class="filter-btn" data-filter="putty">WALL PUTTY</button>
+                <button class="filter-btn" data-filter="waterproof">WATERPROOF</button>
+                <button class="filter-btn" data-filter="specialty">SPECIALTY</button>
             </div>
-
-            <!-- Products Grid -->
-            <div class="products-grid">
-                <!-- Emulsion Products -->
-                <div class="product-card" data-category="emulsion" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="images/products/novacare-advance-acrylic-emulsion.jpg" alt="Novacare Advance Acrylic Emulsion">
-                        <div class="product-badge">Premium</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(0)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('Novacare Advance Acrylic Emulsion')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Novacare Advance Acrylic Emulsion</h3>
-                        <p>Premium quality acrylic emulsion for superior finish and durability</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-droplet"></i> Washable</span>
-                            <span><i class="fas fa-leaf"></i> Eco-Friendly</span>
-                            <span><i class="fas fa-shield"></i> Long Lasting</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('Novacare Advance Acrylic Emulsion')">Get Quote</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="emulsion" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                        <img src="images/products/all-weather-advance-acrylic-emulsion.jpg" alt="All Weather Advance Acrylic Emulsion">
-                        <div class="product-badge">Weather Proof</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(1)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('All Weather Advance Acrylic Emulsion')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>All Weather Advance Acrylic Emulsion</h3>
-                        <p>All-weather protection with stunning aesthetic appeal</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-cloud-sun"></i> All Weather</span>
-                            <span><i class="fas fa-sun"></i> UV Resistant</span>
-                            <span><i class="fas fa-droplet-slash"></i> Water Repellent</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('All Weather Advance Acrylic Emulsion')">Get Quote</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="emulsion" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-image">
-                        <img src="images/products/interior-royal-touch-emulsion.jpg" alt="Interior Royal Touch Emulsion">
-                        <div class="product-badge">Royal</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(2)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('Interior Royal Touch Emulsion')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Interior Royal Touch Emulsion</h3>
-                        <p>Luxurious finish for elegant interior spaces</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-home"></i> Interior</span>
-                            <span><i class="fas fa-sparkles"></i> Silky Finish</span>
-                            <span><i class="fas fa-hand-sparkles"></i> Easy Clean</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('Interior Royal Touch Emulsion')">Get Quote</button>
-                    </div>
-                </div>
-
-                <!-- Wall Putty Products -->
-                <div class="product-card" data-category="putty" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="images/products/acrylic-wall-putty.jpg" alt="Acrylic Wall Putty">
-                        <div class="product-badge">Bestseller</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(3)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('Acrylic Wall Putty')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Acrylic Wall Putty</h3>
-                        <p>Superior wall preparation for perfect painting surface</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-fill"></i> Smooth Finish</span>
-                            <span><i class="fas fa-droplet"></i> Water Resistant</span>
-                            <span><i class="fas fa-bolt"></i> Quick Dry</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('Acrylic Wall Putty')">Get Quote</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="putty" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                        <img src="images/products/24-carats-acrylic-putty.jpg" alt="24 Carats Acrylic Putty">
-                        <div class="product-badge">Premium</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(4)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('24 Carats Acrylic Putty')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>24 Carats Acrylic Putty</h3>
-                        <p>Premium quality putty for luxurious wall finishing</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-gem"></i> Premium</span>
-                            <span><i class="fas fa-layer-group"></i> High Coverage</span>
-                            <span><i class="fas fa-star"></i> Superior Bond</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('24 Carats Acrylic Putty')">Get Quote</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="putty" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-image">
-                        <img src="images/products/white-cement-waterproof-wall-putty.jpg" alt="White Cement Based Waterproof Wall Putty">
-                        <div class="product-badge">Waterproof</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(5)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('White Cement Based Waterproof Wall Putty')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>White Cement Based Waterproof Wall Putty</h3>
-                        <p>White cement based putty with superior waterproofing</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-shield-halved"></i> Waterproof</span>
-                            <span><i class="fas fa-paint-roller"></i> Smooth</span>
-                            <span><i class="fas fa-certificate"></i> Certified</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('White Cement Based Waterproof Wall Putty')">Get Quote</button>
-                    </div>
-                </div>
-
-                <!-- Waterproofing Products -->
-                <div class="product-card" data-category="waterproof" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="images/products/microfined-waterproof-cement-coating.jpg" alt="Microfined Water Proof Cement Coating">
-                        <div class="product-badge">Advanced</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(6)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('Microfined Water Proof Cement Coating')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Microfined Water Proof Cement Coating</h3>
-                        <p>Advanced microfined technology for superior waterproofing</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-microscope"></i> Microfined</span>
-                            <span><i class="fas fa-shield"></i> Protection</span>
-                            <span><i class="fas fa-building"></i> Exterior</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('Microfined Water Proof Cement Coating')">Get Quote</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="waterproof" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                        <img src="images/products/waterproof-cement-paint.jpg" alt="Water Proof Cement Paint">
-                        <div class="product-badge">Durable</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(7)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('Water Proof Cement Paint')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Water Proof Cement Paint</h3>
-                        <p>Robust cement paint for exterior walls and surfaces</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-droplet-slash"></i> Waterproof</span>
-                            <span><i class="fas fa-hard-hat"></i> Heavy Duty</span>
-                            <span><i class="fas fa-clock"></i> Long Life</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('Water Proof Cement Paint')">Get Quote</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="waterproof" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-image">
-                        <img src="images/products/novacare-waterproof-cement-coating.jpg" alt="Novacare Waterproof Cement Coating">
-                        <div class="product-badge">Premium</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(8)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('Novacare Waterproof Cement Coating')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Novacare Waterproof Cement Coating</h3>
-                        <p>Premium waterproof coating for all weather protection</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-award"></i> Premium</span>
-                            <span><i class="fas fa-cloud-showers-heavy"></i> Weather Proof</span>
-                            <span><i class="fas fa-check-double"></i> Quality</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('Novacare Waterproof Cement Coating')">Get Quote</button>
-                    </div>
-                </div>
-
-                <!-- Specialty Products -->
-                <div class="product-card" data-category="specialty" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="images/products/universal-stainer.jpg" alt="Universal Stainer">
-                        <div class="product-badge">Colorful</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(9)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('Universal Stainer')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Universal Stainer</h3>
-                        <p>Vibrant color stainers for custom paint shades</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-palette"></i> Multi-Color</span>
-                            <span><i class="fas fa-flask"></i> Concentrated</span>
-                            <span><i class="fas fa-infinity"></i> Universal</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('Universal Stainer')">Get Quote</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="specialty" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                        <img src="images/products/sbr-latex.jpg" alt="SBR Latex">
-                        <div class="product-badge">Industrial</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(10)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('SBR Latex')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>SBR Latex</h3>
-                        <p>Styrene Butadiene Rubber latex for construction applications</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-industry"></i> Industrial</span>
-                            <span><i class="fas fa-wrench"></i> Multi-Use</span>
-                            <span><i class="fas fa-bolt"></i> High Bond</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('SBR Latex')">Get Quote</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="specialty" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-image">
-                        <img src="images/products/acrylic-washable-distemper.jpg" alt="Acrylic Washable Distemper">
-                        <div class="product-badge">Washable</div>
-                        <div class="product-overlay">
-                            <button class="btn-icon" onclick="openQuickView(11)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn-icon" onclick="openQuote('Acrylic Washable Distemper')">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Acrylic Washable Distemper</h3>
-                        <p>Affordable washable distemper for beautiful interiors</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-hand-sparkles"></i> Washable</span>
-                            <span><i class="fas fa-tag"></i> Economic</span>
-                            <span><i class="fas fa-home"></i> Interior</span>
-                        </div>
-                        <button class="btn btn-primary" onclick="openQuote('Acrylic Washable Distemper')">Get Quote</button>
-                    </div>
-                </div>
-            </div>
+            
+            <div class="products-grid" id="productsGrid"></div>
         </div>
     </section>
 
-    <!-- Color Visualizer Section -->
-    <section class="visualizer" id="visualizer">
+    <!-- AI Color Lab -->
+    <section class="lab" id="lab">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Interactive Tool</span>
-                <h2 class="section-title">Color Visualizer</h2>
-                <p class="section-desc">See how different colors look in your space before you paint</p>
+            <div class="section-head">
+                <span class="tag-cyber">
+                    <i class="fas fa-brain"></i> AI TECHNOLOGY
+                </span>
+                <h2>
+                    <span>SMART COLOR</span>
+                    <span class="gradient-text">VISUALIZER</span>
+                </h2>
             </div>
-            <div class="visualizer-container">
-                <div class="visualizer-room" data-aos="zoom-in">
-                    <div class="room-preview" id="roomPreview">
-                        <div class="room-wall" id="roomWall"></div>
-                        <div class="room-floor"></div>
-                        <div class="room-furniture">
-                            <div class="furniture-item sofa"></div>
-                            <div class="furniture-item table"></div>
-                            <div class="furniture-item lamp"></div>
-                        </div>
+            
+            <div class="lab-container">
+                <div class="lab-preview">
+                    <div class="room-3d" id="room3d">
+                        <div class="wall" id="wall"></div>
+                        <div class="floor"></div>
                     </div>
                 </div>
-                <div class="visualizer-controls" data-aos="fade-left">
-                    <h3><i class="fas fa-palette"></i> Choose Your Color</h3>
-                    <div class="color-picker-section">
-                        <label>Pick Custom Color:</label>
+                
+                <div class="lab-controls">
+                    <h3><i class="fas fa-palette"></i> COLOR SELECTOR</h3>
+                    
+                    <div class="color-input">
+                        <label>Custom Color</label>
                         <input type="color" id="colorPicker" value="#ffffff">
                     </div>
-                    <div class="preset-colors">
-                        <h4>Popular Colors:</h4>
-                        <div class="color-grid">
-                            <button class="color-swatch" data-color="#FFFFFF" style="background: #FFFFFF;" title="Pure White"></button>
-                            <button class="color-swatch" data-color="#F5F5DC" style="background: #F5F5DC;" title="Beige"></button>
-                            <button class="color-swatch" data-color="#FFE4B5" style="background: #FFE4B5;" title="Moccasin"></button>
-                            <button class="color-swatch" data-color="#FFF8DC" style="background: #FFF8DC;" title="Cornsilk"></button>
-                            <button class="color-swatch" data-color="#E6E6FA" style="background: #E6E6FA;" title="Lavender"></button>
-                            <button class="color-swatch" data-color="#B0E0E6" style="background: #B0E0E6;" title="Powder Blue"></button>
-                            <button class="color-swatch" data-color="#98FB98" style="background: #98FB98;" title="Pale Green"></button>
-                            <button class="color-swatch" data-color="#FFDAB9" style="background: #FFDAB9;" title="Peach"></button>
-                            <button class="color-swatch" data-color="#FFB6C1" style="background: #FFB6C1;" title="Light Pink"></button>
-                            <button class="color-swatch" data-color="#DDA0DD" style="background: #DDA0DD;" title="Plum"></button>
-                            <button class="color-swatch" data-color="#F0E68C" style="background: #F0E68C;" title="Khaki"></button>
-                            <button class="color-swatch" data-color="#87CEEB" style="background: #87CEEB;" title="Sky Blue"></button>
-                            <button class="color-swatch" data-color="#90EE90" style="background: #90EE90;" title="Light Green"></button>
-                            <button class="color-swatch" data-color="#FFA07A" style="background: #FFA07A;" title="Light Salmon"></button>
-                            <button class="color-swatch" data-color="#FF69B4" style="background: #FF69B4;" title="Hot Pink"></button>
-                            <button class="color-swatch" data-color="#BA55D3" style="background: #BA55D3;" title="Medium Orchid"></button>
-                            <button class="color-swatch" data-color="#F4A460" style="background: #F4A460;" title="Sandy Brown"></button>
-                            <button class="color-swatch" data-color="#4682B4" style="background: #4682B4;" title="Steel Blue"></button>
-                            <button class="color-swatch" data-color="#3CB371" style="background: #3CB371;" title="Medium Sea Green"></button>
-                            <button class="color-swatch" data-color="#FF6347" style="background: #FF6347;" title="Tomato"></button>
-                            <button class="color-swatch" data-color="#FF1493" style="background: #FF1493;" title="Deep Pink"></button>
-                            <button class="color-swatch" data-color="#9370DB" style="background: #9370DB;" title="Medium Purple"></button>
-                            <button class="color-swatch" data-color="#D2691E" style="background: #D2691E;" title="Chocolate"></button>
-                            <button class="color-swatch" data-color="#1E90FF" style="background: #1E90FF;" title="Dodger Blue"></button>
-                        </div>
+                    
+                    <div class="color-presets">
+                        <h4>AI Recommended</h4>
+                        <div class="preset-grid" id="presetGrid"></div>
                     </div>
-                    <div class="room-selector">
-                        <h4>Select Room Type:</h4>
-                        <select id="roomType">
-                            <option value="living">Living Room</option>
-                            <option value="bedroom">Bedroom</option>
-                            <option value="kitchen">Kitchen</option>
-                            <option value="office">Office</option>
-                        </select>
-                    </div>
-                    <button class="btn btn-primary" onclick="saveColorChoice()">
-                        <i class="fas fa-save"></i> Save This Color
+                    
+                    <button class="btn-primary" onclick="saveColor()">
+                        <span>SAVE COLOR</span>
+                        <i class="fas fa-save"></i>
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
+    <!-- Showcase Gallery -->
+    <section class="showcase" id="showcase">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Our Work</span>
-                <h2 class="section-title">Project Gallery</h2>
-                <p class="section-desc">Explore stunning transformations with our premium paints</p>
+            <div class="section-head">
+                <span class="tag-cyber">
+                    <i class="fas fa-images"></i> PROJECT SHOWCASE
+                </span>
+                <h2>
+                    <span>STUNNING</span>
+                    <span class="gradient-text">TRANSFORMATIONS</span>
+                </h2>
             </div>
+            
             <div class="gallery-grid">
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="images/gallery/exterior-1.jpg" alt="Exterior Project 1">
-                    <div class="gallery-overlay">
+                <div class="gallery-item">
+                    <img src="images/gallery/exterior-1.jpg" alt="Project 1">
+                    <div class="gallery-info">
                         <h3>Residential Exterior</h3>
-                        <p>All Weather Emulsion</p>
+                        <p>All Weather Series</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="images/gallery/interior-1.jpg" alt="Interior Project 1">
-                    <div class="gallery-overlay">
-                        <h3>Living Room</h3>
-                        <p>Royal Touch Emulsion</p>
+                <div class="gallery-item">
+                    <img src="images/gallery/interior-1.jpg" alt="Project 2">
+                    <div class="gallery-info">
+                        <h3>Luxury Interior</h3>
+                        <p>Nova Care Premium</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="images/gallery/commercial-1.jpg" alt="Commercial Project 1">
-                    <div class="gallery-overlay">
-                        <h3>Commercial Building</h3>
-                        <p>Waterproof Coating</p>
+                <div class="gallery-item">
+                    <img src="images/gallery/commercial-1.jpg" alt="Project 3">
+                    <div class="gallery-info">
+                        <h3>Commercial Complex</h3>
+                        <p>Duro Care Pro</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="images/gallery/exterior-2.jpg" alt="Exterior Project 2">
-                    <div class="gallery-overlay">
+                <div class="gallery-item">
+                    <img src="images/gallery/exterior-2.jpg" alt="Project 4">
+                    <div class="gallery-info">
                         <h3>Villa Exterior</h3>
-                        <p>Super Duro Care</p>
+                        <p>Weather Shield</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="images/gallery/interior-2.jpg" alt="Interior Project 2">
-                    <div class="gallery-overlay">
-                        <h3>Bedroom Design</h3>
-                        <p>Nova Care Emulsion</p>
+                <div class="gallery-item">
+                    <img src="images/gallery/interior-2.jpg" alt="Project 5">
+                    <div class="gallery-info">
+                        <h3>Modern Interior</h3>
+                        <p>Royal Touch</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="images/gallery/commercial-2.jpg" alt="Commercial Project 2">
-                    <div class="gallery-overlay">
-                        <h3>Office Complex</h3>
-                        <p>Acrylic Emulsion</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Customer Reviews</span>
-                <h2 class="section-title">What Our Clients Say</h2>
-                <p class="section-desc">Trusted by thousands of satisfied customers</p>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Excellent quality paints! The waterproof coating has protected my exterior walls perfectly even during heavy monsoons. Highly recommended!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <h4>Rajesh Kumar</h4>
-                            <p>Homeowner, Delhi</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"The Royal Touch Emulsion gave our living room a luxurious finish. The colors are vibrant and the quality is outstanding. Great value for money!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <h4>Priya Sharma</h4>
-                            <p>Interior Designer, Mumbai</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"We've been using Novalac products for our commercial projects for years. The consistency, quality, and durability are unmatched!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <h4>Amit Verma</h4>
-                            <p>Contractor, Saharanpur</p>
-                        </div>
+                <div class="gallery-item">
+                    <img src="images/gallery/commercial-2.jpg" alt="Project 6">
+                    <div class="gallery-info">
+                        <h3>Corporate Office</h3>
+                        <p>Professional Series</p>
                     </div>
                 </div>
             </div>
@@ -765,78 +416,57 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Get In Touch</span>
-                <h2 class="section-title">Contact Us</h2>
-                <p class="section-desc">Have questions? We'd love to hear from you</p>
+            <div class="section-head">
+                <span class="tag-cyber">
+                    <i class="fas fa-satellite-dish"></i> GET IN TOUCH
+                </span>
+                <h2>
+                    <span>CONNECT WITH</span>
+                    <span class="gradient-text">THE FUTURE</span>
+                </h2>
             </div>
-            <div class="contact-wrapper">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="contact-card">
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-card">
                         <i class="fas fa-map-marker-alt"></i>
-                        <h3>Head Office</h3>
-                        <p>Kamdhenu Complex, Janta Road<br>Saharanpur-247001<br>Uttar Pradesh, India</p>
+                        <h3>HEADQUARTERS</h3>
+                        <p>Kamdhenu Complex, Janta Road<br>Saharanpur-247001, UP, India</p>
                     </div>
-                    <div class="contact-card">
+                    <div class="info-card">
                         <i class="fas fa-phone"></i>
-                        <h3>Phone</h3>
+                        <h3>CONNECT</h3>
                         <p>+91 XXXXX XXXXX<br>85% Response Rate</p>
                     </div>
-                    <div class="contact-card">
+                    <div class="info-card">
                         <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
+                        <h3>EMAIL</h3>
                         <p>info@novalacindustries.com<br>sales@novalacindustries.com</p>
                     </div>
-                    <div class="contact-card">
-                        <i class="fas fa-clock"></i>
-                        <h3>Business Hours</h3>
-                        <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
-                    </div>
                     <div class="social-links">
-                        <h3>Follow Us</h3>
-                        <div class="social-icons">
-                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                        </div>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                <div class="contact-form" data-aos="fade-left">
-                    <form id="contactForm" onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="product">Product Interest</label>
-                            <select id="product" name="product">
-                                <option value="">Select a product</option>
-                                <option value="emulsion">Acrylic Emulsion</option>
-                                <option value="putty">Wall Putty</option>
-                                <option value="waterproof">Waterproof Coating</option>
-                                <option value="stainer">Universal Stainer</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="NAME" required>
+                        <input type="email" placeholder="EMAIL" required>
+                        <input type="tel" placeholder="PHONE" required>
+                        <select>
+                            <option>SELECT PRODUCT</option>
+                            <option>Emulsions</option>
+                            <option>Wall Putty</option>
+                            <option>Waterproofing</option>
+                            <option>Other</option>
+                        </select>
+                        <textarea placeholder="MESSAGE" rows="5" required></textarea>
+                        <button type="submit" class="btn-primary">
+                            <span>SEND MESSAGE</span>
                             <i class="fas fa-paper-plane"></i>
-                            Send Message
                         </button>
                     </form>
                 </div>
@@ -847,14 +477,13 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">
-                        <i class="fas fa-paint-roller"></i>
+                        <i class="fas fa-atom"></i>
                         <span>NOVALAC</span>
-                        <small>INDUSTRIES</small>
                     </div>
-                    <p>Leading manufacturer of premium quality paints and coatings since 2003. Transforming spaces with colors that last.</p>
+                    <p>Pioneering the future of paint technology since 2003. Innovation, quality, sustainability.</p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -863,85 +492,61 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#products">Our Products</a></li>
-                        <li><a href="#brands">Our Brands</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
+                    <h4>QUICK LINKS</h4>
+                    <a href="#home">Home</a>
+                    <a href="#tech">Technology</a>
+                    <a href="#products">Products</a>
+                    <a href="#brands">Brands</a>
                 </div>
                 <div class="footer-col">
-                    <h3>Products</h3>
-                    <ul>
-                        <li><a href="#products">Acrylic Emulsions</a></li>
-                        <li><a href="#products">Wall Putty</a></li>
-                        <li><a href="#products">Waterproof Coatings</a></li>
-                        <li><a href="#products">Universal Stainer</a></li>
-                        <li><a href="#products">Distemper</a></li>
-                    </ul>
+                    <h4>PRODUCTS</h4>
+                    <a href="#products">Emulsions</a>
+                    <a href="#products">Wall Putty</a>
+                    <a href="#products">Waterproofing</a>
+                    <a href="#products">Specialty</a>
                 </div>
                 <div class="footer-col">
-                    <h3>Our Brands</h3>
-                    <ul>
-                        <li><a href="#brands">Super Duro Care</a></li>
-                        <li><a href="#brands">Super Nova Care</a></li>
-                        <li><a href="#brands">All Weather</a></li>
-                        <li><a href="#brands">Mr. CRETE</a></li>
-                    </ul>
+                    <h4>BRANDS</h4>
+                    <a href="#brands">Super Duro Care</a>
+                    <a href="#brands">Super Nova Care</a>
+                    <a href="#brands">All Weather</a>
+                    <a href="#brands">Mr. CRETE</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Novalac Industries Private Limited. All rights reserved. | GST: 09AAECN8333L1Z0</p>
-                <p>Designed with <i class="fas fa-heart"></i> for colorful transformations</p>
+                <p>&copy; 2026 NOVALAC INDUSTRIES | GST: 09AAECN8333L1Z0</p>
+                <p>Designed with <i class="fas fa-heart"></i> for the future</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
+    <!-- Back to Top -->
+    <button class="btn-top" id="btnTop">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Quick Quote Modal -->
+    <!-- Quote Modal -->
     <div class="modal" id="quoteModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeQuoteModal()">&times;</span>
-            <h2>Get A Quote</h2>
-            <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
-                <input type="hidden" id="quoteProduct" name="product">
-                <div class="form-group">
-                    <label>Product *</label>
-                    <input type="text" id="quoteProductDisplay" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Your Name *</label>
-                    <input type="text" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone Number *</label>
-                    <input type="tel" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email">
-                </div>
-                <div class="form-group">
-                    <label>Quantity Required</label>
-                    <input type="text" name="quantity" placeholder="e.g., 100 liters">
-                </div>
-                <div class="form-group">
-                    <label>Additional Requirements</label>
-                    <textarea name="message" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit Request</button>
+            <h2>REQUEST QUOTE</h2>
+            <form id="quoteForm">
+                <input type="text" id="productName" readonly>
+                <input type="text" placeholder="YOUR NAME" required>
+                <input type="tel" placeholder="PHONE NUMBER" required>
+                <input type="email" placeholder="EMAIL">
+                <input type="text" placeholder="QUANTITY">
+                <textarea placeholder="REQUIREMENTS" rows="4"></textarea>
+                <button type="submit" class="btn-primary">
+                    <span>SUBMIT REQUEST</span>
+                    <i class="fas fa-check"></i>
+                </button>
             </form>
         </div>
     </div>
 
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Particle JS -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
