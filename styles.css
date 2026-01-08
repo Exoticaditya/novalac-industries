@@ -1,4 +1,4 @@
-﻿/* NOVALAC INDUSTRIES - COLORFUL PAINT THEME */
+/* NOVALAC INDUSTRIES - COLORFUL PAINT THEME */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -143,445 +143,850 @@ section { padding: 6rem 0; position: relative; }
                  -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .section-head p { color: #666; margin-top: 1rem; }
 
-/* Visualizer */
+/* REALISTIC 3D ROOM VISUALIZER - COMPLETE REDESIGN */
 .visualizer { background: linear-gradient(to bottom, #fff, rgba(255,107,107,0.05)); }
 .visualizer-container { max-width: 1200px; margin: 0 auto; }
 .room-selector { display: flex; gap: 1rem; margin-bottom: 3rem; justify-content: center; flex-wrap: wrap; }
 .room-btn { padding: 1rem 2rem; background: #fff; border: 2px solid #ddd; border-radius: 15px; cursor: pointer; 
-            transition: 0.3s; display: flex; align-items: center; gap: 0.75rem; font-weight: 600; }
-.room-btn i { font-size: 1.5rem; color: var(--primary); }
-.room-btn:hover, .room-btn.active { border-color: var(--primary); background: var(--primary); color: #fff; }
+            transition: all 0.3s ease; display: flex; align-items: center; gap: 0.75rem; font-weight: 600; }
+.room-btn i { font-size: 1.5rem; color: var(--primary); transition: all 0.3s; }
+.room-btn:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 5px 20px rgba(255,107,107,0.3); }
+.room-btn.active { border-color: var(--primary); background: var(--primary); color: #fff; transform: scale(1.05); }
 .room-btn:hover i, .room-btn.active i { color: #fff; }
 .visualizer-main { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; background: #fff; 
                    border-radius: 20px; padding: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-.room-preview { position: relative; min-height: 500px; background: #f5f5f5; border-radius: 15px; overflow: hidden; }
-.room-view { display: none; width: 100%; height: 100%; }
-.room-view.active { display: block; }
 
-/* Exterior House */
-.exterior-house { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-.roof { position: absolute; top: 15%; left: 50%; transform: translateX(-50%); width: 0; height: 0; 
-        border-left: 200px solid transparent; border-right: 200px solid transparent; border-bottom: 100px solid #8B4513; }
-.house-wall { position: absolute; top: 30%; left: 50%; transform: translateX(-50%); width: 350px; height: 300px; 
-              background: #FFE4B5; transition: background 0.5s; }
-.door { position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%); width: 80px; height: 140px; 
-        background: #654321; border-radius: 5px 5px 0 0; }
-.window-house { position: absolute; width: 80px; height: 80px; background: #87CEEB; border: 4px solid #fff; }
-.window-left { top: 40%; left: 25%; }
-.window-right { top: 40%; right: 25%; }
-.grass { position: absolute; bottom: 0; width: 100%; height: 15%; background: linear-gradient(to bottom, #90EE90, #228B22); }
+/* Room Preview Container */
+.room-preview { 
+    position: relative; 
+    min-height: 600px; 
+    background: linear-gradient(180deg, #87CEEB 0%, #B0E2FF 40%, #F0F8FF 100%); 
+    border-radius: 15px; 
+    overflow: hidden; 
+    perspective: 1500px;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.1);
+}
+.room-view { display: none; width: 100%; height: 100%; position: absolute; inset: 0; }
+.room-view.active { display: flex; align-items: center; justify-content: center; animation: fadeIn 0.6s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
-/* Living Room */
-.living-room { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-.room-wall { position: absolute; top: 0; width: 100%; height: 70%; transition: background 0.5s; background: #F5F5DC; }
-.floor-living { position: absolute; bottom: 0; width: 100%; height: 30%; background: linear-gradient(180deg, #8B7355 0%, #6B5B45 100%); }
-.sofa { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); width: 250px; height: 100px; 
-        background: #4A4A4A; border-radius: 10px; }
-.sofa::before { content: ""; position: absolute; top: -30px; left: 10px; right: 10px; height: 40px; 
-                background: #555; border-radius: 5px 5px 0 0; }
-.tv-stand { position: absolute; bottom: 40%; right: 20%; width: 150px; height: 80px; background: #333; border-radius: 5px; }
+/* ===== EXTERIOR HOUSE - REALISTIC 3D ===== */
+.exterior-scene { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.sky { position: absolute; top: 0; width: 100%; height: 55%; background: linear-gradient(180deg, #87CEEB 0%, #B0E2FF 100%); }
+.house-3d { 
+    position: relative; 
+    transform-style: preserve-3d; 
+    transform: rotateX(8deg) rotateY(-15deg) scale(0.9); 
+    width: 450px; 
+    height: 400px; 
+    margin-top: 30px;
+    transition: transform 0.4s ease;
+}
+.house-3d:hover { transform: rotateX(8deg) rotateY(-15deg) scale(0.95); }
 
-/* Bedroom */
-.bedroom { position: relative; width: 100%; height: 100%; }
-.floor-bedroom { position: absolute; bottom: 0; width: 100%; height: 30%; background: #D2B48C; }
-.bed-frame { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); width: 280px; height: 120px; 
-             background: #8B4513; border-radius: 10px; }
-.bed-frame::before { content: ""; position: absolute; top: -20px; left: 5%; right: 5%; height: 30px; 
-                     background: #FFF; border-radius: 5px; }
-.nightstand { position: absolute; bottom: 20%; right: 15%; width: 60px; height: 70px; background: #654321; border-radius: 5px; }
+/* Roof 3D */
+.roof-main { 
+    position: absolute; 
+    top: -100px; 
+    left: 50%; 
+    transform: translateX(-50%) translateZ(10px); 
+    width: 0; 
+    height: 0; 
+    border-left: 260px solid transparent; 
+    border-right: 260px solid transparent; 
+    border-bottom: 140px solid #8B4513; 
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+}
+.roof-front { 
+    position: absolute; 
+    top: -90px; 
+    left: 50%; 
+    transform: translateX(-50%) translateZ(70px); 
+    width: 0; 
+    height: 0; 
+    border-left: 240px solid transparent; 
+    border-right: 240px solid transparent; 
+    border-bottom: 130px solid #A0522D; 
+    filter: brightness(1.1);
+}
 
-/* Kitchen */
-.kitchen { position: relative; width: 100%; height: 100%; }
-.floor-kitchen { position: absolute; bottom: 0; width: 100%; height: 30%; background: #D3D3D3; }
-.cabinet { position: absolute; top: 20%; left: 15%; width: 200px; height: 100px; background: #8B4513; border-radius: 5px; }
-.counter { position: absolute; bottom: 40%; left: 15%; width: 200px; height: 60px; background: #696969; }
+/* Walls 3D with Click Interaction */
+.wall-main { 
+    position: absolute; 
+    top: 40px; 
+    left: 50%; 
+    transform: translateX(-50%) translateZ(50px); 
+    width: 400px; 
+    height: 300px; 
+    background: linear-gradient(to bottom, #FFE4B5 0%, #FFDAB9 100%); 
+    border: 3px solid #DEB887; 
+    border-radius: 8px; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), inset 0 0 40px rgba(0,0,0,0.05); 
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.wall-main:hover { 
+    transform: translateX(-50%) translateZ(60px) scale(1.02); 
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5), inset 0 0 50px rgba(255,107,107,0.1);
+}
+.wall-left { 
+    position: absolute; 
+    top: 40px; 
+    left: 10px; 
+    width: 80px; 
+    height: 300px; 
+    background: linear-gradient(to right, #F5DEB3, #FFDEAD); 
+    transform: rotateY(-70deg) translateZ(-30px); 
+    transform-origin: left; 
+    box-shadow: inset 10px 0 25px rgba(0,0,0,0.3);
+}
+.wall-right { 
+    position: absolute; 
+    top: 40px; 
+    right: 10px; 
+    width: 80px; 
+    height: 300px; 
+    background: linear-gradient(to left, #F5DEB3, #FFDEAD); 
+    transform: rotateY(70deg) translateZ(-30px); 
+    transform-origin: right; 
+    box-shadow: inset -10px 0 25px rgba(0,0,0,0.3);
+}
 
-/* Bathroom */
-.bathroom { position: relative; width: 100%; height: 100%; }
-.floor-bathroom { position: absolute; bottom: 0; width: 100%; height: 30%; background: #E8E8E8; }
-.bathtub { position: absolute; bottom: 20%; right: 20%; width: 150px; height: 80px; background: #FFF; 
-           border: 3px solid #CCC; border-radius: 40px; }
-.sink-bath { position: absolute; bottom: 35%; left: 25%; width: 80px; height: 50px; background: #FFF; 
-             border: 2px solid #CCC; border-radius: 10px; }
-
-/* Color Controls */
-.color-controls { padding: 1rem; }
-.color-controls h3 { margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; color: #333; }
-.color-picker-section { margin-bottom: 2rem; }
-.color-picker-section label { display: block; margin-bottom: 1rem; font-weight: 600; color: #333; }
-.color-picker-section input[type="color"] { width: 100%; height: 60px; border: 2px solid #ddd; 
-                                             border-radius: 10px; cursor: pointer; }
-.current-color { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; padding: 0.75rem; 
-                 background: #f5f5f5; border-radius: 10px; }
-.color-presets { margin-bottom: 2rem; }
-.color-presets h4 { margin-bottom: 1rem; font-weight: 600; color: #333; }
-.preset-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.preset-item { text-align: center; cursor: pointer; transition: 0.3s; }
-.preset-item:hover { transform: translateY(-5px); }
-.preset-swatch { width: 100%; height: 60px; border-radius: 10px; margin-bottom: 0.5rem; 
-                 border: 2px solid #ddd; transition: 0.3s; }
-.preset-item:hover .preset-swatch { border-color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-.preset-item span { font-size: 0.75rem; color: #666; }
-
-/* Products */
-.products { background: #fff; }
-.filter-bar { display: flex; justify-content: center; gap: 1rem; margin: 3rem 0; flex-wrap: wrap; }
-.filter-btn { padding: 0.75rem 2rem; background: #fff; border: 2px solid #ddd; border-radius: 50px; 
-              cursor: pointer; font-weight: 600; transition: 0.3s; }
-.filter-btn:hover, .filter-btn.active { border-color: var(--primary); background: var(--primary); color: #fff; }
-.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.product-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
-                transition: 0.3s; }
-.product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-.product-img { position: relative; width: 100%; height: 250px; overflow: hidden; }
-.product-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-.product-card:hover .product-img img { transform: scale(1.1); }
-.product-badge { position: absolute; top: 1rem; right: 1rem; padding: 0.5rem 1rem; color: #fff; 
-                 font-size: 0.7rem; font-weight: 700; border-radius: 50px; }
-.product-info { padding: 2rem; }
-.product-info h3 { font-size: 1.125rem; margin-bottom: 0.75rem; color: #333; }
-.product-info p { color: #666; margin-bottom: 1rem; font-size: 0.875rem; }
-.product-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-.product-tags span { padding: 0.25rem 0.75rem; background: rgba(255,107,107,0.1); border: 1px solid var(--primary); 
-                     border-radius: 50px; font-size: 0.7rem; color: var(--primary); }
-.btn-product { width: 100%; padding: 0.75rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-               color: #fff; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: 0.3s; }
-.btn-product:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,107,107,0.3); }
-
-/* Brands */
-.brands { background: linear-gradient(to bottom, rgba(255,107,107,0.05), #fff); }
-.brands-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-.brand-card { padding: 3rem 2rem; background: #fff; border-radius: 20px; text-align: center; 
-              box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: 0.3s; }
-.brand-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-.brand-icon { width: 80px; height: 80px; margin: 0 auto 1.5rem; border-radius: 50%; 
-              display: flex; align-items: center; justify-content: center; }
-.brand-icon i { font-size: 2rem; color: #fff; }
-.brand-card h3 { font-size: 1.25rem; margin-bottom: 1rem; color: #333; }
-.brand-card p { color: #666; margin-bottom: 1.5rem; }
-.btn-brand { padding: 0.75rem 2rem; background: transparent; border: 2px solid var(--primary); color: var(--primary); 
-             font-weight: 600; border-radius: 50px; cursor: pointer; transition: 0.3s; }
-.btn-brand:hover { background: var(--primary); color: #fff; }
-
-/* Gallery */
-.showcase { background: #fff; }
-.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.gallery-item { position: relative; height: 300px; border-radius: 15px; overflow: hidden; cursor: pointer; }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-.gallery-item:hover img { transform: scale(1.1); }
-.gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; 
-                   background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff; 
-                   transform: translateY(100%); transition: 0.3s; }
-.gallery-item:hover .gallery-overlay { transform: translateY(0); }
-.gallery-overlay h3 { margin-bottom: 0.5rem; }
-
-/* Contact */
-.contact { background: linear-gradient(to bottom, #fff, rgba(255,107,107,0.05)); }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-.info-card { padding: 2rem; background: #fff; border-radius: 15px; margin-bottom: 1.5rem; 
-             box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-.info-card i { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
-.info-card h3 { margin-bottom: 0.75rem; color: #333; }
-.info-card p { color: #666; line-height: 1.6; }
-.contact-form { background: #fff; border-radius: 20px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-.contact-form input, .contact-form textarea { width: 100%; padding: 1rem; margin-bottom: 1.5rem; 
-                                               border: 2px solid #ddd; border-radius: 10px; font-family: "Poppins", sans-serif; }
-.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary); }
-.btn-submit { width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-              color: #fff; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; 
-              display: flex; align-items: center; justify-content: center; gap: 0.75rem; transition: 0.3s; }
-.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,107,107,0.3); }
-
-/* Footer */
-.footer { 
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: #fff; 
-    padding: 4rem 0 2rem;
+/* Door & Windows */
+.door-main { 
+    position: absolute; 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%) translateZ(55px); 
+    width: 100px; 
+    height: 180px; 
+    background: linear-gradient(to bottom, #654321 0%, #8B4513 50%, #654321 100%); 
+    border-radius: 10px 10px 0 0; 
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.4), 0 8px 20px rgba(0,0,0,0.5);
+}
+.door-main::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-radius: 8px 8px 0 0;
+}
+.door-knob { 
+    position: absolute; 
+    right: 20px; 
+    top: 50%; 
+    width: 15px; 
+    height: 15px; 
+    background: radial-gradient(circle, #FFD700, #FFA500); 
+    border-radius: 50%; 
+    box-shadow: 0 3px 8px rgba(0,0,0,0.6), inset 0 -2px 5px rgba(0,0,0,0.3);
+}
+.window-3d { 
+    position: absolute; 
+    width: 110px; 
+    height: 110px; 
+    background: linear-gradient(135deg, #87CEEB 0%, #B0E2FF 100%); 
+    border: 6px solid #fff; 
+    border-radius: 6px; 
+    box-shadow: inset 0 0 30px rgba(255,255,255,0.5), 0 8px 20px rgba(0,0,0,0.4);
+    transform: translateZ(55px);
+}
+.window-1 { top: 90px; left: 60px; }
+.window-2 { top: 90px; right: 60px; }
+.window-pane { 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(135,206,235,0.3)); 
     position: relative;
     overflow: hidden;
 }
-.footer::before {
+.window-pane::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4));
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.8) 50%, transparent 70%);
+    animation: windowGlare 3s infinite;
 }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-.footer-logo { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-.footer-logo i { font-size: 2rem; color: var(--primary); }
-.footer-logo span { font-family: "Playfair Display", serif; font-size: 1.5rem; font-weight: 900; }
-.footer-col p { color: #bdc3c7; line-height: 1.6; }
-.footer-col h4 { 
-    margin-bottom: 1.5rem; 
-    color: var(--color-1);
-    font-size: 1.3rem;
-    font-weight: 600;
+@keyframes windowGlare {
+    0%, 100% { transform: translateX(-100%) translateY(-100%); }
+    50% { transform: translateX(100%) translateY(100%); }
+}
+.window-frame-h { 
+    position: absolute; 
+    top: 50%; 
+    left: 0; 
+    width: 100%; 
+    height: 4px; 
+    background: #fff; 
+    transform: translateY(-50%); 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.window-frame-v { 
+    position: absolute; 
+    left: 50%; 
+    top: 0; 
+    width: 4px; 
+    height: 100%; 
+    background: #fff; 
+    transform: translateX(-50%); 
+    box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+}
+.ground { 
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    height: 45%; 
+    background: linear-gradient(to bottom, #90EE90 0%, #228B22 100%);
+}
+.grass-layer { 
+    width: 100%; 
+    height: 100%; 
+    background: repeating-linear-gradient(90deg, #90EE90, #7CCD7C 3px, #90EE90 6px); 
+    opacity: 0.8;
+}
+.pathway { 
+    position: absolute; 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 120px; 
+    height: 60%; 
+    background: linear-gradient(to bottom, #D2B48C 0%, #BC9A6B 100%); 
+    border-radius: 60% 60% 0 0; 
+    box-shadow: inset 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== LIVING ROOM - REALISTIC 3D ===== */
+.room-3d { 
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    transform-style: preserve-3d; 
+    transform: perspective(1200px) rotateX(3deg) rotateY(-8deg) scale(0.85);
+    transition: transform 0.4s ease;
+}
+.room-3d:hover { transform: perspective(1200px) rotateX(3deg) rotateY(-8deg) scale(0.88); }
+
+/* Room Walls with Click Interaction */
+.room-back-wall { 
+    position: absolute; 
+    top: 8%; 
+    left: 12%; 
+    width: 76%; 
+    height: 58%; 
+    background: linear-gradient(to bottom, #F5F5DC 0%, #EEE8D5 100%); 
+    border: 3px solid #D3CFC4; 
+    border-radius: 8px; 
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4), inset 0 0 60px rgba(0,0,0,0.05); 
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.room-back-wall:hover { 
+    transform: scale(1.02) translateZ(10px); 
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 0 70px rgba(76,205,196,0.1);
+}
+.room-left-wall { 
+    position: absolute; 
+    top: 8%; 
+    left: 12%; 
+    width: 20%; 
+    height: 58%; 
+    background: linear-gradient(to right, #E8E8E0 0%, #F0F0E8 100%); 
+    transform: rotateY(-75deg); 
+    transform-origin: left; 
+    box-shadow: inset 12px 0 30px rgba(0,0,0,0.2);
+}
+.room-right-wall { 
+    position: absolute; 
+    top: 8%; 
+    right: 12%; 
+    width: 20%; 
+    height: 58%; 
+    background: linear-gradient(to left, #E8E8E0 0%, #F0F0E8 100%); 
+    transform: rotateY(75deg); 
+    transform-origin: right; 
+    box-shadow: inset -12px 0 30px rgba(0,0,0,0.2);
+}
+.room-floor { 
+    position: absolute; 
+    bottom: 12%; 
+    left: 12%; 
+    width: 76%; 
+    height: 35%; 
+    background: linear-gradient(to bottom, #D2B48C 0%, #BC9A6B 100%); 
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(0,0,0,0.05) 50px, rgba(0,0,0,0.05) 51px);
+    border: 2px solid #A0826D; 
+    box-shadow: 0 -8px 40px rgba(0,0,0,0.3), inset 0 8px 30px rgba(0,0,0,0.1); 
+    transform: rotateX(65deg); 
+    transform-origin: bottom;
+}
+.room-ceiling { 
+    position: absolute; 
+    top: 8%; 
+    left: 12%; 
+    width: 76%; 
+    height: 18%; 
+    background: linear-gradient(to bottom, #FAFAFA 0%, #F5F5F5 100%); 
+    transform: rotateX(-65deg); 
+    transform-origin: top; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2), inset 0 -5px 15px rgba(0,0,0,0.05);
+}
+
+/* Living Room Furniture - Interactive */
+.furniture-living { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+.furniture-living > * { pointer-events: all; }
+
+.sofa-3d { 
+    position: absolute; 
+    bottom: 28%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 300px; 
+    height: 110px;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.sofa-3d:hover { transform: translateX(-50%) scale(1.08) translateY(-8px); filter: drop-shadow(0 15px 35px rgba(0,0,0,0.6)); }
+.sofa-back { 
+    width: 100%; 
+    height: 65px; 
+    background: linear-gradient(to bottom, #4A4A4A 0%, #2A2A2A 100%); 
+    border-radius: 12px 12px 0 0; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.1);
     position: relative;
-    padding-bottom: 10px;
 }
-.footer-col h4::after {
+.sofa-back::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    right: 15px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.15), transparent);
+    border-radius: 8px;
+}
+.sofa-seat { 
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    height: 55px; 
+    background: linear-gradient(to bottom, #555 0%, #333 100%); 
+    border-radius: 8px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 3px 10px rgba(255,255,255,0.1);
+}
+.sofa-arm { 
+    position: absolute; 
+    bottom: 0; 
+    width: 35px; 
+    height: 75px; 
+    background: linear-gradient(to bottom, #3A3A3A 0%, #2A2A2A 100%); 
+    border-radius: 10px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.sofa-arm-left { left: -25px; }
+.sofa-arm-right { right: -25px; }
+
+.coffee-table { 
+    position: absolute; 
+    bottom: 18%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 170px; 
+    height: 25px; 
+    background: linear-gradient(to bottom, #8B4513 0%, #654321 100%); 
+    border-radius: 10px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 3px 8px rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.coffee-table:hover { transform: translateX(-50%) scale(1.1) translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.7); }
+.coffee-table::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 15%;
+    right: 15%;
+    height: 15px;
+    background: linear-gradient(to bottom, #654321, #4A3010);
+    border-radius: 0 0 5px 5px;
+}
+
+.tv-unit { 
+    position: absolute; 
+    bottom: 40%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 200px; 
+    height: 110px; 
+    background: linear-gradient(to bottom, #222 0%, #111 100%); 
+    border-radius: 10px; 
+    box-shadow: 0 12px 35px rgba(0,0,0,0.7);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.tv-unit:hover { transform: translateX(-50%) scale(1.05) translateY(-5px); }
+.tv-screen { 
+    position: absolute; 
+    top: 12px; 
+    left: 12px; 
+    right: 12px; 
+    bottom: 28px; 
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f1419 100%); 
+    border: 4px solid #333; 
+    border-radius: 6px; 
+    box-shadow: inset 0 0 40px rgba(0,150,255,0.4), 0 0 30px rgba(0,150,255,0.3);
+    position: relative;
+    overflow: hidden;
+}
+.tv-screen::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+    animation: tvGlow 2s infinite;
+}
+@keyframes tvGlow {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+}
+
+.plant-pot { 
+    position: absolute; 
+    bottom: 32%; 
+    right: 22%; 
+    width: 45px; 
+    height: 70px; 
+    background: linear-gradient(to bottom, #228B22 0%, #006400 100%); 
+    border-radius: 50% 50% 12px 12px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.plant-pot:hover { transform: scale(1.1) translateY(-5px) rotate(5deg); }
+.plant-pot::before { 
+    content: ''; 
+    position: absolute; 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 50px; 
+    height: 22px; 
+    background: linear-gradient(to bottom, #8B4513, #654321); 
+    border-radius: 0 0 12px 12px;
+    box-shadow: inset 0 3px 8px rgba(0,0,0,0.4);
+}
+.plant-pot::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #2E8B57, #228B22);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.rug-floor { 
+    position: absolute; 
+    bottom: 22%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 220px; 
+    height: 130px; 
+    background: repeating-linear-gradient(90deg, #DC143C 0%, #8B0000 15px, #DC143C 30px); 
+    border: 6px solid #8B0000; 
+    border-radius: 12px; 
+    opacity: 0.75; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* ===== BEDROOM - REALISTIC 3D ===== */
+.bedroom-3d .room-back-wall { background: linear-gradient(to bottom, #F0EAD6 0%, #E8DCC8 100%); }
+
+.furniture-bedroom { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+.furniture-bedroom > * { pointer-events: all; }
+
+.bed-3d { 
+    position: absolute; 
+    bottom: 25%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 320px; 
+    height: 150px;
+    filter: drop-shadow(0 12px 30px rgba(0,0,0,0.5));
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.bed-3d:hover { transform: translateX(-50%) scale(1.05) translateY(-8px); filter: drop-shadow(0 18px 40px rgba(0,0,0,0.6)); }
+.bed-base { 
+    width: 100%; 
+    height: 35px; 
+    background: linear-gradient(to bottom, #8B4513 0%, #654321 100%); 
+    border-radius: 10px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.3);
+}
+.bed-mattress { 
+    position: absolute; 
+    top: -45px; 
+    left: 5%; 
+    width: 90%; 
+    height: 65px; 
+    background: linear-gradient(to bottom, #FFF 0%, #F0F0F0 100%); 
+    border-radius: 10px; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4), inset 0 0 20px rgba(0,0,0,0.05);
+}
+.bed-mattress::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px dashed rgba(0,0,0,0.1);
+    border-radius: 6px;
+}
+.bed-pillow { 
+    position: absolute; 
+    top: -62px; 
+    width: 70px; 
+    height: 40px; 
+    background: linear-gradient(to bottom, #FFF 0%, #F8F8F8 100%); 
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3), inset 0 0 10px rgba(0,0,0,0.05);
+}
+.bed-pillow-1 { left: 18%; }
+.bed-pillow-2 { right: 18%; }
+.bed-headboard { 
+    position: absolute; 
+    top: -90px; 
+    left: 5%; 
+    width: 90%; 
+    height: 55px; 
+    background: linear-gradient(to bottom, #654321 0%, #8B4513 50%, #654321 100%); 
+    border-radius: 10px 10px 0 0; 
+    box-shadow: 0 -8px 25px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.2);
+}
+.bed-headboard::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    right: 15px;
+    bottom: 10px;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-radius: 8px 8px 0 0;
+}
+
+.nightstand-3d { 
+    position: absolute; 
+    bottom: 27%; 
+    width: 70px; 
+    height: 90px; 
+    background: linear-gradient(to bottom, #8B4513 0%, #654321 100%); 
+    border-radius: 6px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.nightstand-3d:hover { transform: scale(1.1) translateY(-5px); }
+.nightstand-left { left: 12%; }
+.nightstand-right { right: 12%; }
+.nightstand-3d::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    height: 3px;
+    background: rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.nightstand-lamp { 
+    position: absolute; 
+    top: -40px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 30px; 
+    height: 50px; 
+    background: linear-gradient(to bottom, #FFD700 0%, #FFA500 100%); 
+    border-radius: 50% 50% 0 0; 
+    box-shadow: 0 0 30px rgba(255,215,0,0.6), 0 5px 15px rgba(0,0,0,0.4);
+}
+.nightstand-lamp::before {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-1), var(--color-2));
-    border-radius: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 15px;
+    background: #8B4513;
+    border-radius: 0 0 5px 5px;
 }
-.footer-col a { 
-    display: block; 
-    color: #ecf0f1; 
-    text-decoration: none; 
-    margin-bottom: 0.75rem; 
+
+.wardrobe { 
+    position: absolute; 
+    bottom: 38%; 
+    right: 17%; 
+    width: 110px; 
+    height: 200px; 
+    background: linear-gradient(to right, #654321 0%, #8B4513 50%, #654321 100%); 
+    border-radius: 10px; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 0 25px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    position: relative;
-    padding-left: 20px;
+    cursor: pointer;
 }
-.footer-col a::before {
-    content: '▸';
+.wardrobe:hover { transform: scale(1.05) translateY(-8px); }
+.wardrobe::before {
+    content: '';
     position: absolute;
-    left: 0;
-    color: var(--color-2);
+    top: 10px;
+    left: 50%;
+    width: 3px;
+    height: calc(100% - 20px);
+    background: rgba(0,0,0,0.4);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.wardrobe::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 3px;
+    box-shadow: 120px 0 0 #FFD700, 0 2px 5px rgba(0,0,0,0.5), 120px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* ===== KITCHEN - REALISTIC 3D ===== */
+.kitchen-3d .room-back-wall { background: linear-gradient(to bottom, #FFFAF0 0%, #FFF8E7 100%); }
+
+.furniture-kitchen { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+.furniture-kitchen > * { pointer-events: all; }
+
+.kitchen-cabinets-upper { 
+    position: absolute; 
+    top: 17%; 
+    left: 17%; 
+    width: 66%; 
+    height: 90px; 
+    background: linear-gradient(to bottom, #8B4513 0%, #654321 100%); 
+    border-radius: 6px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
-.footer-col a:hover { 
-    color: var(--color-1); 
-    padding-left: 25px; 
+.kitchen-cabinets-upper:hover { transform: translateY(-5px) scale(1.02); }
+.kitchen-cabinets-lower { 
+    position: absolute; 
+    bottom: 28%; 
+    left: 17%; 
+    width: 66%; 
+    height: 110px; 
+    background: linear-gradient(to bottom, #654321 0%, #8B4513 100%); 
+    border-radius: 6px; 
+    box-shadow: 0 12px 35px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
-.footer-bottom { 
-    text-align: center; 
-    padding-top: 2rem; 
-    border-top: 2px solid rgba(255, 255, 255, 0.1); 
-    color: #bdc3c7; 
+.kitchen-cabinets-lower:hover { transform: translateY(-5px) scale(1.02); }
+.kitchen-countertop { 
+    position: absolute; 
+    bottom: 35%; 
+    left: 17%; 
+    width: 66%; 
+    height: 28px; 
+    background: linear-gradient(to bottom, #C0C0C0 0%, #A9A9A9 100%); 
+    border-radius: 4px; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5), inset 0 3px 8px rgba(255,255,255,0.3);
 }
-.footer-credits {
-    margin-top: 15px;
-    font-size: 1.1rem;
-    color: #ecf0f1;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    padding: 15px 25px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    display: inline-block;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+.kitchen-sink { 
+    position: absolute; 
+    bottom: 36%; 
+    left: 27%; 
+    width: 90px; 
+    height: 45px; 
+    background: radial-gradient(ellipse, #E8E8E8 0%, #C0C0C0 100%); 
+    border-radius: 45%; 
+    box-shadow: inset 0 8px 20px rgba(0,0,0,0.4), 0 3px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
-.footer-credits strong {
-    color: var(--color-1);
-    font-weight: 700;
-    font-size: 1.15rem;
-    background: linear-gradient(135deg, var(--color-1), var(--color-2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.kitchen-sink:hover { transform: scale(1.1); }
+.sink-faucet { 
+    position: absolute; 
+    top: -35px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 10px; 
+    height: 35px; 
+    background: linear-gradient(to right, #C0C0C0 0%, #A9A9A9 100%); 
+    border-radius: 5px; 
+    box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+}
+.sink-faucet::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 10px;
+    background: #C0C0C0;
+    border-radius: 50%;
+}
+.kitchen-stove { 
+    position: absolute; 
+    bottom: 36%; 
+    right: 22%; 
+    width: 110px; 
+    height: 70px; 
+    background: linear-gradient(to bottom, #222 0%, #111 100%); 
+    border-radius: 6px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.kitchen-stove:hover { transform: scale(1.05) translateY(-3px); }
+.refrigerator { 
+    position: absolute; 
+    bottom: 31%; 
+    right: 14%; 
+    width: 100px; 
+    height: 200px; 
+    background: linear-gradient(to bottom, #F5F5F5 0%, #E0E0E0 100%); 
+    border-radius: 10px; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5), inset 0 0 25px rgba(0,0,0,0.05); 
+    border: 3px solid #CCC;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.refrigerator:hover { transform: scale(1.05) translateY(-8px); }
+.refrigerator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #BBB;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-/* Back to Top */
-.btn-top { position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; 
-           background: linear-gradient(135deg, var(--primary), var(--secondary)); border: none; 
-           border-radius: 50%; color: #fff; cursor: pointer; opacity: 0; visibility: hidden; transition: 0.3s; z-index: 999; }
-.btn-top.visible { opacity: 1; visibility: visible; }
-.btn-top:hover { transform: translateY(-5px); }
+/* ===== BATHROOM - REALISTIC 3D ===== */
+.bathroom-3d .room-back-wall { background: linear-gradient(to bottom, #E6F3FF 0%, #D4E9FF 100%); }
 
-/* Modal */
-.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9999; 
-         align-items: center; justify-content: center; }
-.modal.active { display: flex; }
-.modal-content { background: #fff; border-radius: 20px; padding: 3rem; max-width: 500px; width: 90%; position: relative; }
-.modal-close { position: absolute; top: 1rem; right: 1rem; font-size: 2rem; color: #999; cursor: pointer; }
-.modal-close:hover { color: var(--primary); }
-.modal-content h2 { margin-bottom: 2rem; text-align: center; color: #333; }
+.furniture-bathroom { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+.furniture-bathroom > * { pointer-events: all; }
 
-/* Responsive */
-@media (max-width: 1200px) {
-    .hero-content, .visualizer-main, .brands-grid, .products-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+.bathtub-3d { 
+    position: absolute; 
+    bottom: 25%; 
+    right: 20%; 
+    width: 200px; 
+    height: 100px; 
+    background: linear-gradient(to bottom, #FFF 0%, #F0F0F0 100%); 
+    border-radius: 50px; 
+    box-shadow: 0 12px 35px rgba(0,0,0,0.5), inset 0 8px 25px rgba(0,0,0,0.1); 
+    border: 5px solid #E0E0E0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.bathtub-3d:hover { transform: scale(1.08) translateY(-8px); }
+.bathtub-inner { 
+    position: absolute; 
+    inset: 10px; 
+    background: linear-gradient(to bottom, #E8F4F8 0%, #D0E8F0 100%); 
+    border-radius: 40px; 
+    box-shadow: inset 0 5px 20px rgba(0,0,0,0.2);
+}
+.sink-3d { 
+    position: absolute; 
+    bottom: 33%; 
+    left: 20%; 
+    width: 110px; 
+    height: 130px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.sink-3d:hover { transform: scale(1.1) translateY(-8px); }
+.sink-basin { 
+    width: 90px; 
+    height: 45px; 
+    background: radial-gradient(ellipse, #FFF 0%, #E8E8E8 100%); 
+    border-radius: 50%; 
+    box-shadow: inset 0 8px 25px rgba(0,0,0,0.25), 0 10px 25px rgba(0,0,0,0.4);
+}
+.sink-faucet-bath { 
+    position: absolute; 
+    top: -28px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 12px; 
+    height: 35px; 
+    background: linear-gradient(to right, #C0C0C0 0%, #A9A9A9 100%); 
+    border-radius: 6px; 
+    box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+}
+.sink-faucet-bath::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 12px;
+    background: #C0C0C0;
+    border-radius: 50%;
+}
+.mirror-bath { 
+    position: absolute; 
+    top: -95px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 100px; 
+    height: 80px; 
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(200,230,255,0.7) 100%); 
+    border: 5px solid #C0C0C0; 
+    border-radius: 10px; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4), inset 0 0 40px rgba(135,206,235,0.3);
+}
+.toilet-3d { 
+    position: absolute; 
+    bottom: 27%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 70px; 
+    height: 90px; 
+    background: linear-gradient(to bottom, #FFF 0%, #F0F0F0 100%); 
+    border-radius: 35px 35px 18px 18px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.toilet-3d:hover { transform: translateX(-50%) scale(1.08) translateY(-8px); }
+.tiles-accent { 
+    position: absolute; 
+    top: 50%; 
+    left: 17%; 
+    width: 66%; 
+    height: 90px; 
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,0.4) 0px, rgba(200,200,200,0.4) 50px, rgba(255,255,255,0.4) 100px); 
+    border-top: 3px solid rgba(0,0,0,0.15); 
+    border-bottom: 3px solid rgba(0,0,0,0.15);
 }
 
-@media (max-width: 768px) {
-    .hamburger { display: flex; }
-    .nav-menu { position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px); 
-                background: rgba(255,255,255,0.98); flex-direction: column; padding: 2rem; transition: 0.3s; }
-    .nav-menu.active { left: 0; }
-    .hero-content, .visualizer-main, .brands-grid, .products-grid, .gallery-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
-    .title-lg { font-size: 3rem; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero-right { display: none; }
-}
-/* REALISTIC 3D ROOM VISUALIZER */
-.room-preview { position: relative; min-height: 600px; background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%); 
-                border-radius: 15px; overflow: hidden; perspective: 1200px; }
-.room-view { display: none; width: 100%; height: 100%; position: absolute; inset: 0; }
-.room-view.active { display: block; animation: fadeIn 0.5s ease; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-/* EXTERIOR 3D HOUSE */
-.exterior-scene { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-.sky { position: absolute; top: 0; width: 100%; height: 60%; background: linear-gradient(to bottom, #87CEEB, #B0E2FF); }
-.house-3d { position: relative; transform-style: preserve-3d; transform: rotateX(5deg) rotateY(-10deg); 
-            width: 400px; height: 350px; margin-top: 50px; }
-.roof-main { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 0; height: 0; 
-             border-left: 230px solid transparent; border-right: 230px solid transparent; 
-             border-bottom: 120px solid #8B4513; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
-.roof-front { position: absolute; top: -80px; left: 50%; transform: translateX(-50%) translateZ(50px); 
-              width: 0; height: 0; border-left: 220px solid transparent; border-right: 220px solid transparent; 
-              border-bottom: 110px solid #A0522D; }
-.wall-main { position: absolute; top: 40px; left: 50%; transform: translateX(-50%); width: 380px; height: 280px; 
-             background: #FFE4B5; border: 3px solid #DEB887; border-radius: 5px; 
-             box-shadow: 0 15px 40px rgba(0,0,0,0.3), inset 0 0 30px rgba(0,0,0,0.05); transition: background 0.5s; }
-.wall-left { position: absolute; top: 40px; left: 10px; width: 60px; height: 280px; background: #F5DEB3; 
-             transform: rotateY(-60deg); transform-origin: left; box-shadow: inset 5px 0 15px rgba(0,0,0,0.2); }
-.wall-right { position: absolute; top: 40px; right: 10px; width: 60px; height: 280px; background: #F5DEB3; 
-              transform: rotateY(60deg); transform-origin: right; box-shadow: inset -5px 0 15px rgba(0,0,0,0.2); }
-.door-main { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 160px; 
-             background: linear-gradient(to bottom, #654321, #8B4513); border-radius: 8px 8px 0 0; 
-             box-shadow: inset 0 0 20px rgba(0,0,0,0.3), 0 5px 15px rgba(0,0,0,0.4); }
-.door-knob { position: absolute; right: 15px; top: 50%; width: 12px; height: 12px; background: #FFD700; 
-             border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-.window-3d { position: absolute; width: 100px; height: 100px; background: linear-gradient(135deg, #87CEEB, #B0E2FF); 
-             border: 5px solid #fff; border-radius: 5px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1), 
-             0 5px 15px rgba(0,0,0,0.3); }
-.window-1 { top: 80px; left: 50px; }
-.window-2 { top: 80px; right: 50px; }
-.window-pane { width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(135,206,235,0.6)); }
-.window-frame-h { position: absolute; top: 50%; left: 0; width: 100%; height: 3px; background: #fff; 
-                  transform: translateY(-50%); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-.window-frame-v { position: absolute; left: 50%; top: 0; width: 3px; height: 100%; background: #fff; 
-                  transform: translateX(-50%); box-shadow: 2px 0 5px rgba(0,0,0,0.2); }
-.ground { position: absolute; bottom: 0; width: 100%; height: 40%; 
-          background: linear-gradient(to bottom, #90EE90, #228B22); }
-.grass-layer { width: 100%; height: 100%; background: repeating-linear-gradient(90deg, #90EE90, #7CCD7C 2px, #90EE90 4px); }
-.pathway { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 50%; 
-           background: linear-gradient(to bottom, #D2B48C, #BC9A6B); border-radius: 50% 50% 0 0; }
-
-/* 3D ROOM STRUCTURE */
-.room-3d { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; 
-           transform: perspective(1000px) rotateX(2deg) rotateY(-5deg); }
-.room-back-wall { position: absolute; top: 10%; left: 10%; width: 80%; height: 60%; background: #F5F5DC; 
-                  border: 3px solid #DDD; border-radius: 5px; 
-                  box-shadow: 0 10px 40px rgba(0,0,0,0.3), inset 0 0 50px rgba(0,0,0,0.05); 
-                  transition: background 0.5s; }
-.room-left-wall { position: absolute; top: 10%; left: 10%; width: 15%; height: 60%; background: #E8E8E0; 
-                  transform: rotateY(-70deg); transform-origin: left; 
-                  box-shadow: inset 8px 0 20px rgba(0,0,0,0.15); }
-.room-right-wall { position: absolute; top: 10%; right: 10%; width: 15%; height: 60%; background: #E8E8E0; 
-                   transform: rotateY(70deg); transform-origin: right; 
-                   box-shadow: inset -8px 0 20px rgba(0,0,0,0.15); }
-.room-floor { position: absolute; bottom: 10%; left: 10%; width: 80%; height: 30%; 
-              background: linear-gradient(to bottom, #D2B48C 0%, #BC9A6B 100%); 
-              border: 2px solid #A0826D; 
-              box-shadow: 0 -5px 30px rgba(0,0,0,0.3), inset 0 5px 20px rgba(0,0,0,0.1); 
-              transform: rotateX(60deg); transform-origin: bottom; }
-.room-ceiling { position: absolute; top: 10%; left: 10%; width: 80%; height: 15%; background: #FAFAFA; 
-                transform: rotateX(-60deg); transform-origin: top; 
-                box-shadow: 0 5px 20px rgba(0,0,0,0.2), inset 0 -3px 10px rgba(0,0,0,0.05); }
-
-/* LIVING ROOM FURNITURE */
-.furniture-living { position: absolute; width: 100%; height: 100%; }
-.sofa-3d { position: absolute; bottom: 25%; left: 50%; transform: translateX(-50%); width: 280px; height: 100px; }
-.sofa-back { width: 100%; height: 60px; background: linear-gradient(to bottom, #4A4A4A, #2A2A2A); 
-             border-radius: 10px 10px 0 0; box-shadow: 0 5px 20px rgba(0,0,0,0.4), inset 0 0 15px rgba(255,255,255,0.1); }
-.sofa-seat { position: absolute; bottom: 0; width: 100%; height: 50px; 
-             background: linear-gradient(to bottom, #555, #333); border-radius: 5px; 
-             box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-.sofa-arm { position: absolute; bottom: 0; width: 30px; height: 70px; background: #3A3A3A; border-radius: 8px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
-.sofa-arm-left { left: -20px; }
-.sofa-arm-right { right: -20px; }
-.coffee-table { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); width: 150px; height: 20px; 
-                background: linear-gradient(to bottom, #8B4513, #654321); border-radius: 8px; 
-                box-shadow: 0 8px 20px rgba(0,0,0,0.5), inset 0 2px 5px rgba(255,255,255,0.2); }
-.tv-unit { position: absolute; bottom: 38%; left: 50%; transform: translateX(-50%); width: 180px; height: 100px; 
-           background: #222; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
-.tv-screen { position: absolute; top: 10px; left: 10px; right: 10px; bottom: 25px; background: #111; 
-             border: 3px solid #333; border-radius: 5px; 
-             box-shadow: inset 0 0 30px rgba(0,100,200,0.3), 0 0 20px rgba(0,100,200,0.2); }
-.plant-pot { position: absolute; bottom: 30%; right: 20%; width: 40px; height: 60px; 
-             background: linear-gradient(to bottom, #228B22, #006400); border-radius: 50% 50% 10px 10px; 
-             box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
-.plant-pot::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); 
-                     width: 45px; height: 20px; background: #8B4513; border-radius: 0 0 10px 10px; }
-.rug-floor { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); width: 200px; height: 120px; 
-             background: repeating-linear-gradient(90deg, #DC143C, #8B0000 10px, #DC143C 20px); 
-             border: 5px solid #8B0000; border-radius: 10px; opacity: 0.7; 
-             box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
-
-/* BEDROOM FURNITURE */
-.furniture-bedroom { position: absolute; width: 100%; height: 100%; }
-.bed-3d { position: absolute; bottom: 22%; left: 50%; transform: translateX(-50%); width: 300px; height: 140px; }
-.bed-base { width: 100%; height: 30px; background: linear-gradient(to bottom, #8B4513, #654321); 
-            border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
-.bed-mattress { position: absolute; top: -40px; left: 5%; width: 90%; height: 60px; 
-                background: linear-gradient(to bottom, #FFF, #F0F0F0); border-radius: 8px; 
-                box-shadow: 0 5px 20px rgba(0,0,0,0.3), inset 0 0 15px rgba(0,0,0,0.05); }
-.bed-pillow { position: absolute; top: -55px; width: 60px; height: 35px; background: #FFF; 
-              border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.2); }
-.bed-pillow-1 { left: 15%; }
-.bed-pillow-2 { right: 15%; }
-.bed-headboard { position: absolute; top: -80px; left: 5%; width: 90%; height: 50px; 
-                 background: linear-gradient(to bottom, #654321, #8B4513); border-radius: 8px 8px 0 0; 
-                 box-shadow: 0 -5px 20px rgba(0,0,0,0.4); }
-.nightstand-3d { position: absolute; bottom: 24%; width: 60px; height: 80px; 
-                 background: linear-gradient(to bottom, #8B4513, #654321); border-radius: 5px; 
-                 box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
-.nightstand-left { left: 10%; }
-.nightstand-right { right: 10%; }
-.nightstand-lamp { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); 
-                   width: 25px; height: 45px; background: linear-gradient(to bottom, #FFD700, #FFA500); 
-                   border-radius: 50% 50% 0 0; box-shadow: 0 0 20px rgba(255,215,0,0.5); }
-.wardrobe { position: absolute; bottom: 35%; right: 15%; width: 100px; height: 180px; 
-            background: linear-gradient(to right, #654321, #8B4513); border-radius: 8px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.2); }
-
-/* KITCHEN FURNITURE */
-.furniture-kitchen { position: absolute; width: 100%; height: 100%; }
-.kitchen-cabinets-upper { position: absolute; top: 15%; left: 15%; width: 70%; height: 80px; 
-                          background: linear-gradient(to bottom, #8B4513, #654321); border-radius: 5px; 
-                          box-shadow: 0 8px 25px rgba(0,0,0,0.4), inset 0 0 15px rgba(0,0,0,0.2); }
-.kitchen-cabinets-lower { position: absolute; bottom: 25%; left: 15%; width: 70%; height: 100px; 
-                          background: linear-gradient(to bottom, #654321, #8B4513); border-radius: 5px; 
-                          box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.kitchen-countertop { position: absolute; bottom: 32%; left: 15%; width: 70%; height: 25px; 
-                      background: linear-gradient(to bottom, #C0C0C0, #A9A9A9); border-radius: 3px; 
-                      box-shadow: 0 5px 20px rgba(0,0,0,0.4), inset 0 2px 5px rgba(255,255,255,0.3); }
-.kitchen-sink { position: absolute; bottom: 33%; left: 25%; width: 80px; height: 40px; 
-                background: radial-gradient(circle, #E8E8E8, #C0C0C0); border-radius: 45%; 
-                box-shadow: inset 0 5px 15px rgba(0,0,0,0.3); }
-.sink-faucet { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); 
-               width: 8px; height: 30px; background: linear-gradient(to right, #C0C0C0, #A9A9A9); 
-               border-radius: 4px; box-shadow: 0 3px 10px rgba(0,0,0,0.3); }
-.kitchen-stove { position: absolute; bottom: 33%; right: 20%; width: 100px; height: 60px; 
-                 background: #222; border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-.refrigerator { position: absolute; bottom: 28%; right: 12%; width: 90px; height: 180px; 
-                background: linear-gradient(to bottom, #F5F5F5, #E0E0E0); border-radius: 8px; 
-                box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 0 20px rgba(0,0,0,0.05); 
-                border: 2px solid #CCC; }
-
-/* BATHROOM FURNITURE */
-.furniture-bathroom { position: absolute; width: 100%; height: 100%; }
-.bathtub-3d { position: absolute; bottom: 22%; right: 18%; width: 180px; height: 90px; 
-              background: linear-gradient(to bottom, #FFF, #F0F0F0); border-radius: 40px; 
-              box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 5px 20px rgba(0,0,0,0.1); 
-              border: 4px solid #E0E0E0; }
-.bathtub-inner { position: absolute; inset: 8px; background: linear-gradient(to bottom, #E8F4F8, #D0E8F0); 
-                 border-radius: 35px; box-shadow: inset 0 3px 15px rgba(0,0,0,0.15); }
-.sink-3d { position: absolute; bottom: 30%; left: 18%; width: 100px; height: 120px; }
-.sink-basin { width: 80px; height: 40px; background: radial-gradient(circle, #FFF, #E8E8E8); 
-              border-radius: 50%; box-shadow: inset 0 5px 20px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.3); }
-.sink-faucet-bath { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); 
-                    width: 10px; height: 30px; background: linear-gradient(to right, #C0C0C0, #A9A9A9); 
-                    border-radius: 5px; box-shadow: 0 3px 10px rgba(0,0,0,0.3); }
-.mirror-bath { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); 
-               width: 90px; height: 70px; background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(200,230,255,0.6)); 
-               border: 4px solid #C0C0C0; border-radius: 8px; 
-               box-shadow: 0 5px 20px rgba(0,0,0,0.3), inset 0 0 30px rgba(135,206,235,0.2); }
-.toilet-3d { position: absolute; bottom: 24%; left: 50%; transform: translateX(-50%); 
-             width: 60px; height: 80px; background: linear-gradient(to bottom, #FFF, #F0F0F0); 
-             border-radius: 30px 30px 15px 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
-.tiles-accent { position: absolute; top: 50%; left: 15%; width: 70%; height: 80px; 
-                background: repeating-linear-gradient(90deg, rgba(255,255,255,0.3), rgba(200,200,200,0.3) 40px); 
-                border-top: 2px solid rgba(0,0,0,0.1); border-bottom: 2px solid rgba(0,0,0,0.1); }

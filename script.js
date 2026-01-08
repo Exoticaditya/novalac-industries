@@ -145,32 +145,148 @@ function applyColorToRoom(color) {
     
     const wallElement = wallElements[currentRoom];
     if (wallElement) {
-        wallElement.style.background = color;
-        wallElement.style.transition = 'background 0.6s ease';
+        wallElement.style.background = `linear-gradient(to bottom, ${color} 0%, ${adjustBrightness(color, -10)} 100%)`;
+        wallElement.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         
-        // Add interactive effect
-        wallElement.style.transform = 'scale(1.02)';
+        // Interactive animation effect
+        wallElement.style.transform = 'scale(1.03) translateZ(15px)';
         setTimeout(() => {
-            wallElement.style.transform = 'scale(1)';
-        }, 300);
+            wallElement.style.transform = 'scale(1) translateZ(0)';
+        }, 400);
+        
+        // Add ripple effect
+        createRipple(wallElement, event);
     }
 }
 
-// Add hover effects for better interactivity
-document.addEventListener('DOMContentLoaded', () => {
-    const furnitureElements = document.querySelectorAll('.sofa-3d, .bed-3d, .coffee-table, .tv-unit, .plant-pot, .nightstand-3d, .wardrobe, .kitchen-cabinets-upper, .kitchen-cabinets-lower, .refrigerator, .bathtub-3d, .sink-3d, .toilet-3d');
+// Helper function to adjust color brightness
+function adjustBrightness(color, percent) {
+    const num = parseInt(color.replace("#",""), 16);
+    const amt = Math.round(2.55 * percent);
+    const R = (num >> 16) + amt;
+    const G = (num >> 8 & 0x00FF) + amt;
+    const B = (num & 0x0000FF) + amt;
+    return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 +
+        (G<255?G<1?0:G:255)*0x100 +
+        (B<255?B<1?0:B:255))
+        .toString(16).slice(1);
+}
+
+// Create ripple effect on wall click
+function createRipple(element, e) {
+    const ripple = document.createElement('div');
+    ripple.style.position = 'absolute';
+    ripple.style.borderRadius = '50%';
+    ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+    ripple.style.width = '10px';
+    ripple.style.height = '10px';
+    ripple.style.pointerEvents = 'none';
     
-    furnitureElements.forEach(element => {
-        element.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-        element.addEventListener('mouseenter', () => {
-            element.style.transform = 'scale(1.05) translateY(-5px)';
-            element.style.boxShadow = '0 15px 40px rgba(0,0,0,0.5)';
+    if (e) {
+        const rect = element.getBoundingClientRect();
+        ripple.style.left = (e.clientX - rect.left - 5) + 'px';
+        ripple.style.top = (e.clientY - rect.top - 5) + 'px';
+    } else {
+        ripple.style.left = '50%';
+        ripple.style.top = '50%';
+        ripple.style.transform = 'translate(-50%, -50%)';
+    }
+    
+    element.style.position = 'relative';
+    element.appendChild(ripple);
+    
+    // Animate ripple
+    ripple.animate([
+        { transform: 'scale(1)', opacity: 1 },
+        { transform: 'scale(20)', opacity: 0 }
+    ], {
+        duration: 800,
+        easing: 'ease-out'
+    });
+    
+    setTimeout(() => ripple.remove(), 800);
+}
+
+// Add interactive hover and click effects for better engagement
+document.addEventListener('DOMContentLoaded', () => {
+    // Make walls clickable to apply current color
+    const walls = document.querySelectorAll('.wall-main, .room-back-wall');
+    walls.forEach(wall => {
+        wall.style.cursor = 'pointer';
+        wall.addEventListener('click', (e) => {
+            e.stopPropagation();
+            applyColorToRoom(currentColor);
+            
+            // Visual feedback
+            wall.style.boxShadow = '0 0 50px rgba(255,107,107,0.8), inset 0 0 50px rgba(255,107,107,0.2)';
+            setTimeout(() => {
+                wall.style.boxShadow = '';
+            }, 600);
         });
-        element.addEventListener('mouseleave', () => {
-            element.style.transform = 'scale(1) translateY(0)';
-            element.style.boxShadow = '';
+        
+        wall.addEventListener('mouseenter', () => {
+            wall.style.filter = 'brightness(1.05)';
+        });
+        
+        wall.addEventListener('mouseleave', () => {
+            wall.style.filter = 'brightness(1)';
         });
     });
+    
+    // Enhanced furniture hover effects
+    const furnitureElements = document.querySelectorAll('.sofa-3d, .bed-3d, .coffee-table, .tv-unit, .plant-pot, .nightstand-3d, .wardrobe, .kitchen-cabinets-upper, .kitchen-cabinets-lower, .refrigerator, .bathtub-3d, .sink-3d, .toilet-3d, .kitchen-sink, .kitchen-stove');
+    
+    furnitureElements.forEach(element => {
+        element.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+    
+    // Add click-to-color instruction
+    const roomPreview = document.querySelector('.room-preview');
+    if (roomPreview) {
+        const hint = document.createElement('div');
+        hint.className = 'color-hint';
+        hint.innerHTML = '<i class="fas fa-hand-pointer"></i> Click on walls to change color';
+        hint.style.cssText = `
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,107,107,0.95);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 100;
+            animation: bounceHint 2s infinite;
+            pointer-events: none;
+        `;
+        roomPreview.appendChild(hint);
+        
+        // Add bounce animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes bounceHint {
+                0%, 100% { transform: translateX(-50%) translateY(0); }
+                50% { transform: translateX(-50%) translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Hide hint after a few clicks
+        let clickCount = 0;
+        walls.forEach(wall => {
+            wall.addEventListener('click', () => {
+                clickCount++;
+                if (clickCount >= 2) {
+                    hint.style.opacity = '0';
+                    hint.style.transition = 'opacity 0.5s';
+                    setTimeout(() => hint.remove(), 500);
+                }
+            });
+        });
+    }
 });
 
 // ========== PRODUCT FILTER ==========
