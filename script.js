@@ -1,83 +1,45 @@
-// ===========================================
-// NOVALAC INDUSTRIES - FUTURISTIC INTERACTIONS
-// Particle Effects + Animations + Dynamic Content
-// ===========================================
+// NOVALAC INDUSTRIES - Colorful Paint Website
+// Interactive Room Visualizer & Paint Animations
 
 // ========== LOADER ==========
 window.addEventListener('load', () => {
-    const loader = document.querySelector('.loader');
     setTimeout(() => {
-        loader.classList.add('hidden');
-    }, 2000);
+        document.querySelector('.loader').classList.add('hidden');
+    }, 1500);
 });
 
 // ========== PARTICLES.JS CONFIG ==========
 particlesJS('particles-js', {
     particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: '#00f0ff' },
-        shape: {
-            type: 'circle',
-            stroke: { width: 0, color: '#000000' },
-            polygon: { nb_sides: 6 }
-        },
-        opacity: {
-            value: 0.5,
-            random: false,
-            anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
-        },
-        size: {
-            value: 3,
-            random: true,
-            anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#00f0ff',
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 2,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'out',
-            bounce: false,
-            attract: { enable: false, rotateX: 600, rotateY: 1200 }
-        }
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: ['#FF6B6B', '#4ECDC4', '#FFE66D', '#95E1D3', '#FF8B94'] },
+        shape: { type: 'circle' },
+        opacity: { value: 0.4, random: true },
+        size: { value: 4, random: true },
+        line_linked: { enable: true, distance: 150, color: '#FF6B6B', opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 1.5, direction: 'none', random: false, straight: false, out_mode: 'out' }
     },
     interactivity: {
         detect_on: 'canvas',
-        events: {
-            onhover: { enable: true, mode: 'grab' },
-            onclick: { enable: true, mode: 'push' },
-            resize: true
-        },
-        modes: {
-            grab: { distance: 140, line_linked: { opacity: 1 } },
-            bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-            repulse: { distance: 200, duration: 0.4 },
-            push: { particles_nb: 4 },
-            remove: { particles_nb: 2 }
-        }
+        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } },
+        modes: { grab: { distance: 140, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } }
     },
     retina_detect: true
 });
 
-// ========== NAVIGATION SCROLL ==========
+// ========== NAVIGATION ==========
 const navbar = document.querySelector('.navbar');
 const navLinks = document.querySelectorAll('.nav-link');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+    if (window.scrollY > 100) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
 });
+
+hamburger?.addEventListener('click', () => navMenu.classList.toggle('active'));
+navLinks.forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
 
 // Active nav link on scroll
 const sections = document.querySelectorAll('section');
@@ -85,31 +47,11 @@ window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
+        if (scrollY >= sectionTop - 200) current = section.getAttribute('id');
     });
-    
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// ========== HAMBURGER MENU ==========
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger?.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
-
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) link.classList.add('active');
     });
 });
 
@@ -123,17 +65,13 @@ const animateCounters = () => {
         const duration = 2000;
         const increment = target / (duration / 16);
         let current = 0;
-        
         const updateCounter = () => {
             current += increment;
             if (current < target) {
                 counter.textContent = Math.ceil(current) + '+';
                 requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target + '+';
-            }
+            } else counter.textContent = target + '+';
         };
-        
         updateCounter();
     });
 };
@@ -141,25 +79,75 @@ const animateCounters = () => {
 window.addEventListener('scroll', () => {
     if (!counterAnimated) {
         const heroSection = document.querySelector('.hero');
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        
-        if (window.scrollY + window.innerHeight > heroBottom - 200) {
-            animateCounters();
-            counterAnimated = true;
+        if (heroSection) {
+            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+            if (window.scrollY + window.innerHeight > heroBottom - 200) {
+                animateCounters();
+                counterAnimated = true;
+            }
         }
     }
 });
 
-// ========== SMOOTH SCROLL ==========
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+// ========== ROOM VISUALIZER ==========
+const roomButtons = document.querySelectorAll('.room-btn');
+const roomViews = document.querySelectorAll('.room-view');
+const colorPicker = document.getElementById('colorPicker');
+const colorCode = document.getElementById('colorCode');
+const presetItems = document.querySelectorAll('.preset-item');
+
+let currentRoom = 'exterior';
+let currentColor = '#FF6B6B';
+
+// Room switching
+roomButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        roomButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const room = btn.getAttribute('data-room');
+        currentRoom = room;
+        
+        roomViews.forEach(view => view.classList.remove('active'));
+        document.querySelector(`[data-room-view="${room}"]`).classList.add('active');
+        
+        applyColorToRoom(currentColor);
     });
 });
+
+// Color picker
+colorPicker?.addEventListener('input', (e) => {
+    currentColor = e.target.value;
+    if (colorCode) colorCode.textContent = currentColor;
+    applyColorToRoom(currentColor);
+});
+
+// Preset colors
+presetItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const color = item.getAttribute('data-color');
+        currentColor = color;
+        if (colorPicker) colorPicker.value = color;
+        if (colorCode) colorCode.textContent = color;
+        applyColorToRoom(color);
+    });
+});
+
+// Apply color to current room
+function applyColorToRoom(color) {
+    const wallElements = {
+        'exterior': document.getElementById('exteriorWall'),
+        'living': document.getElementById('livingWall'),
+        'bedroom': document.getElementById('bedroomWall'),
+        'kitchen': document.getElementById('kitchenWall'),
+        'bathroom': document.getElementById('bathroomWall')
+    };
+    
+    const wallElement = wallElements[currentRoom];
+    if (wallElement) {
+        wallElement.style.background = color;
+    }
+}
 
 // ========== PRODUCT FILTER ==========
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -167,7 +155,6 @@ const productCards = document.querySelectorAll('.product-card');
 
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Remove active class
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         
@@ -183,70 +170,82 @@ filterBtns.forEach(btn => {
             } else {
                 card.style.opacity = '0';
                 card.style.transform = 'scale(0.8)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
+                setTimeout(() => card.style.display = 'none', 300);
             }
         });
     });
 });
 
-// ========== AI COLOR LAB ==========
-const colorPicker = document.getElementById('colorPicker');
-const wall = document.querySelector('.wall');
-const presetColors = document.querySelectorAll('.preset-color');
+// ========== DYNAMIC PRODUCTS ==========
+const products = [
+    { id: 1, name: 'Novacare Advance', category: 'emulsion', desc: 'Premium weather-resistant emulsion', 
+      image: 'images/products/novacare-advance-acrylic-emulsion.jpg', badge: 'BESTSELLER', color: '#FF6B6B', tags: ['Weather Resistant', 'Washable'] },
+    { id: 2, name: 'All Weather Advance', category: 'emulsion', desc: 'Advanced exterior emulsion with UV protection', 
+      image: 'images/products/all-weather-advance-acrylic-emulsion.jpg', badge: 'NEW', color: '#4ECDC4', tags: ['UV Protection', 'Eco-Friendly'] },
+    { id: 3, name: 'Interior Royal Touch', category: 'emulsion', desc: 'Luxury smooth finish emulsion', 
+      image: 'images/products/interior-royal-touch-emulsion.jpg', badge: 'PREMIUM', color: '#FFE66D', tags: ['Smooth Finish', 'Washable'] },
+    { id: 4, name: 'Acrylic Wall Putty', category: 'putty', desc: 'High-performance acrylic putty', 
+      image: 'images/products/acrylic-wall-putty.jpg', badge: 'TOP RATED', color: '#95E1D3', tags: ['Durable', 'Easy Application'] },
+    { id: 5, name: '24 Carats Wall Putty', category: 'putty', desc: 'Premium putty with superior bonding', 
+      image: 'images/products/24-carats-acrylic-putty.jpg', badge: 'PREMIUM', color: '#FF8B94', tags: ['Superior Bonding', 'White Finish'] },
+    { id: 6, name: 'Waterproof Putty', category: 'putty', desc: 'Water-resistant putty', 
+      image: 'images/products/white-cement-based-waterproof-wall-putty.jpg', badge: 'SPECIAL', color: '#A8E6CF', tags: ['Waterproof', 'Moisture Resistant'] },
+    { id: 7, name: 'Microfined Waterproofing', category: 'waterproof', desc: 'Advanced waterproofing solution', 
+      image: 'images/products/microfined-water-proof-cement-coating.jpg', badge: 'ADVANCED', color: '#FFDAB9', tags: ['Flexible', 'Heat Resistant'] },
+    { id: 8, name: 'Waterproof Paint', category: 'waterproof', desc: 'Complete waterproofing paint', 
+      image: 'images/products/Water-proof-cement-painnt.jpg', badge: 'POPULAR', color: '#DDA0DD', tags: ['UV Stable', 'Crack Bridging'] },
+    { id: 9, name: 'Novacare Coating', category: 'waterproof', desc: 'Elastomeric coating for roofs', 
+      image: 'images/products/novacare-waterproof-cement-coating.jpg', badge: 'PRO CHOICE', color: '#87CEEB', tags: ['Elastomeric', 'Heat Reflective'] },
+    { id: 10, name: 'Universal Stainer', category: 'specialty', desc: 'Color matching stainer', 
+      image: 'images/products/universal-stainer.jpg', badge: 'VERSATILE', color: '#F0E68C', tags: ['Any Color', 'Fast Tinting'] },
+    { id: 11, name: 'SBR Latex', category: 'specialty', desc: 'Professional bonding agent', 
+      image: 'images/products/sbr-latex.jpg', badge: 'PRO GRADE', color: '#98D8C8', tags: ['Professional', 'Multi-Purpose'] },
+    { id: 12, name: 'Washable Distemper', category: 'specialty', desc: 'Eco-friendly washable distemper', 
+      image: 'images/products/acrylic-washable-distemper.jpg', badge: 'ECO', color: '#F7DC6F', tags: ['Washable', 'Anti-Bacterial'] }
+];
 
-colorPicker?.addEventListener('input', (e) => {
-    wall.style.background = e.target.value;
-});
-
-presetColors.forEach(preset => {
-    preset.addEventListener('click', () => {
-        const color = preset.getAttribute('data-color');
-        wall.style.background = color;
-        colorPicker.value = color;
+function renderProducts() {
+    const productsGrid = document.getElementById('productsGrid');
+    if (!productsGrid) return;
+    
+    products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.setAttribute('data-category', product.category);
+        card.innerHTML = `
+            <div class="product-img">
+                <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300?text=${product.name}'">
+                <span class="product-badge" style="background: ${product.color};">${product.badge}</span>
+            </div>
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p>${product.desc}</p>
+                <div class="product-tags">
+                    ${product.tags.map(tag => `<span>${tag}</span>`).join('')}
+                </div>
+                <button class="btn-product" onclick="openQuoteModal('${product.name}')">Get Quote</button>
+            </div>
+        `;
+        productsGrid.appendChild(card);
     });
-});
+}
 
-// ========== MODAL SYSTEM ==========
-const modal = document.getElementById('quoteModal');
-const quoteButtons = document.querySelectorAll('[data-quote]');
-const closeModal = document.querySelector('.modal-close');
-
-quoteButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+// ========== SMOOTH SCROLL ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-});
-
-closeModal?.addEventListener('click', () => {
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-});
-
-modal?.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
 });
 
 // ========== BACK TO TOP ==========
-const btnTop = document.querySelector('.btn-top');
-
+const btnTop = document.getElementById('btnTop');
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-        btnTop.classList.add('visible');
-    } else {
-        btnTop.classList.remove('visible');
-    }
+    if (window.scrollY > 500) btnTop.classList.add('visible');
+    else btnTop.classList.remove('visible');
 });
-
-btnTop?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+btnTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 // ========== FORM HANDLING ==========
 const contactForm = document.getElementById('contactForm');
@@ -254,249 +253,39 @@ const quoteForm = document.getElementById('quoteForm');
 
 contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    console.log('Contact Form Data:', data);
-    
-    // Show success message
     alert('Thank you! We will contact you soon.');
     contactForm.reset();
 });
 
 quoteForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(quoteForm);
-    const data = Object.fromEntries(formData);
-    
-    console.log('Quote Form Data:', data);
-    
-    // Show success message
     alert('Quote request submitted! We will send you pricing details shortly.');
     quoteForm.reset();
-    
-    // Close modal
+    closeQuoteModal();
+});
+
+// ========== MODAL ==========
+function openQuoteModal(productName = '') {
+    const modal = document.getElementById('quoteModal');
+    const productInput = document.getElementById('quoteProduct');
+    if (productInput && productName) productInput.value = productName;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuoteModal() {
+    const modal = document.getElementById('quoteModal');
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
-});
-
-// ========== DYNAMIC PRODUCT LOADING ==========
-const products = [
-    {
-        id: 1,
-        name: 'Novacare Advance',
-        category: 'emulsion',
-        description: 'Premium weather-resistant emulsion with nano-coating technology',
-        image: 'images/products/novacare-advance.jpg',
-        badge: 'BESTSELLER',
-        tags: ['Weather Resistant', 'Washable', 'Low VOC']
-    },
-    {
-        id: 2,
-        name: 'All Weather Advance',
-        category: 'emulsion',
-        description: 'Advanced exterior emulsion with UV protection and anti-fungal properties',
-        image: 'images/products/all-weather-advance.jpg',
-        badge: 'NEW',
-        tags: ['UV Protection', 'Anti-Fungal', 'Eco-Friendly']
-    },
-    {
-        id: 3,
-        name: 'Interior Royal Touch',
-        category: 'emulsion',
-        description: 'Luxury smooth finish emulsion for premium interiors',
-        image: 'images/products/interior-royal-touch.jpg',
-        badge: 'PREMIUM',
-        tags: ['Smooth Finish', 'Washable', 'Stain Resistant']
-    },
-    {
-        id: 4,
-        name: 'Acrylic Wall Putty',
-        category: 'putty',
-        description: 'High-performance acrylic putty for perfect wall finishing',
-        image: 'images/products/acrylic-wall-putty.jpg',
-        badge: 'TOP RATED',
-        tags: ['Crack Resistant', 'Durable', 'Easy Application']
-    },
-    {
-        id: 5,
-        name: '24 Carats Wall Putty',
-        category: 'putty',
-        description: 'Premium wall putty with superior bonding strength',
-        image: 'images/products/24-carats-wall-putty.jpg',
-        badge: 'PREMIUM',
-        tags: ['Superior Bonding', 'White Finish', 'Long Lasting']
-    },
-    {
-        id: 6,
-        name: 'White Cement Waterproof Putty',
-        category: 'putty',
-        description: 'Water-resistant putty for moisture-prone areas',
-        image: 'images/products/white-cement-waterproof-putty.jpg',
-        badge: 'SPECIAL',
-        tags: ['Waterproof', 'White Cement', 'Moisture Resistant']
-    },
-    {
-        id: 7,
-        name: 'Microfined Waterproofing',
-        category: 'waterproof',
-        description: 'Nano-technology based waterproofing solution',
-        image: 'images/products/microfined-waterproofing.jpg',
-        badge: 'ADVANCED',
-        tags: ['Nano Tech', 'Flexible', 'Heat Resistant']
-    },
-    {
-        id: 8,
-        name: 'Water Proof Paint',
-        category: 'waterproof',
-        description: 'Complete waterproofing paint for exterior walls',
-        image: 'images/products/waterproof-paint.jpg',
-        badge: 'POPULAR',
-        tags: ['Complete Protection', 'UV Stable', 'Crack Bridging']
-    },
-    {
-        id: 9,
-        name: 'Novacare Coating',
-        category: 'waterproof',
-        description: 'Advanced elastomeric coating for roofs and terraces',
-        image: 'images/products/novacare-coating.jpg',
-        badge: 'PRO CHOICE',
-        tags: ['Elastomeric', 'Roof Protection', 'Heat Reflective']
-    },
-    {
-        id: 10,
-        name: 'Universal Stainer',
-        category: 'specialty',
-        description: 'AI-powered color matching stainer for any shade',
-        image: 'images/products/universal-stainer.jpg',
-        badge: 'AI POWERED',
-        tags: ['Any Color', 'Fast Tinting', 'Accurate Matching']
-    },
-    {
-        id: 11,
-        name: 'SBR Latex',
-        category: 'specialty',
-        description: 'Professional-grade bonding agent for superior adhesion',
-        image: 'images/products/sbr-latex.jpg',
-        badge: 'PRO GRADE',
-        tags: ['Bonding Agent', 'Professional', 'Multi-Purpose']
-    },
-    {
-        id: 12,
-        name: 'Acrylic Washable Distemper',
-        category: 'specialty',
-        description: 'Eco-friendly washable distemper with anti-bacterial formula',
-        image: 'images/products/acrylic-washable-distemper.jpg',
-        badge: 'ECO',
-        tags: ['Washable', 'Anti-Bacterial', 'Eco Formula']
-    }
-];
-
-// Render products (if you want to dynamically generate them)
-function renderProducts() {
-    const productsGrid = document.querySelector('.products-grid');
-    if (!productsGrid) return;
-    
-    // Only render if grid is empty
-    if (productsGrid.children.length === 0) {
-        products.forEach(product => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.setAttribute('data-category', product.category);
-            card.style.opacity = '0';
-            card.style.transform = 'scale(0.8)';
-            
-            card.innerHTML = `
-                <div class="product-img">
-                    <img src="${product.image}" alt="${product.name}">
-                    <span class="product-badge">${product.badge}</span>
-                </div>
-                <div class="product-info">
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                    <div class="product-tags">
-                        ${product.tags.map(tag => `<span>${tag}</span>`).join('')}
-                    </div>
-                    <button class="btn-brand" data-quote="${product.name}">Get Quote</button>
-                </div>
-            `;
-            
-            productsGrid.appendChild(card);
-            
-            // Animate in
-            setTimeout(() => {
-                card.style.transition = 'all 0.3s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'scale(1)';
-            }, 50);
-        });
-        
-        // Re-attach quote button listeners
-        document.querySelectorAll('[data-quote]').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const productName = btn.getAttribute('data-quote');
-                document.getElementById('quoteProduct').value = productName;
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-    }
 }
 
-// Call render on load
-document.addEventListener('DOMContentLoaded', () => {
-    // Uncomment if you want to dynamically generate products
-    // renderProducts();
+// Close modal on background click
+document.getElementById('quoteModal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'quoteModal') closeQuoteModal();
 });
 
-// ========== PARALLAX EFFECT ==========
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const parallaxElements = document.querySelectorAll('.orb');
-    
-    parallaxElements.forEach((el, index) => {
-        const speed = (index + 1) * 0.05;
-        el.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-});
-
-// ========== CYBER GLITCH EFFECT ==========
-function glitchText() {
-    const glitchElements = document.querySelectorAll('.glitch');
-    
-    glitchElements.forEach(el => {
-        setInterval(() => {
-            const originalText = el.textContent;
-            const chars = '!<>-_\\/[]{}—=+*^?#________';
-            
-            // Random glitch
-            if (Math.random() > 0.95) {
-                el.textContent = originalText.split('').map(char => {
-                    return Math.random() > 0.9 ? chars[Math.floor(Math.random() * chars.length)] : char;
-                }).join('');
-                
-                // Reset after 50ms
-                setTimeout(() => {
-                    el.textContent = originalText;
-                }, 50);
-            }
-        }, 100);
-    });
-}
-
-glitchText();
-
-// ========== INTERSECTION OBSERVER FOR ANIMATIONS ==========
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
+// ========== INTERSECTION OBSERVER ==========
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -506,60 +295,24 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all cards
+// ========== INITIALIZE ==========
 document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.tech-card, .brand-card, .product-card, .gallery-item, .info-card');
+    renderProducts();
     
+    // Observe cards for animation
+    const cards = document.querySelectorAll('.brand-card, .gallery-item, .info-card');
     cards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(50px)';
         card.style.transition = 'all 0.6s ease';
         observer.observe(card);
     });
+    
+    // Initialize with default color
+    applyColorToRoom(currentColor);
 });
 
-// ========== CURSOR TRAIL EFFECT ==========
-const cursor = document.createElement('div');
-cursor.className = 'cursor-trail';
-cursor.style.cssText = `
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--cyber-primary);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transition: 0.1s;
-    mix-blend-mode: difference;
-    display: none;
-`;
-document.body.appendChild(cursor);
-
-let mouseX = 0, mouseY = 0;
-let cursorX = 0, cursorY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
-
-function animateCursor() {
-    cursorX += (mouseX - cursorX) * 0.1;
-    cursorY += (mouseY - cursorY) * 0.1;
-    
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
-    
-    requestAnimationFrame(animateCursor);
-}
-
-// Only on desktop
-if (window.innerWidth > 768) {
-    cursor.style.display = 'block';
-    animateCursor();
-}
-
-console.log('%c🎨 NOVALAC INDUSTRIES - Futuristic Design Loaded', 'color: #00f0ff; font-size: 20px; font-weight: bold;');
-console.log('%cNano-Coating Technology Active ✓', 'color: #0f0; font-size: 14px;');
-console.log('%cAI Color Matching System Online ✓', 'color: #0f0; font-size: 14px;');
-console.log('%cParticle System Initialized ✓', 'color: #0f0; font-size: 14px;');
+console.log('%c🎨 NOVALAC INDUSTRIES - Colorful Paint Website Loaded', 'color: #FF6B6B; font-size: 20px; font-weight: bold;');
+console.log('%cRoom Visualizer Active ✓', 'color: #4ECDC4; font-size: 14px;');
+console.log('%cProduct Catalog Loaded ✓', 'color: #4ECDC4; font-size: 14px;');
+console.log('%cParticle System Initialized ✓', 'color: #4ECDC4; font-size: 14px;');
