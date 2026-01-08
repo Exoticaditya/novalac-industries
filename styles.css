@@ -293,16 +293,93 @@ section { padding: 6rem 0; position: relative; }
 .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,107,107,0.3); }
 
 /* Footer */
-.footer { background: #333; color: #fff; padding: 4rem 0 2rem; }
+.footer { 
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff; 
+    padding: 4rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4));
+}
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
 .footer-logo { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
 .footer-logo i { font-size: 2rem; color: var(--primary); }
 .footer-logo span { font-family: "Playfair Display", serif; font-size: 1.5rem; font-weight: 900; }
-.footer-col p { color: #999; line-height: 1.6; }
-.footer-col h4 { margin-bottom: 1.5rem; color: #fff; }
-.footer-col a { display: block; color: #999; text-decoration: none; margin-bottom: 0.75rem; transition: 0.3s; }
-.footer-col a:hover { color: var(--primary); padding-left: 0.5rem; }
-.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #444; color: #999; }
+.footer-col p { color: #bdc3c7; line-height: 1.6; }
+.footer-col h4 { 
+    margin-bottom: 1.5rem; 
+    color: var(--color-1);
+    font-size: 1.3rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-1), var(--color-2));
+    border-radius: 2px;
+}
+.footer-col a { 
+    display: block; 
+    color: #ecf0f1; 
+    text-decoration: none; 
+    margin-bottom: 0.75rem; 
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 20px;
+}
+.footer-col a::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-2);
+    transition: all 0.3s ease;
+}
+.footer-col a:hover { 
+    color: var(--color-1); 
+    padding-left: 25px; 
+}
+.footer-bottom { 
+    text-align: center; 
+    padding-top: 2rem; 
+    border-top: 2px solid rgba(255, 255, 255, 0.1); 
+    color: #bdc3c7; 
+}
+.footer-credits {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #ecf0f1;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.footer-credits strong {
+    color: var(--color-1);
+    font-weight: 700;
+    font-size: 1.15rem;
+    background: linear-gradient(135deg, var(--color-1), var(--color-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
 /* Back to Top */
 .btn-top { position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; 
@@ -335,3 +412,176 @@ section { padding: 6rem 0; position: relative; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-right { display: none; }
 }
+/* REALISTIC 3D ROOM VISUALIZER */
+.room-preview { position: relative; min-height: 600px; background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%); 
+                border-radius: 15px; overflow: hidden; perspective: 1200px; }
+.room-view { display: none; width: 100%; height: 100%; position: absolute; inset: 0; }
+.room-view.active { display: block; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* EXTERIOR 3D HOUSE */
+.exterior-scene { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.sky { position: absolute; top: 0; width: 100%; height: 60%; background: linear-gradient(to bottom, #87CEEB, #B0E2FF); }
+.house-3d { position: relative; transform-style: preserve-3d; transform: rotateX(5deg) rotateY(-10deg); 
+            width: 400px; height: 350px; margin-top: 50px; }
+.roof-main { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 0; height: 0; 
+             border-left: 230px solid transparent; border-right: 230px solid transparent; 
+             border-bottom: 120px solid #8B4513; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
+.roof-front { position: absolute; top: -80px; left: 50%; transform: translateX(-50%) translateZ(50px); 
+              width: 0; height: 0; border-left: 220px solid transparent; border-right: 220px solid transparent; 
+              border-bottom: 110px solid #A0522D; }
+.wall-main { position: absolute; top: 40px; left: 50%; transform: translateX(-50%); width: 380px; height: 280px; 
+             background: #FFE4B5; border: 3px solid #DEB887; border-radius: 5px; 
+             box-shadow: 0 15px 40px rgba(0,0,0,0.3), inset 0 0 30px rgba(0,0,0,0.05); transition: background 0.5s; }
+.wall-left { position: absolute; top: 40px; left: 10px; width: 60px; height: 280px; background: #F5DEB3; 
+             transform: rotateY(-60deg); transform-origin: left; box-shadow: inset 5px 0 15px rgba(0,0,0,0.2); }
+.wall-right { position: absolute; top: 40px; right: 10px; width: 60px; height: 280px; background: #F5DEB3; 
+              transform: rotateY(60deg); transform-origin: right; box-shadow: inset -5px 0 15px rgba(0,0,0,0.2); }
+.door-main { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 160px; 
+             background: linear-gradient(to bottom, #654321, #8B4513); border-radius: 8px 8px 0 0; 
+             box-shadow: inset 0 0 20px rgba(0,0,0,0.3), 0 5px 15px rgba(0,0,0,0.4); }
+.door-knob { position: absolute; right: 15px; top: 50%; width: 12px; height: 12px; background: #FFD700; 
+             border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+.window-3d { position: absolute; width: 100px; height: 100px; background: linear-gradient(135deg, #87CEEB, #B0E2FF); 
+             border: 5px solid #fff; border-radius: 5px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1), 
+             0 5px 15px rgba(0,0,0,0.3); }
+.window-1 { top: 80px; left: 50px; }
+.window-2 { top: 80px; right: 50px; }
+.window-pane { width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(135,206,235,0.6)); }
+.window-frame-h { position: absolute; top: 50%; left: 0; width: 100%; height: 3px; background: #fff; 
+                  transform: translateY(-50%); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.window-frame-v { position: absolute; left: 50%; top: 0; width: 3px; height: 100%; background: #fff; 
+                  transform: translateX(-50%); box-shadow: 2px 0 5px rgba(0,0,0,0.2); }
+.ground { position: absolute; bottom: 0; width: 100%; height: 40%; 
+          background: linear-gradient(to bottom, #90EE90, #228B22); }
+.grass-layer { width: 100%; height: 100%; background: repeating-linear-gradient(90deg, #90EE90, #7CCD7C 2px, #90EE90 4px); }
+.pathway { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 50%; 
+           background: linear-gradient(to bottom, #D2B48C, #BC9A6B); border-radius: 50% 50% 0 0; }
+
+/* 3D ROOM STRUCTURE */
+.room-3d { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; 
+           transform: perspective(1000px) rotateX(2deg) rotateY(-5deg); }
+.room-back-wall { position: absolute; top: 10%; left: 10%; width: 80%; height: 60%; background: #F5F5DC; 
+                  border: 3px solid #DDD; border-radius: 5px; 
+                  box-shadow: 0 10px 40px rgba(0,0,0,0.3), inset 0 0 50px rgba(0,0,0,0.05); 
+                  transition: background 0.5s; }
+.room-left-wall { position: absolute; top: 10%; left: 10%; width: 15%; height: 60%; background: #E8E8E0; 
+                  transform: rotateY(-70deg); transform-origin: left; 
+                  box-shadow: inset 8px 0 20px rgba(0,0,0,0.15); }
+.room-right-wall { position: absolute; top: 10%; right: 10%; width: 15%; height: 60%; background: #E8E8E0; 
+                   transform: rotateY(70deg); transform-origin: right; 
+                   box-shadow: inset -8px 0 20px rgba(0,0,0,0.15); }
+.room-floor { position: absolute; bottom: 10%; left: 10%; width: 80%; height: 30%; 
+              background: linear-gradient(to bottom, #D2B48C 0%, #BC9A6B 100%); 
+              border: 2px solid #A0826D; 
+              box-shadow: 0 -5px 30px rgba(0,0,0,0.3), inset 0 5px 20px rgba(0,0,0,0.1); 
+              transform: rotateX(60deg); transform-origin: bottom; }
+.room-ceiling { position: absolute; top: 10%; left: 10%; width: 80%; height: 15%; background: #FAFAFA; 
+                transform: rotateX(-60deg); transform-origin: top; 
+                box-shadow: 0 5px 20px rgba(0,0,0,0.2), inset 0 -3px 10px rgba(0,0,0,0.05); }
+
+/* LIVING ROOM FURNITURE */
+.furniture-living { position: absolute; width: 100%; height: 100%; }
+.sofa-3d { position: absolute; bottom: 25%; left: 50%; transform: translateX(-50%); width: 280px; height: 100px; }
+.sofa-back { width: 100%; height: 60px; background: linear-gradient(to bottom, #4A4A4A, #2A2A2A); 
+             border-radius: 10px 10px 0 0; box-shadow: 0 5px 20px rgba(0,0,0,0.4), inset 0 0 15px rgba(255,255,255,0.1); }
+.sofa-seat { position: absolute; bottom: 0; width: 100%; height: 50px; 
+             background: linear-gradient(to bottom, #555, #333); border-radius: 5px; 
+             box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+.sofa-arm { position: absolute; bottom: 0; width: 30px; height: 70px; background: #3A3A3A; border-radius: 8px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+.sofa-arm-left { left: -20px; }
+.sofa-arm-right { right: -20px; }
+.coffee-table { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); width: 150px; height: 20px; 
+                background: linear-gradient(to bottom, #8B4513, #654321); border-radius: 8px; 
+                box-shadow: 0 8px 20px rgba(0,0,0,0.5), inset 0 2px 5px rgba(255,255,255,0.2); }
+.tv-unit { position: absolute; bottom: 38%; left: 50%; transform: translateX(-50%); width: 180px; height: 100px; 
+           background: #222; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+.tv-screen { position: absolute; top: 10px; left: 10px; right: 10px; bottom: 25px; background: #111; 
+             border: 3px solid #333; border-radius: 5px; 
+             box-shadow: inset 0 0 30px rgba(0,100,200,0.3), 0 0 20px rgba(0,100,200,0.2); }
+.plant-pot { position: absolute; bottom: 30%; right: 20%; width: 40px; height: 60px; 
+             background: linear-gradient(to bottom, #228B22, #006400); border-radius: 50% 50% 10px 10px; 
+             box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+.plant-pot::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); 
+                     width: 45px; height: 20px; background: #8B4513; border-radius: 0 0 10px 10px; }
+.rug-floor { position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); width: 200px; height: 120px; 
+             background: repeating-linear-gradient(90deg, #DC143C, #8B0000 10px, #DC143C 20px); 
+             border: 5px solid #8B0000; border-radius: 10px; opacity: 0.7; 
+             box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
+
+/* BEDROOM FURNITURE */
+.furniture-bedroom { position: absolute; width: 100%; height: 100%; }
+.bed-3d { position: absolute; bottom: 22%; left: 50%; transform: translateX(-50%); width: 300px; height: 140px; }
+.bed-base { width: 100%; height: 30px; background: linear-gradient(to bottom, #8B4513, #654321); 
+            border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+.bed-mattress { position: absolute; top: -40px; left: 5%; width: 90%; height: 60px; 
+                background: linear-gradient(to bottom, #FFF, #F0F0F0); border-radius: 8px; 
+                box-shadow: 0 5px 20px rgba(0,0,0,0.3), inset 0 0 15px rgba(0,0,0,0.05); }
+.bed-pillow { position: absolute; top: -55px; width: 60px; height: 35px; background: #FFF; 
+              border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.2); }
+.bed-pillow-1 { left: 15%; }
+.bed-pillow-2 { right: 15%; }
+.bed-headboard { position: absolute; top: -80px; left: 5%; width: 90%; height: 50px; 
+                 background: linear-gradient(to bottom, #654321, #8B4513); border-radius: 8px 8px 0 0; 
+                 box-shadow: 0 -5px 20px rgba(0,0,0,0.4); }
+.nightstand-3d { position: absolute; bottom: 24%; width: 60px; height: 80px; 
+                 background: linear-gradient(to bottom, #8B4513, #654321); border-radius: 5px; 
+                 box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+.nightstand-left { left: 10%; }
+.nightstand-right { right: 10%; }
+.nightstand-lamp { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); 
+                   width: 25px; height: 45px; background: linear-gradient(to bottom, #FFD700, #FFA500); 
+                   border-radius: 50% 50% 0 0; box-shadow: 0 0 20px rgba(255,215,0,0.5); }
+.wardrobe { position: absolute; bottom: 35%; right: 15%; width: 100px; height: 180px; 
+            background: linear-gradient(to right, #654321, #8B4513); border-radius: 8px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.2); }
+
+/* KITCHEN FURNITURE */
+.furniture-kitchen { position: absolute; width: 100%; height: 100%; }
+.kitchen-cabinets-upper { position: absolute; top: 15%; left: 15%; width: 70%; height: 80px; 
+                          background: linear-gradient(to bottom, #8B4513, #654321); border-radius: 5px; 
+                          box-shadow: 0 8px 25px rgba(0,0,0,0.4), inset 0 0 15px rgba(0,0,0,0.2); }
+.kitchen-cabinets-lower { position: absolute; bottom: 25%; left: 15%; width: 70%; height: 100px; 
+                          background: linear-gradient(to bottom, #654321, #8B4513); border-radius: 5px; 
+                          box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.kitchen-countertop { position: absolute; bottom: 32%; left: 15%; width: 70%; height: 25px; 
+                      background: linear-gradient(to bottom, #C0C0C0, #A9A9A9); border-radius: 3px; 
+                      box-shadow: 0 5px 20px rgba(0,0,0,0.4), inset 0 2px 5px rgba(255,255,255,0.3); }
+.kitchen-sink { position: absolute; bottom: 33%; left: 25%; width: 80px; height: 40px; 
+                background: radial-gradient(circle, #E8E8E8, #C0C0C0); border-radius: 45%; 
+                box-shadow: inset 0 5px 15px rgba(0,0,0,0.3); }
+.sink-faucet { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); 
+               width: 8px; height: 30px; background: linear-gradient(to right, #C0C0C0, #A9A9A9); 
+               border-radius: 4px; box-shadow: 0 3px 10px rgba(0,0,0,0.3); }
+.kitchen-stove { position: absolute; bottom: 33%; right: 20%; width: 100px; height: 60px; 
+                 background: #222; border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+.refrigerator { position: absolute; bottom: 28%; right: 12%; width: 90px; height: 180px; 
+                background: linear-gradient(to bottom, #F5F5F5, #E0E0E0); border-radius: 8px; 
+                box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 0 20px rgba(0,0,0,0.05); 
+                border: 2px solid #CCC; }
+
+/* BATHROOM FURNITURE */
+.furniture-bathroom { position: absolute; width: 100%; height: 100%; }
+.bathtub-3d { position: absolute; bottom: 22%; right: 18%; width: 180px; height: 90px; 
+              background: linear-gradient(to bottom, #FFF, #F0F0F0); border-radius: 40px; 
+              box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 5px 20px rgba(0,0,0,0.1); 
+              border: 4px solid #E0E0E0; }
+.bathtub-inner { position: absolute; inset: 8px; background: linear-gradient(to bottom, #E8F4F8, #D0E8F0); 
+                 border-radius: 35px; box-shadow: inset 0 3px 15px rgba(0,0,0,0.15); }
+.sink-3d { position: absolute; bottom: 30%; left: 18%; width: 100px; height: 120px; }
+.sink-basin { width: 80px; height: 40px; background: radial-gradient(circle, #FFF, #E8E8E8); 
+              border-radius: 50%; box-shadow: inset 0 5px 20px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.3); }
+.sink-faucet-bath { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); 
+                    width: 10px; height: 30px; background: linear-gradient(to right, #C0C0C0, #A9A9A9); 
+                    border-radius: 5px; box-shadow: 0 3px 10px rgba(0,0,0,0.3); }
+.mirror-bath { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); 
+               width: 90px; height: 70px; background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(200,230,255,0.6)); 
+               border: 4px solid #C0C0C0; border-radius: 8px; 
+               box-shadow: 0 5px 20px rgba(0,0,0,0.3), inset 0 0 30px rgba(135,206,235,0.2); }
+.toilet-3d { position: absolute; bottom: 24%; left: 50%; transform: translateX(-50%); 
+             width: 60px; height: 80px; background: linear-gradient(to bottom, #FFF, #F0F0F0); 
+             border-radius: 30px 30px 15px 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+.tiles-accent { position: absolute; top: 50%; left: 15%; width: 70%; height: 80px; 
+                background: repeating-linear-gradient(90deg, rgba(255,255,255,0.3), rgba(200,200,200,0.3) 40px); 
+                border-top: 2px solid rgba(0,0,0,0.1); border-bottom: 2px solid rgba(0,0,0,0.1); }

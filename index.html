@@ -179,50 +179,128 @@
 
                 <div class="visualizer-main">
                     <div class="room-preview">
+                        <!-- Exterior View -->
                         <div class="room-view active" data-room-view="exterior">
-                            <div class="exterior-house">
-                                <div class="roof"></div>
-                                <div class="house-wall" id="exteriorWall"></div>
-                                <div class="door"></div>
-                                <div class="window-house window-left"></div>
-                                <div class="window-house window-right"></div>
-                                <div class="grass"></div>
+                            <div class="exterior-scene">
+                                <div class="sky"></div>
+                                <div class="house-3d">
+                                    <div class="roof-main"></div>
+                                    <div class="roof-front"></div>
+                                    <div class="wall-main" id="exteriorWall"></div>
+                                    <div class="wall-left"></div>
+                                    <div class="wall-right"></div>
+                                    <div class="door-main">
+                                        <div class="door-knob"></div>
+                                    </div>
+                                    <div class="window-3d window-1">
+                                        <div class="window-pane"></div>
+                                        <div class="window-frame-h"></div>
+                                        <div class="window-frame-v"></div>
+                                    </div>
+                                    <div class="window-3d window-2">
+                                        <div class="window-pane"></div>
+                                        <div class="window-frame-h"></div>
+                                        <div class="window-frame-v"></div>
+                                    </div>
+                                </div>
+                                <div class="ground">
+                                    <div class="grass-layer"></div>
+                                    <div class="pathway"></div>
+                                </div>
                             </div>
                         </div>
                         
+                        <!-- Living Room -->
                         <div class="room-view" data-room-view="living">
-                            <div class="living-room">
-                                <div class="room-wall" id="livingWall"></div>
-                                <div class="floor-living"></div>
-                                <div class="sofa"></div>
-                                <div class="tv-stand"></div>
+                            <div class="room-3d living-3d">
+                                <div class="room-back-wall" id="livingWall"></div>
+                                <div class="room-left-wall"></div>
+                                <div class="room-right-wall"></div>
+                                <div class="room-floor"></div>
+                                <div class="room-ceiling"></div>
+                                <div class="furniture-living">
+                                    <div class="sofa-3d">
+                                        <div class="sofa-back"></div>
+                                        <div class="sofa-seat"></div>
+                                        <div class="sofa-arm sofa-arm-left"></div>
+                                        <div class="sofa-arm sofa-arm-right"></div>
+                                    </div>
+                                    <div class="coffee-table"></div>
+                                    <div class="tv-unit">
+                                        <div class="tv-screen"></div>
+                                    </div>
+                                    <div class="plant-pot"></div>
+                                    <div class="rug-floor"></div>
+                                </div>
                             </div>
                         </div>
                         
+                        <!-- Bedroom -->
                         <div class="room-view" data-room-view="bedroom">
-                            <div class="bedroom">
-                                <div class="room-wall" id="bedroomWall"></div>
-                                <div class="floor-bedroom"></div>
-                                <div class="bed-frame"></div>
-                                <div class="nightstand"></div>
+                            <div class="room-3d bedroom-3d">
+                                <div class="room-back-wall" id="bedroomWall"></div>
+                                <div class="room-left-wall"></div>
+                                <div class="room-right-wall"></div>
+                                <div class="room-floor"></div>
+                                <div class="room-ceiling"></div>
+                                <div class="furniture-bedroom">
+                                    <div class="bed-3d">
+                                        <div class="bed-base"></div>
+                                        <div class="bed-mattress"></div>
+                                        <div class="bed-pillow bed-pillow-1"></div>
+                                        <div class="bed-pillow bed-pillow-2"></div>
+                                        <div class="bed-headboard"></div>
+                                    </div>
+                                    <div class="nightstand-3d nightstand-left">
+                                        <div class="nightstand-lamp"></div>
+                                    </div>
+                                    <div class="nightstand-3d nightstand-right"></div>
+                                    <div class="wardrobe"></div>
+                                </div>
                             </div>
                         </div>
                         
+                        <!-- Kitchen -->
                         <div class="room-view" data-room-view="kitchen">
-                            <div class="kitchen">
-                                <div class="room-wall" id="kitchenWall"></div>
-                                <div class="floor-kitchen"></div>
-                                <div class="cabinet"></div>
-                                <div class="counter"></div>
+                            <div class="room-3d kitchen-3d">
+                                <div class="room-back-wall" id="kitchenWall"></div>
+                                <div class="room-left-wall"></div>
+                                <div class="room-right-wall"></div>
+                                <div class="room-floor"></div>
+                                <div class="room-ceiling"></div>
+                                <div class="furniture-kitchen">
+                                    <div class="kitchen-cabinets-upper"></div>
+                                    <div class="kitchen-cabinets-lower"></div>
+                                    <div class="kitchen-countertop"></div>
+                                    <div class="kitchen-sink">
+                                        <div class="sink-faucet"></div>
+                                    </div>
+                                    <div class="kitchen-stove"></div>
+                                    <div class="refrigerator"></div>
+                                </div>
                             </div>
                         </div>
                         
+                        <!-- Bathroom -->
                         <div class="room-view" data-room-view="bathroom">
-                            <div class="bathroom">
-                                <div class="room-wall" id="bathroomWall"></div>
-                                <div class="floor-bathroom"></div>
-                                <div class="bathtub"></div>
-                                <div class="sink-bath"></div>
+                            <div class="room-3d bathroom-3d">
+                                <div class="room-back-wall" id="bathroomWall"></div>
+                                <div class="room-left-wall"></div>
+                                <div class="room-right-wall"></div>
+                                <div class="room-floor"></div>
+                                <div class="room-ceiling"></div>
+                                <div class="furniture-bathroom">
+                                    <div class="bathtub-3d">
+                                        <div class="bathtub-inner"></div>
+                                    </div>
+                                    <div class="sink-3d">
+                                        <div class="sink-basin"></div>
+                                        <div class="sink-faucet-bath"></div>
+                                        <div class="mirror-bath"></div>
+                                    </div>
+                                    <div class="toilet-3d"></div>
+                                    <div class="tiles-accent"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -482,6 +560,7 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2026 Novalac Industries. All Rights Reserved.</p>
+                <p class="footer-credits">Design and Developed by <strong>Garvik India</strong></p>
             </div>
         </div>
     </footer>

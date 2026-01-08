@@ -146,8 +146,32 @@ function applyColorToRoom(color) {
     const wallElement = wallElements[currentRoom];
     if (wallElement) {
         wallElement.style.background = color;
+        wallElement.style.transition = 'background 0.6s ease';
+        
+        // Add interactive effect
+        wallElement.style.transform = 'scale(1.02)';
+        setTimeout(() => {
+            wallElement.style.transform = 'scale(1)';
+        }, 300);
     }
 }
+
+// Add hover effects for better interactivity
+document.addEventListener('DOMContentLoaded', () => {
+    const furnitureElements = document.querySelectorAll('.sofa-3d, .bed-3d, .coffee-table, .tv-unit, .plant-pot, .nightstand-3d, .wardrobe, .kitchen-cabinets-upper, .kitchen-cabinets-lower, .refrigerator, .bathtub-3d, .sink-3d, .toilet-3d');
+    
+    furnitureElements.forEach(element => {
+        element.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+        element.addEventListener('mouseenter', () => {
+            element.style.transform = 'scale(1.05) translateY(-5px)';
+            element.style.boxShadow = '0 15px 40px rgba(0,0,0,0.5)';
+        });
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = 'scale(1) translateY(0)';
+            element.style.boxShadow = '';
+        });
+    });
+});
 
 // ========== PRODUCT FILTER ==========
 const filterBtns = document.querySelectorAll('.filter-btn');
