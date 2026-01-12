@@ -1,4 +1,4 @@
-// NOVALAC INDUSTRIES - Colorful Paint Website
+// NOVALAC INDUSTRIES - Ultra Vibrant Paint Website
 // Interactive Room Visualizer & Paint Animations
 
 // ========== LOADER ==========
@@ -8,21 +8,21 @@ window.addEventListener('load', () => {
     }, 1500);
 });
 
-// ========== PARTICLES.JS CONFIG ==========
+// ========== PARTICLES.JS CONFIG - ULTRA VIBRANT ==========
 particlesJS('particles-js', {
     particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: ['#FF6B6B', '#4ECDC4', '#FFE66D', '#95E1D3', '#FF8B94'] },
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: ['#FF3366', '#00D4AA', '#FFD700', '#00BFFF', '#8B5CF6', '#FF69B4', '#FF6B35'] },
         shape: { type: 'circle' },
-        opacity: { value: 0.4, random: true },
-        size: { value: 4, random: true },
-        line_linked: { enable: true, distance: 150, color: '#FF6B6B', opacity: 0.3, width: 1 },
-        move: { enable: true, speed: 1.5, direction: 'none', random: false, straight: false, out_mode: 'out' }
+        opacity: { value: 0.5, random: true },
+        size: { value: 5, random: true },
+        line_linked: { enable: true, distance: 150, color: '#FF3366', opacity: 0.35, width: 1.5 },
+        move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out' }
     },
     interactivity: {
         detect_on: 'canvas',
         events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } },
-        modes: { grab: { distance: 140, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } }
+        modes: { grab: { distance: 160, line_linked: { opacity: 1 } }, push: { particles_nb: 5 } }
     },
     retina_detect: true
 });
@@ -316,32 +316,32 @@ filterBtns.forEach(btn => {
     });
 });
 
-// ========== DYNAMIC PRODUCTS ==========
+// ========== DYNAMIC PRODUCTS - ULTRA VIBRANT ==========
 const products = [
     { id: 1, name: 'Novacare Advance', category: 'emulsion', desc: 'Premium weather-resistant emulsion', 
-      image: 'images/products/novacare-advance-acrylic-emulsion.jpg', badge: 'BESTSELLER', color: '#FF6B6B', tags: ['Weather Resistant', 'Washable'] },
+      image: 'images/products/novacare-advance-acrylic-emulsion.jpg', badge: 'BESTSELLER', color: '#FF3366', tags: ['Weather Resistant', 'Washable'] },
     { id: 2, name: 'All Weather Advance', category: 'emulsion', desc: 'Advanced exterior emulsion with UV protection', 
-      image: 'images/products/all-weather-advance-acrylic-emulsion.jpg', badge: 'NEW', color: '#4ECDC4', tags: ['UV Protection', 'Eco-Friendly'] },
+      image: 'images/products/all-weather-advance-acrylic-emulsion.jpg', badge: 'NEW', color: '#00D4AA', tags: ['UV Protection', 'Eco-Friendly'] },
     { id: 3, name: 'Interior Royal Touch', category: 'emulsion', desc: 'Luxury smooth finish emulsion', 
-      image: 'images/products/interior-royal-touch-emulsion.jpg', badge: 'PREMIUM', color: '#FFE66D', tags: ['Smooth Finish', 'Washable'] },
+      image: 'images/products/interior-royal-touch-emulsion.jpg', badge: 'PREMIUM', color: '#FFD700', tags: ['Smooth Finish', 'Washable'] },
     { id: 4, name: 'Acrylic Wall Putty', category: 'putty', desc: 'High-performance acrylic putty', 
-      image: 'images/products/acrylic-wall-putty.jpg', badge: 'TOP RATED', color: '#95E1D3', tags: ['Durable', 'Easy Application'] },
+      image: 'images/products/acrylic-wall-putty.jpg', badge: 'TOP RATED', color: '#00BFFF', tags: ['Durable', 'Easy Application'] },
     { id: 5, name: '24 Carats Wall Putty', category: 'putty', desc: 'Premium putty with superior bonding', 
-      image: 'images/products/24-carats-acrylic-putty.jpg', badge: 'PREMIUM', color: '#FF8B94', tags: ['Superior Bonding', 'White Finish'] },
+      image: 'images/products/24-carats-acrylic-putty.jpg', badge: 'PREMIUM', color: '#FF69B4', tags: ['Superior Bonding', 'White Finish'] },
     { id: 6, name: 'Waterproof Putty', category: 'putty', desc: 'Water-resistant putty', 
-      image: 'images/products/white-cement-based-waterproof-wall-putty.jpg', badge: 'SPECIAL', color: '#A8E6CF', tags: ['Waterproof', 'Moisture Resistant'] },
+      image: 'images/products/white-cement-based-waterproof-wall-putty.jpg', badge: 'SPECIAL', color: '#8B5CF6', tags: ['Waterproof', 'Moisture Resistant'] },
     { id: 7, name: 'Microfined Waterproofing', category: 'waterproof', desc: 'Advanced waterproofing solution', 
-      image: 'images/products/microfined-water-proof-cement-coating.jpg', badge: 'ADVANCED', color: '#FFDAB9', tags: ['Flexible', 'Heat Resistant'] },
+      image: 'images/products/microfined-water-proof-cement-coating.jpg', badge: 'ADVANCED', color: '#FF6B35', tags: ['Flexible', 'Heat Resistant'] },
     { id: 8, name: 'Waterproof Paint', category: 'waterproof', desc: 'Complete waterproofing paint', 
-      image: 'images/products/Water-proof-cement-painnt.jpg', badge: 'POPULAR', color: '#DDA0DD', tags: ['UV Stable', 'Crack Bridging'] },
+      image: 'images/products/Water-proof-cement-painnt.jpg', badge: 'POPULAR', color: '#06B6D4', tags: ['UV Stable', 'Crack Bridging'] },
     { id: 9, name: 'Novacare Coating', category: 'waterproof', desc: 'Elastomeric coating for roofs', 
-      image: 'images/products/novacare-waterproof-cement-coating.jpg', badge: 'PRO CHOICE', color: '#87CEEB', tags: ['Elastomeric', 'Heat Reflective'] },
+      image: 'images/products/novacare-waterproof-cement-coating.jpg', badge: 'PRO CHOICE', color: '#84CC16', tags: ['Elastomeric', 'Heat Reflective'] },
     { id: 10, name: 'Universal Stainer', category: 'specialty', desc: 'Color matching stainer', 
-      image: 'images/products/universal-stainer.jpg', badge: 'VERSATILE', color: '#F0E68C', tags: ['Any Color', 'Fast Tinting'] },
+      image: 'images/products/universal-stainer.jpg', badge: 'VERSATILE', color: '#FFC107', tags: ['Any Color', 'Fast Tinting'] },
     { id: 11, name: 'SBR Latex', category: 'specialty', desc: 'Professional bonding agent', 
-      image: 'images/products/sbr-latex.jpg', badge: 'PRO GRADE', color: '#98D8C8', tags: ['Professional', 'Multi-Purpose'] },
+      image: 'images/products/sbr-latex.jpg', badge: 'PRO GRADE', color: '#EF4444', tags: ['Professional', 'Multi-Purpose'] },
     { id: 12, name: 'Washable Distemper', category: 'specialty', desc: 'Eco-friendly washable distemper', 
-      image: 'images/products/acrylic-washable-distemper.jpg', badge: 'ECO', color: '#F7DC6F', tags: ['Washable', 'Anti-Bacterial'] }
+      image: 'images/products/acrylic-washable-distemper.jpg', badge: 'ECO', color: '#10B981', tags: ['Washable', 'Anti-Bacterial'] }
 ];
 
 function renderProducts() {
