@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOVALAC INDUSTRIES | Premium Quality Paints | Color Your World</title>
     <meta name="description" content="Transform your spaces with Novalac Industries premium paints. Explore vibrant colors, visualize them in any room, and find your perfect shade.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF6B6B'/><path d='M30 40 L50 20 L70 40 L60 50 L50 60 L40 50 Z' fill='white'/></svg>">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -45,10 +46,9 @@
             
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">HOME</a></li>
-                <li><a href="#visualizer" class="nav-link">COLOR VISUALIZER</a></li>
                 <li><a href="#products" class="nav-link">PRODUCTS</a></li>
                 <li><a href="#brands" class="nav-link">BRANDS</a></li>
-                <li><a href="#showcase" class="nav-link">SHOWCASE</a></li>
+                <li><a href="#gallery" class="nav-link">GALLERY</a></li>
                 <li><a href="#contact" class="nav-link">CONTACT</a></li>
                 <li><a href="#" class="btn-colorful-nav" onclick="openQuoteModal()">GET QUOTE</a></li>
             </ul>
@@ -79,16 +79,16 @@
                         <span class="title-gradient">INDUSTRIES</span>
                     </h1>
                     
-                    <p class="hero-desc">Bring your imagination to life with our premium quality paints! Explore vibrant colors, visualize them in your rooms, and create beautiful spaces that reflect your personality.</p>
+                    <p class="hero-desc">Bring your imagination to life with our premium quality paints! Explore vibrant colors and create beautiful spaces that reflect your personality.</p>
                     
                     <div class="hero-actions">
-                        <a href="#visualizer" class="btn-primary">
-                            <i class="fas fa-palette"></i>
-                            <span>TRY COLOR VISUALIZER</span>
-                        </a>
-                        <a href="#products" class="btn-outline">
+                        <a href="#products" class="btn-primary">
                             <i class="fas fa-paint-roller"></i>
-                            <span>VIEW PRODUCTS</span>
+                            <span>EXPLORE PRODUCTS</span>
+                        </a>
+                        <a href="#gallery" class="btn-outline">
+                            <i class="fas fa-images"></i>
+                            <span>VIEW GALLERY</span>
                         </a>
                     </div>
                     
@@ -136,206 +136,6 @@
         <div class="scroll-hint">
             <div class="mouse-colorful"></div>
             <p>SCROLL TO EXPLORE</p>
-        </div>
-    </section>
-
-    <!-- Color Visualizer Section -->
-    <section id="visualizer" class="visualizer">
-        <div class="container">
-            <div class="section-head">
-                <span class="tag-colorful">
-                    <i class="fas fa-home"></i> INTERACTIVE TOOL
-                </span>
-                <h2>
-                    <span>Room Color</span>
-                    <span class="gradient-text">Visualizer</span>
-                </h2>
-                <p>See how different colors look in various rooms of your home!</p>
-            </div>
-            
-            <div class="visualizer-container">
-                <div class="room-selector">
-                    <button class="room-btn active" data-room="exterior">
-                        <i class="fas fa-home"></i>
-                        <span>Exterior</span>
-                    </button>
-                    <button class="room-btn" data-room="living">
-                        <i class="fas fa-couch"></i>
-                        <span>Living Room</span>
-                    </button>
-                    <button class="room-btn" data-room="bedroom">
-                        <i class="fas fa-bed"></i>
-                        <span>Bedroom</span>
-                    </button>
-                    <button class="room-btn" data-room="kitchen">
-                        <i class="fas fa-utensils"></i>
-                        <span>Kitchen</span>
-                    </button>
-                    <button class="room-btn" data-room="bathroom">
-                        <i class="fas fa-bath"></i>
-                        <span>Bathroom</span>
-                    </button>
-                </div>
-
-                <div class="visualizer-main">
-                    <div class="room-preview">
-                        <!-- Exterior View -->
-                        <div class="room-view active" data-room-view="exterior">
-                            <div class="exterior-scene">
-                                <div class="sky"></div>
-                                <div class="house-3d">
-                                    <div class="roof-main"></div>
-                                    <div class="roof-front"></div>
-                                    <div class="wall-main" id="exteriorWall"></div>
-                                    <div class="wall-left"></div>
-                                    <div class="wall-right"></div>
-                                    <div class="door-main">
-                                        <div class="door-knob"></div>
-                                    </div>
-                                    <div class="window-3d window-1">
-                                        <div class="window-pane"></div>
-                                        <div class="window-frame-h"></div>
-                                        <div class="window-frame-v"></div>
-                                    </div>
-                                    <div class="window-3d window-2">
-                                        <div class="window-pane"></div>
-                                        <div class="window-frame-h"></div>
-                                        <div class="window-frame-v"></div>
-                                    </div>
-                                </div>
-                                <div class="ground">
-                                    <div class="grass-layer"></div>
-                                    <div class="pathway"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Living Room -->
-                        <div class="room-view" data-room-view="living">
-                            <div class="room-3d living-3d">
-                                <div class="room-back-wall" id="livingWall"></div>
-                                <div class="room-left-wall"></div>
-                                <div class="room-right-wall"></div>
-                                <div class="room-floor"></div>
-                                <div class="room-ceiling"></div>
-                                <div class="furniture-living">
-                                    <div class="sofa-3d">
-                                        <div class="sofa-back"></div>
-                                        <div class="sofa-seat"></div>
-                                        <div class="sofa-arm sofa-arm-left"></div>
-                                        <div class="sofa-arm sofa-arm-right"></div>
-                                    </div>
-                                    <div class="coffee-table"></div>
-                                    <div class="tv-unit">
-                                        <div class="tv-screen"></div>
-                                    </div>
-                                    <div class="plant-pot"></div>
-                                    <div class="rug-floor"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Bedroom -->
-                        <div class="room-view" data-room-view="bedroom">
-                            <div class="room-3d bedroom-3d">
-                                <div class="room-back-wall" id="bedroomWall"></div>
-                                <div class="room-left-wall"></div>
-                                <div class="room-right-wall"></div>
-                                <div class="room-floor"></div>
-                                <div class="room-ceiling"></div>
-                                <div class="furniture-bedroom">
-                                    <div class="bed-3d">
-                                        <div class="bed-base"></div>
-                                        <div class="bed-mattress"></div>
-                                        <div class="bed-pillow bed-pillow-1"></div>
-                                        <div class="bed-pillow bed-pillow-2"></div>
-                                        <div class="bed-headboard"></div>
-                                    </div>
-                                    <div class="nightstand-3d nightstand-left">
-                                        <div class="nightstand-lamp"></div>
-                                    </div>
-                                    <div class="nightstand-3d nightstand-right"></div>
-                                    <div class="wardrobe"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Kitchen -->
-                        <div class="room-view" data-room-view="kitchen">
-                            <div class="room-3d kitchen-3d">
-                                <div class="room-back-wall" id="kitchenWall"></div>
-                                <div class="room-left-wall"></div>
-                                <div class="room-right-wall"></div>
-                                <div class="room-floor"></div>
-                                <div class="room-ceiling"></div>
-                                <div class="furniture-kitchen">
-                                    <div class="kitchen-cabinets-upper"></div>
-                                    <div class="kitchen-cabinets-lower"></div>
-                                    <div class="kitchen-countertop"></div>
-                                    <div class="kitchen-sink">
-                                        <div class="sink-faucet"></div>
-                                    </div>
-                                    <div class="kitchen-stove"></div>
-                                    <div class="refrigerator"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Bathroom -->
-                        <div class="room-view" data-room-view="bathroom">
-                            <div class="room-3d bathroom-3d">
-                                <div class="room-back-wall" id="bathroomWall"></div>
-                                <div class="room-left-wall"></div>
-                                <div class="room-right-wall"></div>
-                                <div class="room-floor"></div>
-                                <div class="room-ceiling"></div>
-                                <div class="furniture-bathroom">
-                                    <div class="bathtub-3d">
-                                        <div class="bathtub-inner"></div>
-                                    </div>
-                                    <div class="sink-3d">
-                                        <div class="sink-basin"></div>
-                                        <div class="sink-faucet-bath"></div>
-                                        <div class="mirror-bath"></div>
-                                    </div>
-                                    <div class="toilet-3d"></div>
-                                    <div class="tiles-accent"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="color-controls">
-                        <h3><i class="fas fa-palette"></i> Choose Your Color</h3>
-                        
-                        <div class="color-picker-section">
-                            <label>Custom Color Picker</label>
-                            <input type="color" id="colorPicker" value="#FF6B6B">
-                            <div class="current-color">
-                                <span id="colorCode">#FF6B6B</span>
-                            </div>
-                        </div>
-
-                        <div class="color-presets">
-                            <h4>Popular Paint Colors</h4>
-                            <div class="preset-grid">
-                                <div class="preset-item" data-color="#FF6B6B"><div class="preset-swatch" style="background: #FF6B6B;"></div><span>Coral Red</span></div>
-                                <div class="preset-item" data-color="#4ECDC4"><div class="preset-swatch" style="background: #4ECDC4;"></div><span>Turquoise</span></div>
-                                <div class="preset-item" data-color="#FFE66D"><div class="preset-swatch" style="background: #FFE66D;"></div><span>Sunny Yellow</span></div>
-                                <div class="preset-item" data-color="#95E1D3"><div class="preset-swatch" style="background: #95E1D3;"></div><span>Mint Green</span></div>
-                                <div class="preset-item" data-color="#FF8B94"><div class="preset-swatch" style="background: #FF8B94;"></div><span>Blush Pink</span></div>
-                                <div class="preset-item" data-color="#A8E6CF"><div class="preset-swatch" style="background: #A8E6CF;"></div><span>Sage Green</span></div>
-                                <div class="preset-item" data-color="#FFDAB9"><div class="preset-swatch" style="background: #FFDAB9;"></div><span>Peach</span></div>
-                                <div class="preset-item" data-color="#DDA0DD"><div class="preset-swatch" style="background: #DDA0DD;"></div><span>Lavender</span></div>
-                                <div class="preset-item" data-color="#87CEEB"><div class="preset-swatch" style="background: #87CEEB;"></div><span>Sky Blue</span></div>
-                                <div class="preset-item" data-color="#F0E68C"><div class="preset-swatch" style="background: #F0E68C;"></div><span>Khaki</span></div>
-                                <div class="preset-item" data-color="#98D8C8"><div class="preset-swatch" style="background: #98D8C8;"></div><span>Aqua</span></div>
-                                <div class="preset-item" data-color="#F7DC6F"><div class="preset-swatch" style="background: #F7DC6F;"></div><span>Gold</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -417,65 +217,159 @@
         </div>
     </section>
 
-    <!-- Showcase -->
-    <section id="showcase" class="showcase">
+    <!-- Brand Ambassador Section -->
+    <section class="brand-ambassador">
         <div class="container">
             <div class="section-head">
                 <span class="tag-colorful">
-                    <i class="fas fa-images"></i> PORTFOLIO
+                    <i class="fas fa-star"></i> BRAND AMBASSADOR
                 </span>
                 <h2>
-                    <span>Our Recent</span>
-                    <span class="gradient-text">Projects</span>
+                    <span>Trusted by</span>
+                    <span class="gradient-text">Celebrities</span>
                 </h2>
             </div>
 
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/gallery/project1.jpg" alt="Project 1">
-                    <div class="gallery-overlay">
-                        <h3>Residential Complex</h3>
-                        <p>Exterior Painting</p>
+            <div class="ambassador-content">
+                <div class="ambassador-left">
+                    <div class="ambassador-badge">
+                        <i class="fas fa-award"></i>
+                        BRAND AMBASSADOR
+                    </div>
+                    
+                    <h2>
+                        Endorsed by<br>
+                        <span class="ambassador-name">Shakti Kapoor</span>
+                    </h2>
+                    
+                    <div class="ambassador-quote">
+                        <p>"Novalac Industries represents the epitome of quality and excellence in the paint industry. Their commitment to delivering premium products that transform spaces is truly remarkable. I'm proud to be associated with a brand that values perfection as much as I do."</p>
+                        <div class="ambassador-signature">- Shakti Kapoor</div>
+                    </div>
+                    
+                    <div class="ambassador-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p>Premium Quality Assurance</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <p>Trusted for 25+ Years</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-paint-roller"></i>
+                            </div>
+                            <p>Professional Grade Paints</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <p>Eco-Friendly Solutions</p>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/project2.jpg" alt="Project 2">
-                    <div class="gallery-overlay">
-                        <h3>Modern Villa</h3>
-                        <p>Complete Interior</p>
+                
+                <div class="ambassador-right">
+                    <div class="paint-drops">
+                        <div class="paint-drop" style="--drop-color: #FF6B6B; --drop-size: 80px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+                        <div class="paint-drop" style="--drop-color: #4ECDC4; --drop-size: 60px; top: 25%; right: 8%; animation-delay: 1s;"></div>
+                        <div class="paint-drop" style="--drop-color: #FFE66D; --drop-size: 70px; bottom: 20%; left: 10%; animation-delay: 2s;"></div>
+                        <div class="paint-drop" style="--drop-color: #95E1D3; --drop-size: 50px; top: 60%; right: 5%; animation-delay: 3s;"></div>
+                        <div class="paint-drop" style="--drop-color: #FF8B94; --drop-size: 65px; bottom: 10%; right: 15%; animation-delay: 4s;"></div>
+                        <div class="paint-drop" style="--drop-color: #A8E6CF; --drop-size: 55px; top: 40%; left: 2%; animation-delay: 2.5s;"></div>
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/project3.jpg" alt="Project 3">
-                    <div class="gallery-overlay">
-                        <h3>Office Building</h3>
-                        <p>Commercial Project</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/project4.jpg" alt="Project 4">
-                    <div class="gallery-overlay">
-                        <h3>Luxury Apartment</h3>
-                        <p>Premium Finish</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/project5.jpg" alt="Project 5">
-                    <div class="gallery-overlay">
-                        <h3>School Building</h3>
-                        <p>Waterproofing</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/project6.jpg" alt="Project 6">
-                    <div class="gallery-overlay">
-                        <h3>Shopping Complex</h3>
-                        <p>Complete Project</p>
+                    <div class="color-burst color-burst-1"></div>
+                    <div class="color-burst color-burst-2"></div>
+                    <div class="color-burst color-burst-3"></div>
+                    <div class="ambassador-image-wrapper">
+                        <img src="images/gallery/Shakti%20Kapoor_02.png" alt="Shakti Kapoor - Novalac Industries Brand Ambassador">
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-head">
+                <span class="tag-colorful">
+                    <i class="fas fa-images"></i> OUR WORK
+                </span>
+                <h2>
+                    <span>Project</span>
+                    <span class="gradient-text">Gallery</span>
+                </h2>
+                <p>Explore our stunning collection featuring our brand ambassador</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/gallery/Shakti%20kapoor_01.png" alt="Shakti Kapoor with Novalac Products">
+                    <div class="gallery-overlay">
+                        <h3>Brand Ambassador</h3>
+                        <p>Shakti Kapoor representing Novalac Industries</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/gallery/Shakti%20Kapoor_02.png" alt="Shakti Kapoor - Novalac Paint Collection">
+                    <div class="gallery-overlay">
+                        <h3>Premium Collection</h3>
+                        <p>Showcasing our finest paint products</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/gallery/shakti%20kapoor-03.png" alt="Shakti Kapoor with Novalac Team">
+                    <div class="gallery-overlay">
+                        <h3>Quality Assurance</h3>
+                        <p>Trusted by professionals</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/gallery/Shakti%20Kapoor_04.png" alt="Shakti Kapoor Paint Promotion">
+                    <div class="gallery-overlay">
+                        <h3>Innovation</h3>
+                        <p>Leading the paint industry</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/gallery/Shakti%20kapoor-05.png" alt="Shakti Kapoor Brand Campaign">
+                    <div class="gallery-overlay">
+                        <h3>Excellence</h3>
+                        <p>Commitment to perfection</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/gallery/Shakti%20kapoor_06.png" alt="Shakti Kapoor Novalac Ambassador">
+                    <div class="gallery-overlay">
+                        <h3>Trust & Quality</h3>
+                        <p>Your partner in color</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/gallery/Shakti%20Kapoor-07.png" alt="Shakti Kapoor with Novalac Paint Range">
+                    <div class="gallery-overlay">
+                        <h3>Complete Range</h3>
+                        <p>Solutions for every need</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Contact -->
     <section id="contact" class="contact">
@@ -528,39 +422,62 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
+                <div class="footer-col footer-about">
                     <div class="footer-logo">
                         <i class="fas fa-fill-drip"></i>
                         <span>NOVALAC</span>
                     </div>
-                    <p>Transforming spaces with premium quality paints since 1998.</p>
+                    <p>Transforming spaces with premium quality paints since 1998. Your trusted partner for vibrant, durable, and eco-friendly paint solutions.</p>
+                    <div class="footer-social">
+                        <p class="social-title">Follow Us:</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <a href="#home">Home</a>
-                    <a href="#visualizer">Color Visualizer</a>
                     <a href="#products">Products</a>
+                    <a href="#brands">Our Brands</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact Us</a>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Products</h4>
+                    <h4>Our Products</h4>
                     <a href="#products">Emulsion Paints</a>
                     <a href="#products">Wall Putty</a>
                     <a href="#products">Waterproofing</a>
+                    <a href="#products">Specialty Products</a>
+                    <a href="images/gallery/catalogue.pdf" target="_blank">Product Catalog (PDF)</a>
                 </div>
 
                 <div class="footer-col">
                     <h4>Support</h4>
-                    <a href="#">FAQ</a>
-                    <a href="#">Warranty</a>
-                    <a href="#">Color Guide</a>
+                    <a href="#contact">Get a Quote</a>
+                    <a href="#brands">Our Brands</a>
+                    <a href="#contact">Customer Support</a>
+                    <a href="#">Warranty Info</a>
+                    <a href="#">Terms & Conditions</a>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <p>&copy; 2026 Novalac Industries. All Rights Reserved.</p>
-                <p class="footer-credits">Design and Developed by <strong>Garvik India</strong></p>
+                <p class="footer-credits">Designed and Developed by <strong>Garvik India</strong></p>
             </div>
         </div>
     </footer>
