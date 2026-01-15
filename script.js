@@ -551,7 +551,11 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // ========== INITIALIZE ==========
+// ========== INITIALIZE ==========
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize with default color
+    applyColorToRoom(currentColor);
+
     renderProducts();
 
     // Observe cards for animation
@@ -562,9 +566,6 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transition = 'all 0.6s ease';
         observer.observe(card);
     });
-
-    // Initialize with default color
-    applyColorToRoom(currentColor);
 });
 
 console.log('%c🎨 NOVALAC INDUSTRIES - Colorful Paint Website Loaded', 'color: #FF6B6B; font-size: 20px; font-weight: bold;');
