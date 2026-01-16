@@ -3671,7 +3671,7 @@ section {
 }
 
 .social-icon {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     width: 45px;
@@ -3686,14 +3686,17 @@ section {
     position: relative;
     overflow: hidden;
     margin: 0;
-    line-height: 1;
+    padding: 0;
 }
 
 .social-icon i {
-    position: relative;
     z-index: 2;
-    display: block;
+    display: inline-block;
     line-height: 1;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
 }
 
 .social-icon:nth-child(2) {
