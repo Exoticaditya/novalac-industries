@@ -3671,25 +3671,29 @@ section {
 }
 
 .social-icon {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 45px;
     height: 45px;
     background: linear-gradient(135deg, #FF3366, #FF6B35);
     border-radius: 50%;
-    color: #fff;
+    color: #ffffff !important;
     transition: all 0.3s ease;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
     position: relative;
     overflow: hidden;
+    margin: 0;
+    line-height: 1;
 }
 
 .social-icon i {
     position: relative;
     z-index: 2;
+    display: block;
+    line-height: 1;
 }
 
 .social-icon:nth-child(2) {
