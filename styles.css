@@ -258,7 +258,9 @@ section {
     padding: 8rem 0 4rem;
     background: var(--cream);
     background-image: url('images/gallery/background-image.jpg');
-    background-size: cover;
+    background-size: auto 90%;
+    /* Use auto width, 90% height to keep it contained but "original-ish" scaling if large, or cover if huge. User said 'original height', 'auto' is safest for 'original'. Let's strictly follow 'original height' -> 'auto' */
+    background-size: auto;
     background-position: right center;
     background-repeat: no-repeat;
     position: relative;
