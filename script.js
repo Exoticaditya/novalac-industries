@@ -285,54 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========== PRODUCT FILTER ==========
-const filterBtns = document.querySelectorAll('.filter-btn');
-const productCards = document.querySelectorAll('.product-card');
+// Filter logic moved to setupFilters() inside DOMContentLoaded
 
-if (filterBtns.length > 0) {
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-            const cards = document.querySelectorAll('.product-card'); // Re-select in case of dynamic loading
-
-            cards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 10);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.8)';
-                    setTimeout(() => card.style.display = 'none', 300);
-                }
-            });
-        });
-    });
-}
-filterBtns.forEach(b => b.classList.remove('active'));
-btn.classList.add('active');
-
-const filter = btn.getAttribute('data-filter');
-
-productCards.forEach(card => {
-    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-        card.style.display = 'block';
-        setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
-        }, 10);
-    } else {
-        card.style.opacity = '0';
-        card.style.transform = 'scale(0.8)';
-        setTimeout(() => card.style.display = 'none', 300);
-    }
-});
-    });
-});
 
 // ========== DYNAMIC PRODUCTS - ULTRA VIBRANT ==========
 const products = [
@@ -569,22 +523,70 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // ========== INITIALIZE ==========
-// ========== INITIALIZE ==========
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize with default color
-    applyColorToRoom(currentColor);
+    if (typeof applyColorToRoom === 'function') {
+        applyColorToRoom(currentColor);
+    }
 
+    // Render Products
     renderProducts();
+
+    // Setup Filter Logic (After products are rendered)
+    setupFilters();
 
     // Observe cards for animation
     const cards = document.querySelectorAll('.brand-card, .gallery-item, .info-card');
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(50px)';
-        card.style.transition = 'all 0.6s ease';
-        observer.observe(card);
-    });
+    if (typeof observer !== 'undefined') {
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    }
+
+    // Additional animations check
+    animateCounters();
 });
+
+function setupFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    // Note: productCards needs to be queried AFTER renderProducts
+
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active to clicked
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                const cards = document.querySelectorAll('.product-card');
+
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'block';
+                        // Small delay to allow display:block to apply before opacity transition
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    }
+}
 
 console.log('%c🎨 NOVALAC INDUSTRIES - Colorful Paint Website Loaded', 'color: #FF6B6B; font-size: 20px; font-weight: bold;');
 console.log('%cRoom Visualizer Active ✓', 'color: #4ECDC4; font-size: 14px;');
