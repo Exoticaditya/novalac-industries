@@ -1,12 +1,7 @@
 // NOVALAC INDUSTRIES - Ultra Vibrant Paint Website
 // Interactive Room Visualizer & Paint Animations
 
-// ========== LOADER ==========
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        document.querySelector('.loader').classList.add('hidden');
-    }, 1500);
-});
+
 
 // ========== PARTICLES.JS CONFIG - ULTRA VIBRANT ==========
 particlesJS('particles-js', {
