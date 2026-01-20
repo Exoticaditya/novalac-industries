@@ -293,26 +293,49 @@ document.addEventListener('DOMContentLoaded', () => {
 const filterBtns = document.querySelectorAll('.filter-btn');
 const productCards = document.querySelectorAll('.product-card');
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+if (filterBtns.length > 0) {
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
-        const filter = btn.getAttribute('data-filter');
+            const filter = btn.getAttribute('data-filter');
+            const cards = document.querySelectorAll('.product-card'); // Re-select in case of dynamic loading
 
-        productCards.forEach(card => {
-            if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                card.style.display = 'block';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                }, 10);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.8)';
-                setTimeout(() => card.style.display = 'none', 300);
-            }
+            cards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
         });
+    });
+}
+filterBtns.forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+
+const filter = btn.getAttribute('data-filter');
+
+productCards.forEach(card => {
+    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+        card.style.display = 'block';
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+        }, 10);
+    } else {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.8)';
+        setTimeout(() => card.style.display = 'none', 300);
+    }
+});
     });
 });
 

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | NOVALAC INDUSTRIES - Premium Quality Paints</title>
+    <meta name="description"
+        content="Explore our extensive range of premium paints, emulsions, wall putty, and construction chemicals. Find the perfect color and finish for your home.">
+    <meta name="keywords"
+        content="novalac products, paint catalog, emulsion, wall putty, waterproofing solutions, exterior paint, interior paint, construction chemicals">
+    <meta name="author" content="Novalac Industries Private Limited">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://exoticaditya.github.io/novalac-industries/products.html">
+    <meta property="og:title" content="Our Products | NOVALAC INDUSTRIES">
+    <meta property="og:description"
+        content="Explore our extensive range of premium paints, emulsions, wall putty, and construction chemicals.">
+    <meta property="og:image"
+        content="https://exoticaditya.github.io/novalac-industries/images/gallery/Shakti%20Kapoor_02.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://exoticaditya.github.io/novalac-industries/products.html">
+    <meta property="twitter:title" content="Our Products | NOVALAC INDUSTRIES">
+    <meta property="twitter:description"
+        content="Explore our extensive range of premium paints, emulsions, wall putty, and construction chemicals.">
+    <meta property="twitter:image"
+        content="https://exoticaditya.github.io/novalac-industries/images/gallery/Shakti%20Kapoor_02.png">
+
+    <link rel="canonical" href="https://exoticaditya.github.io/novalac-industries/products.html">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF6B6B'/><path d='M30 40 L50 20 L70 40 L60 50 L50 60 L40 50 Z' fill='white'/></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-paint">
+                    <i class="fas fa-fill-drip"></i>
+                </div>
+                <div class="logo-text">
+                    <span>NOVALAC</span>
+                    <small>PREMIUM PAINTS</small>
+                </div>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">HOME</a></li>
+                <li><a href="index.html#about" class="nav-link">ABOUT</a></li>
+                <li><a href="products.html" class="nav-link active">PRODUCTS</a></li>
+                <li><a href="index.html#brands" class="nav-link">BRANDS</a></li>
+                <li><a href="index.html#dealers" class="nav-link">DEALERS</a></li>
+                <li><a href="index.html#gallery" class="nav-link">GALLERY</a></li>
+                <li><a href="index.html#contact" class="nav-link">CONTACT</a></li>
+                <li><a href="#" class="btn-colorful-nav" onclick="openQuoteModal()">GET QUOTE</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header" id="product-header">
+        <div class="container">
+            <div class="header-content">
+                <span class="tag-colorful">
+                    <i class="fas fa-th"></i> OUR COLLECTION
+                </span>
+                <h1>
+                    <span>Explore Our</span>
+                    <span class="gradient-text">Premium Range</span>
+                </h1>
+                <p>Discover the perfect finish for every surface. From durable exteriors to luxurious interiors, we have
+                    it all.</p>
+            </div>
+        </div>
+        <div class="header-overlay"></div>
+    </header>
+
+    <!-- Products Section -->
+    <section id="products" class="products-page-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-bar sticky-filter">
+                    <button class="filter-btn active" data-filter="all">All Products</button>
+                    <button class="filter-btn" data-filter="emulsion">Emulsions</button>
+                    <button class="filter-btn" data-filter="putty">Wall Putty</button>
+                    <button class="filter-btn" data-filter="waterproof">Waterproofing</button>
+                    <button class="filter-btn" data-filter="distemper">Distemper</button>
+                    <button class="filter-btn" data-filter="primer">Primers</button>
+                    <button class="filter-btn" data-filter="adhesive">Adhesives</button>
+                    <button class="filter-btn" data-filter="construction">Construction</button>
+                    <button class="filter-btn" data-filter="specialty">Specialty</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be injected here via script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Need help choosing?</h2>
+                <p>Our experts are here to guide you to the perfect product for your needs.</p>
+                <a href="index.html#contact" class="btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Novalac Industries Private Limited. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quote Modal -->
+    <div class="modal" id="quoteModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeQuoteModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Get a <span class="gradient-text">Quote</span></h2>
+                <p>Fill out the form below and we'll get back to you with the best pricing.</p>
+            </div>
+            <form id="quoteForm" class="quote-form">
+                <div class="form-group">
+                    <label for="quoteName">Full Name</label>
+                    <input type="text" id="quoteName" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="quotePhone">Phone Number</label>
+                    <input type="tel" id="quotePhone" required placeholder="+91 98765 43210">
+                </div>
+                <div class="form-group">
+                    <label for="quoteProduct">Product of Interest</label>
+                    <input type="text" id="quoteProduct" placeholder="e.g. Interior Emulsion">
+                </div>
+                <div class="form-group">
+                    <label for="quoteMessage">Message (Optional)</label>
+                    <textarea id="quoteMessage" rows="3"
+                        placeholder="Tell us more about your requirement..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn-block">Request Quote</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
