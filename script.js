@@ -293,31 +293,38 @@ const products = [
     // EMULSIONS
     {
         id: 1, name: 'Novacare Advance Acrylic Emulsion', category: 'emulsion', desc: 'Premium weather-resistant emulsion',
-        image: 'images/products/novacare-advance-acrylic-emulsion.jpg', badge: 'BESTSELLER', color: '#FF3366', tags: ['Weather Resistant', 'Washable']
+        image: 'images/products/novacare-advance-acrylic-emulsion.jpg', badge: 'BESTSELLER', color: '#FF3366', tags: ['Weather Resistant', 'Washable'],
+        colors: ['#E8D5B7', '#C4A77D', '#8B7355', '#F5E6D3']
     },
     {
         id: 2, name: 'All Weather Advance Acrylic Emulsion', category: 'emulsion', desc: 'Advanced exterior emulsion with UV protection',
-        image: 'images/products/all-weather-advance-acrylic-emulsion.jpg', badge: 'NEW', color: '#00D4AA', tags: ['UV Protection', 'Eco-Friendly']
+        image: 'images/products/all-weather-advance-acrylic-emulsion.jpg', badge: 'NEW', color: '#00D4AA', tags: ['UV Protection', 'Eco-Friendly'],
+        colors: ['#FFFFFF', '#F0F0F0', '#E5D9C9', '#D4C4B0']
     },
     {
         id: 3, name: 'Interior Royal Touch Emulsion', category: 'emulsion', desc: 'Luxury smooth finish emulsion',
-        image: 'images/products/interior-royal-touch-emulsion.jpg', badge: 'PREMIUM', color: '#FFD700', tags: ['Smooth Finish', 'Washable']
+        image: 'images/products/interior-royal-touch-emulsion.jpg', badge: 'PREMIUM', color: '#FFD700', tags: ['Smooth Finish', 'Washable'],
+        colors: ['#FFE4E1', '#E6E6FA', '#F0FFF0', '#FFF8DC']
     },
     {
         id: 4, name: 'Novalac Acrylic Luxury Emulsion', category: 'emulsion', desc: 'Ultimate luxury emulsion for premium finish',
-        image: 'images/products/novalac-acrylic-luxury-emulsion.jpg', badge: 'LUXURY', color: '#8B5CF6', tags: ['Premium Finish', 'Long Lasting']
+        image: 'images/products/novalac-acrylic-luxury-emulsion.jpg', badge: 'LUXURY', color: '#8B5CF6', tags: ['Premium Finish', 'Long Lasting'],
+        colors: ['#FDF5E6', '#FAF0E6', '#FAEBD7', '#F5DEB3']
     },
     {
         id: 5, name: 'Acrylic Luxury Emulsion', category: 'emulsion', desc: 'High-end acrylic emulsion paint',
-        image: 'images/products/acrylic-luxury-emulsion.jpg', badge: 'PREMIUM', color: '#FF69B4', tags: ['Luxury', 'Durable']
+        image: 'images/products/acrylic-luxury-emulsion.jpg', badge: 'PREMIUM', color: '#FF69B4', tags: ['Luxury', 'Durable'],
+        colors: ['#B8860B', '#DAA520', '#CD853F', '#DEB887']
     },
     {
         id: 6, name: 'Novalac Classic Emulsion Paint', category: 'emulsion', desc: 'Interior & exterior versatile paint',
-        image: 'images/products/novalac-classic-emulsion-paint(interior & exterior).jpeg', badge: 'VERSATILE', color: '#06B6D4', tags: ['Interior', 'Exterior']
+        image: 'images/products/novalac-classic-emulsion-paint(interior & exterior).jpeg', badge: 'VERSATILE', color: '#06B6D4', tags: ['Interior', 'Exterior'],
+        colors: ['#FFFAF0', '#FFF5EE', '#FFFACD', '#F5FFFA']
     },
     {
         id: 7, name: 'Novapaints Platinum Exterior Emulsion', category: 'emulsion', desc: 'Premium exterior protection',
-        image: 'images/products/novapiants-platinum exterior emulsion.jpeg', badge: 'PLATINUM', color: '#C0C0C0', tags: ['Weather Shield', 'Premium']
+        image: 'images/products/novapiants-platinum exterior emulsion.jpeg', badge: 'PLATINUM', color: '#C0C0C0', tags: ['Weather Shield', 'Premium'],
+        colors: ['#C0C0C0', '#A9A9A9', '#D3D3D3', '#DCDCDC']
     },
 
     // WALL PUTTY
@@ -439,6 +446,23 @@ function renderProducts() {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.setAttribute('data-category', product.category);
+
+        // Generate color swatches HTML if product has colors
+        let colorSwatchesHTML = '';
+        if (product.colors && product.colors.length > 0) {
+            colorSwatchesHTML = `
+                <div class="product-colors">
+                    ${product.colors.map((clr, idx) => `
+                        <div class="color-swatch ${idx === 0 ? 'active' : ''}" 
+                             style="background: ${clr};" 
+                             data-color="${clr}"
+                             title="Color option ${idx + 1}">
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
         card.innerHTML = `
             <div class="product-img">
                 <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300?text=${product.name}'">
@@ -450,9 +474,35 @@ function renderProducts() {
                 <div class="product-tags">
                     ${product.tags.map(tag => `<span>${tag}</span>`).join('')}
                 </div>
+                ${colorSwatchesHTML}
                 <button class="btn-product" onclick="openQuoteModal('${product.name}')">Get Quote</button>
             </div>
         `;
+
+        // Add color swatch hover functionality
+        if (product.colors && product.colors.length > 0) {
+            const swatches = card.querySelectorAll('.color-swatch');
+            const productImg = card.querySelector('.product-img img');
+
+            swatches.forEach(swatch => {
+                swatch.addEventListener('mouseenter', () => {
+                    const color = swatch.dataset.color;
+                    // Apply subtle hue overlay effect
+                    productImg.style.filter = `drop-shadow(0 5px 15px ${color}80)`;
+                    productImg.style.transition = 'filter 0.3s ease';
+                });
+
+                swatch.addEventListener('mouseleave', () => {
+                    productImg.style.filter = 'drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1))';
+                });
+
+                swatch.addEventListener('click', () => {
+                    swatches.forEach(s => s.classList.remove('active'));
+                    swatch.classList.add('active');
+                });
+            });
+        }
+
         productsGrid.appendChild(card);
     });
 }
