@@ -385,16 +385,7 @@ const products = [
         image: 'images/products/product-19.jpeg', badge: 'INDUSTRIAL', color: '#37474F', tags: ['Industrial', 'Corrosion Protection', 'Professional']
     },
     {
-        id: 22, name: 'All Weather Advance Acrylic Emulsion (Pink)', category: 'emulsion', desc: 'All-weather advance acrylic emulsion with Nanoskin technology - vibrant pink variant',
-        image: 'images/products/acrylic-matt-finish-emulsion.jpeg', badge: 'ALL WEATHER', color: '#E91E63', tags: ['All Weather', 'Nanoskin', 'Emulsion']
-    },
-    {
-        id: 23, name: 'Platinum Shell Finish Waterproof Emulsion', category: 'emulsion', desc: 'Extra coverage waterproof shell finish for ultimate protection',
-        image: 'images/products/Platinum Shell finish waterproof Emulsion(Extra Coverage).jpeg', badge: 'WATERPROOF', color: '#C0C0C0', tags: ['Waterproof', 'Extra Coverage', 'Shell Finish'],
-        colors: ['#FFFFFF', '#F0F0F0', '#E5D9C9', '#D4C4B0']
-    },
-    {
-        id: 24, name: 'Acrylic Matt Finish Emulsion', category: 'emulsion', desc: 'Premium matt finish emulsion for smooth, elegant interiors',
+        id: 22, name: 'Acrylic Matt Finish Emulsion', category: 'emulsion', desc: 'Premium matt finish emulsion for smooth, elegant interiors',
         image: 'images/products/acrylic-matt-finish-emulsion.jpeg', badge: 'BESTSELLER', color: '#FF3366', tags: ['Matt Finish', 'Washable', 'Interior'],
         colors: ['#E8D5B7', '#C4A77D', '#8B7355', '#F5E6D3']
     }
