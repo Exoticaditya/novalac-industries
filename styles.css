@@ -131,6 +131,18 @@ section {
     gap: 1rem;
 }
 
+.logo-image {
+    height: 60px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+}
+
 .logo-paint {
     width: 55px;
     height: 55px;
@@ -512,6 +524,35 @@ section {
     50% {
         transform: scale(1.3);
         opacity: 0.7;
+    }
+}
+
+.hero-logo-container {
+    margin: 2rem 0 2.5rem 0;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-logo-image {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.hero-logo-image:hover {
+    transform: scale(1.02);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -1065,7 +1106,7 @@ section {
     z-index: 2;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
     transition: transform 0.5s ease;
-    transform: translateY(-40px);
+    transform: translateY(-80px);
 }
 
 .hero-blob {
@@ -4905,9 +4946,7 @@ section {
     }
 }
 
-box-shadow: 0 15px 40px rgba(27, 73, 101, 0.15);
-border-top-color: var(--secondary);
-}
+
 
 .dealer-header {
     display: flex;
