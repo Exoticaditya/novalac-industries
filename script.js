@@ -290,67 +290,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ========== DYNAMIC PRODUCTS - ULTRA VIBRANT ==========
 const products = [
-    // EMULSIONS
-    {
-        id: 1, name: 'Novacare Black Shield Advance Acrylic', category: 'emulsion', desc: 'High-performance advance acrylic with black shield protection. Durable, long-lasting, eco-friendly finish.',
-        image: 'images/products/product-1.jpeg', badge: 'BESTSELLER', color: '#4CAF50', tags: ['Advance Acrylic', 'Black Shield', 'Eco-Friendly'],
-        colors: ['#E8D5B7', '#C4A77D', '#8B7355', '#F5E6D3']
-    },
-    {
-        id: 2, name: 'All Weather Acrylic Washable Distemper', category: 'distemper', desc: 'All-weather acrylic washable distemper for brilliant, long-lasting interior finishes',
-        image: 'images/products/product-2.jpeg', badge: 'ALL WEATHER', color: '#4CAF50', tags: ['Washable', 'All Weather', 'Interior'],
-        colors: ['#FFFFFF', '#F0F0F0', '#E5D9C9', '#D4C4B0']
-    },
+    // 1. LUXURY METALLIC
     {
         id: 3, name: 'Premium Acrylic Luxury Emulsion', category: 'emulsion', desc: 'Hi-gloss premium acrylic emulsion for amazing color and flawless finish',
         image: 'images/products/Metallic-emulsion-paint.jpeg', badge: 'LUXURY', color: '#1E3A8A', tags: ['Hi-Gloss', 'Premium', 'Decorative'],
         colors: ['#C0C0C0', '#B87333', '#CD7F32', '#DAA520']
     },
-    {
-        id: 4, name: 'Classic 2-in-1 Acrylic Eco Emulsion', category: 'emulsion', desc: 'Versatile eco-friendly emulsion for both exterior and interior',
-        image: 'images/products/CLASSIC 2 in 1 Acrylic Eco Emulsion ( For Exterior and Interior).jpeg', badge: 'ECO-FRIENDLY', color: '#10B981', tags: ['Eco-Friendly', 'Interior', 'Exterior'],
-        colors: ['#FFFAF0', '#FFF5EE', '#FFFACD', '#F5FFFA']
-    },
-    {
-        id: 5, name: 'Rustic Texture Paint', category: 'texture', desc: 'Create stunning rustic wall textures with depth and character',
-        image: 'images/products/Rustic texture.jpeg', badge: 'DESIGNER', color: '#8B4513', tags: ['Texture', 'Rustic', 'Decorative'],
-        colors: ['#D2691E', '#8B4513', '#A0522D', '#CD853F']
-    },
-    {
-        id: 6, name: 'All Weather Advance Acrylic Emulsion', category: 'emulsion', desc: 'Advanced all-weather acrylic emulsion with Nanoskin technology for superior protection',
-        image: 'images/products/product-4.jpeg', badge: 'TOP RATED', color: '#3F51B5', tags: ['All Weather', 'Nanoskin', 'Advance Acrylic'],
-        colors: ['#FFE4E1', '#E6E6FA', '#F0FFF0', '#FFF8DC']
-    },
-    {
-        id: 7, name: 'Novacare Wall Primer', category: 'primer', desc: 'High-performance interior and exterior wall primer for perfect paint adhesion',
-        image: 'images/products/product-5.jpeg', badge: 'ESSENTIAL', color: '#2196F3', tags: ['Wall Primer', 'Interior', 'Exterior'],
-        colors: ['#FFFFFF', '#F5F5F5', '#E8E8E8', '#D3D3D3']
-    },
+    // 2. NOVACARE PLATINUM
     {
         id: 8, name: 'Novacare Platinum Exterior Emulsion', category: 'emulsion', desc: 'Premium platinum silver technology exterior emulsion with 5-year durability',
         image: 'images/products/product-6.jpeg', badge: 'PREMIUM', color: '#1A237E', tags: ['Platinum', 'Exterior', '5 Year Durability'],
         colors: ['#FDF5E6', '#FAF0E6', '#FAEBD7', '#F5DEB3']
     },
+    // 3. BLACK SHIELD
     {
-        id: 9, name: 'Shimmer Gloss Premium Paint & Primer', category: 'emulsion', desc: 'Premium shimmer gloss for wood, metal, and walls - amazing color and flawless finish',
-        image: 'images/products/product-7.jpeg', badge: 'ELEGANT', color: '#1976D2', tags: ['Shimmer Gloss', 'Wood', 'Metal'],
-        colors: ['#FFE4E1', '#FFF0F5', '#FFF5EE', '#FFFAF0']
+        id: 1, name: 'Novacare Black Shield Advance Acrylic', category: 'emulsion', desc: 'High-performance advance acrylic with black shield protection. Durable, long-lasting, eco-friendly finish.',
+        image: 'images/products/product-1.jpeg', badge: 'BESTSELLER', color: '#4CAF50', tags: ['Advance Acrylic', 'Black Shield', 'Eco-Friendly'],
+        colors: ['#E8D5B7', '#C4A77D', '#8B7355', '#F5E6D3']
     },
+    // 4. ALL WEATHER MATT (Acrylic Matt Finish)
+    {
+        id: 24, name: 'Acrylic Matt Finish Emulsion', category: 'emulsion', desc: 'Premium matt finish emulsion for smooth, elegant interiors',
+        image: 'images/products/acrylic-matt-finish-emulsion.jpeg', badge: 'MATT FINISH', color: '#FF3366', tags: ['Matt Finish', 'Washable', 'Interior'],
+        colors: ['#E8D5B7', '#C4A77D', '#8B7355', '#F5E6D3']
+    },
+    // 5. CLASSIC 2-IN-1
+    {
+        id: 4, name: 'Classic 2-in-1 Acrylic Eco Emulsion', category: 'emulsion', desc: 'Versatile eco-friendly emulsion for both exterior and interior',
+        image: 'images/products/CLASSIC 2 in 1 Acrylic Eco Emulsion ( For Exterior and Interior).jpeg', badge: 'ECO-FRIENDLY', color: '#10B981', tags: ['Eco-Friendly', 'Interior', 'Exterior'],
+        colors: ['#FFFAF0', '#FFF5EE', '#FFFACD', '#F5FFFA']
+    },
+    // 6. PRIMER
+    {
+        id: 7, name: 'Novacare Wall Primer', category: 'primer', desc: 'High-performance interior and exterior wall primer for perfect paint adhesion',
+        image: 'images/products/product-5.jpeg', badge: 'ESSENTIAL', color: '#2196F3', tags: ['Wall Primer', 'Interior', 'Exterior'],
+        colors: ['#FFFFFF', '#F5F5F5', '#E8E8E8', '#D3D3D3']
+    },
+    // 7. UNIVERSAL STAINER
+    {
+        id: 17, name: 'Novalac Universal Stainer', category: 'emulsion', desc: 'Premium quality universal stainer with Hydrochroma technology for true color longevity',
+        image: 'images/products/product-15.jpeg', badge: 'UNIVERSAL', color: '#E53935', tags: ['Stainer', 'Hydrochroma', 'Premium']
+    },
+    // 8. DISTEMPER NOVACARE
+    {
+        id: 13, name: 'Super Novacare Acrylic Washable Distemper', category: 'distemper', desc: 'Super quality acrylic washable distemper for smooth, elegant walls',
+        image: 'images/products/product-11.jpeg', badge: 'PREMIUM', color: '#3F51B5', tags: ['Washable', 'Acrylic', 'Long Lasting']
+    },
+    // 9. DISTEMPER ALL WEATHER
+    {
+        id: 2, name: 'All Weather Acrylic Washable Distemper', category: 'distemper', desc: 'All-weather acrylic washable distemper for brilliant, long-lasting interior finishes',
+        image: 'images/products/product-2.jpeg', badge: 'ALL WEATHER', color: '#4CAF50', tags: ['Washable', 'All Weather', 'Interior'],
+        colors: ['#FFFFFF', '#F0F0F0', '#E5D9C9', '#D4C4B0']
+    },
+    // 10. NOVAJOD
+    {
+        id: 12, name: 'Novajod Synthetic Adhesive Emulsion', category: 'adhesive', desc: 'High-quality synthetic adhesive emulsion for dry distemper and lime binder',
+        image: 'images/products/product-10.jpeg', badge: 'ADHESIVE', color: '#D32F2F', tags: ['Synthetic Adhesive', 'Distemper Binder', 'Durable']
+    },
+    // 11. MR. CRETE PRODUCTS
     {
         id: 10, name: 'Mr. Crete Damp-Lock Ultimate', category: 'waterproof', desc: 'Ultimate damp-lock waterproofing with crack bridging, UV & heat resistance',
         image: 'images/products/product-8.jpeg', badge: 'WATERPROOF', color: '#00BFFF', tags: ['Damp-Lock', 'Fibre Reinforced', 'Waterproof']
     },
     {
+        id: 20, name: 'Mr. Crete Damp-Proof Ultimate', category: 'waterproof', desc: 'Ultimate damp-proof coating to protect your home from moisture and dampness',
+        image: 'images/products/product-18.jpeg', badge: 'DAMP-PROOF', color: '#3F51B5', tags: ['Damp-Proof', 'Moisture Protection', 'Ultimate']
+    },
+    {
         id: 11, name: 'Mr. Crete Epoxy Grout', category: 'construction', desc: 'Premium epoxy grout for floor, wall, and mosaic - durable with long pot life',
         image: 'images/products/product-9.jpeg', badge: 'PRO CHOICE', color: '#E53935', tags: ['Epoxy Grout', 'Floor & Wall', 'Stain Resistant']
-    },
-    {
-        id: 12, name: 'Novajod Synthetic Adhesive Emulsion', category: 'adhesive', desc: 'High-quality synthetic adhesive emulsion for dry distemper and lime binder',
-        image: 'images/products/product-10.jpeg', badge: 'ADHESIVE', color: '#D32F2F', tags: ['Synthetic Adhesive', 'Distemper Binder', 'Durable']
-    },
-    {
-        id: 13, name: 'Super Novacare Acrylic Washable Distemper', category: 'distemper', desc: 'Super quality acrylic washable distemper for smooth, elegant walls',
-        image: 'images/products/product-11.jpeg', badge: 'PREMIUM', color: '#3F51B5', tags: ['Washable', 'Acrylic', 'Long Lasting']
     },
     {
         id: 14, name: 'Mr. Crete Tile Fixer', category: 'adhesive', desc: 'Polymers and white cement based professional tile fixer for wall and floor',
@@ -361,33 +369,41 @@ const products = [
         image: 'images/products/product-13.jpeg', badge: 'SUPER WHITE', color: '#03A9F4', tags: ['White Cement', 'Decorative', 'Polymer Blended']
     },
     {
-        id: 16, name: 'Novapaints Booster', category: 'adhesive', desc: 'Xtra power booster additive for putty, paints, distemper, and grout applications',
-        image: 'images/products/product-14.jpeg', badge: 'XTRA POWER', color: '#E53935', tags: ['Booster', 'Additive', 'Multi-Purpose']
-    },
-    {
-        id: 17, name: 'Novalac Universal Stainer', category: 'emulsion', desc: 'Premium quality universal stainer with Hydrochroma technology for true color longevity',
-        image: 'images/products/product-15.jpeg', badge: 'UNIVERSAL', color: '#E53935', tags: ['Stainer', 'Hydrochroma', 'Premium']
-    },
-    {
         id: 18, name: 'Admix Plus Cement Grout Strengthener', category: 'construction', desc: 'Cement grout strengthener and hardener for enhanced durability',
         image: 'images/products/product-16.jpeg', badge: 'STRENGTHENER', color: '#2196F3', tags: ['Grout Strengthener', 'Hardener', 'Durable']
+    },
+    // OTHER PRODUCTS
+    {
+        id: 6, name: 'All Weather Advance Acrylic Emulsion', category: 'emulsion', desc: 'Advanced all-weather acrylic emulsion with Nanoskin technology for superior protection',
+        image: 'images/products/product-4.jpeg', badge: 'TOP RATED', color: '#3F51B5', tags: ['All Weather', 'Nanoskin', 'Advance Acrylic'],
+        colors: ['#FFE4E1', '#E6E6FA', '#F0FFF0', '#FFF8DC']
+    },
+    {
+        id: 5, name: 'Rustic Texture Paint', category: 'texture', desc: 'Create stunning rustic wall textures with depth and character',
+        image: 'images/products/Rustic texture.jpeg', badge: 'DESIGNER', color: '#8B4513', tags: ['Texture', 'Rustic', 'Decorative'],
+        colors: ['#D2691E', '#8B4513', '#A0522D', '#CD853F']
+    },
+    {
+        id: 9, name: 'Shimmer Gloss Premium Paint & Primer', category: 'emulsion', desc: 'Premium shimmer gloss for wood, metal, and walls - amazing color and flawless finish',
+        image: 'images/products/product-7.jpeg', badge: 'ELEGANT', color: '#1976D2', tags: ['Shimmer Gloss', 'Wood', 'Metal'],
+        colors: ['#FFE4E1', '#FFF0F5', '#FFF5EE', '#FFFAF0']
     },
     {
         id: 19, name: 'Novacare 24 Carats Acrylic Putty', category: 'putty', desc: 'Water-resistant white cement based acrylic putty - no curing required',
         image: 'images/products/product-17.jpeg', badge: 'PREMIUM', color: '#0288D1', tags: ['Acrylic Putty', 'Water Resistant', 'No Curing']
     },
     {
-        id: 20, name: 'Mr. Crete Damp-Proof Ultimate', category: 'waterproof', desc: 'Ultimate damp-proof coating to protect your home from moisture and dampness',
-        image: 'images/products/product-18.jpeg', badge: 'DAMP-PROOF', color: '#3F51B5', tags: ['Damp-Proof', 'Moisture Protection', 'Ultimate']
-    },
-    {
         id: 21, name: 'Novapaints Industrial Coatings', category: 'construction', desc: 'Professional industrial coatings for corrosion protection and professional applications',
         image: 'images/products/product-19.jpeg', badge: 'INDUSTRIAL', color: '#37474F', tags: ['Industrial', 'Corrosion Protection', 'Professional']
     },
     {
-        id: 22, name: 'Acrylic Matt Finish Emulsion', category: 'emulsion', desc: 'Premium matt finish emulsion for smooth, elegant interiors',
-        image: 'images/products/acrylic-matt-finish-emulsion.jpeg', badge: 'BESTSELLER', color: '#FF3366', tags: ['Matt Finish', 'Washable', 'Interior'],
-        colors: ['#E8D5B7', '#C4A77D', '#8B7355', '#F5E6D3']
+        id: 16, name: 'Novapaints Booster', category: 'adhesive', desc: 'Xtra power booster additive for putty, paints, distemper, and grout applications',
+        image: 'images/products/booster.jpeg', badge: 'XTRA POWER', color: '#E53935', tags: ['Booster', 'Additive', 'Multi-Purpose']
+    },
+    // 12. PAINT REMOVER (END)
+    {
+        id: 25, name: 'Cycle Paint Remover', category: 'remover', desc: 'Fast-acting paint remover for removing old paint from metal and wood surfaces',
+        image: 'images/products/cycle-paint-remover.jpeg', badge: 'FAST ACTING', color: '#FF5722', tags: ['Paint Remover', 'Metal & Wood', 'Fast Action']
     }
 ];
 
