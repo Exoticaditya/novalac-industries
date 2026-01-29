@@ -336,6 +336,10 @@ const products = [
         id: 13, name: 'Super Novacare Acrylic Washable Distemper', category: 'distemper', desc: 'Super quality acrylic washable distemper for smooth, elegant walls',
         image: 'images/products/product-11.jpeg', badge: 'PREMIUM', color: '#3F51B5', tags: ['Washable', 'Acrylic', 'Long Lasting']
     },
+    {
+        id: 20, name: 'Nova Care Microfined Water Proof Cement Coating', category: 'waterproof', desc: 'Microfined waterproof cement coating with 63 microns extenders for superior protection',
+        image: 'images/products/product-18.jpeg', badge: 'WATERPROOF', color: '#FFC107', tags: ['Waterproof', 'Microfined', 'Cement Coating']
+    },
     // 9. DISTEMPER ALL WEATHER
     {
         id: 2, name: 'All Weather Acrylic Washable Distemper', category: 'distemper', desc: 'All-weather acrylic washable distemper for brilliant, long-lasting interior finishes',
@@ -348,14 +352,6 @@ const products = [
         image: 'images/products/product-10.jpeg', badge: 'ADHESIVE', color: '#D32F2F', tags: ['Synthetic Adhesive', 'Distemper Binder', 'Durable']
     },
     // 11. MR. CRETE PRODUCTS
-    {
-        id: 10, name: 'Mr. Crete Damp-Lock Ultimate', category: 'waterproof', desc: 'Ultimate damp-lock waterproofing with crack bridging, UV & heat resistance',
-        image: 'images/products/product-8.jpeg', badge: 'WATERPROOF', color: '#00BFFF', tags: ['Damp-Lock', 'Fibre Reinforced', 'Waterproof']
-    },
-    {
-        id: 20, name: 'Mr. Crete Damp-Proof Ultimate', category: 'waterproof', desc: 'Ultimate damp-proof coating to protect your home from moisture and dampness',
-        image: 'images/products/product-18.jpeg', badge: 'DAMP-PROOF', color: '#3F51B5', tags: ['Damp-Proof', 'Moisture Protection', 'Ultimate']
-    },
     {
         id: 11, name: 'Mr. Crete Epoxy Grout', category: 'construction', desc: 'Premium epoxy grout for floor, wall, and mosaic - durable with long pot life',
         image: 'images/products/product-9.jpeg', badge: 'PRO CHOICE', color: '#E53935', tags: ['Epoxy Grout', 'Floor & Wall', 'Stain Resistant']
@@ -432,9 +428,12 @@ function renderProducts() {
             `;
         }
 
+        // Apply scale transform for Damp-Proof Ultimate (ID 20) to zoom in the bucket
+        const imgStyle = product.id === 20 ? 'transform: scale(1.35); transform-origin: center bottom;' : '';
+
         card.innerHTML = `
             <div class="product-img">
-                <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300?text=${product.name}'">
+                <img src="${product.image}" alt="${product.name}" style="${imgStyle}" onerror="this.src='https://via.placeholder.com/400x300?text=${product.name}'">
                 <span class="product-badge" style="background: ${product.color};">${product.badge}</span>
             </div>
             <div class="product-info">
