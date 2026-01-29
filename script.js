@@ -338,7 +338,7 @@ const products = [
     },
     {
         id: 20, name: 'Nova Care Microfined Water Proof Cement Coating', category: 'waterproof', desc: 'Microfined waterproof cement coating with 63 microns extenders for superior protection',
-        image: 'images/products/product-18.jpeg', badge: 'WATERPROOF', color: '#FFC107', tags: ['Waterproof', 'Microfined', 'Cement Coating']
+        image: 'images/products/Waterproof cement paint.jpeg', badge: 'WATERPROOF', color: '#FFC107', tags: ['Waterproof', 'Microfined', 'Cement Coating']
     },
     // 9. DISTEMPER ALL WEATHER
     {
@@ -352,6 +352,10 @@ const products = [
         image: 'images/products/product-10.jpeg', badge: 'ADHESIVE', color: '#D32F2F', tags: ['Synthetic Adhesive', 'Distemper Binder', 'Durable']
     },
     // 11. MR. CRETE PRODUCTS
+    {
+        id: 21, name: 'Mr. Crete Damp-Proof Ultimate', category: 'waterproof', desc: 'Ultimate damp-proof waterproofing solution with crack bridging, UV & heat resistance',
+        image: 'images/products/product-18.jpeg', badge: 'WATERPROOF', color: '#3F51B5', tags: ['Damp-Lock', 'Fibre Reinforced', 'Waterproof']
+    },
     {
         id: 11, name: 'Mr. Crete Epoxy Grout', category: 'construction', desc: 'Premium epoxy grout for floor, wall, and mosaic - durable with long pot life',
         image: 'images/products/product-9.jpeg', badge: 'PRO CHOICE', color: '#E53935', tags: ['Epoxy Grout', 'Floor & Wall', 'Stain Resistant']
