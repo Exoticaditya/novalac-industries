@@ -558,7 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFilters();
 
     // Observe cards for animation
-    const cards = document.querySelectorAll('.brand-card, .gallery-item, .info-card');
+    const cards = document.querySelectorAll('.brand-card, .gallery-item, .info-card, .subsidiary-card');
     if (typeof observer !== 'undefined') {
         cards.forEach(card => {
             card.style.opacity = '0';
