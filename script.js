@@ -497,21 +497,8 @@ window.addEventListener('scroll', () => {
 btnTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 // ========== FORM HANDLING ==========
-const contactForm = document.getElementById('contactForm');
-const quoteForm = document.getElementById('quoteForm');
-
-contactForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Thank you! We will contact you soon.');
-    contactForm.reset();
-});
-
-quoteForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Quote request submitted! We will send you pricing details shortly.');
-    quoteForm.reset();
-    closeQuoteModal();
-});
+// FormSubmit handles form submissions - no JavaScript needed
+// Forms will redirect to FormSubmit's success page after submission
 
 // ========== MODAL ==========
 function openQuoteModal(productName = '') {
