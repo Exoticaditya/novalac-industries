@@ -503,6 +503,14 @@ section {
     z-index: 1;
 }
 
+.hero-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
 .badge-colorful {
     display: inline-flex;
     align-items: center;
@@ -513,7 +521,8 @@ section {
     border-radius: 50px;
     font-size: 0.75rem;
     letter-spacing: 2px;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+    width: fit-content;
     color: var(--primary);
     font-weight: 600;
     position: relative;
@@ -572,7 +581,7 @@ section {
     font-size: 0.875rem;
     letter-spacing: 1.5px;
     border-radius: 50px;
-    margin: 1.5rem 0;
+    margin: 0;
     box-shadow: 0 10px 30px rgba(27, 73, 101, 0.3);
     transition: all 0.3s ease;
     position: relative;
@@ -606,9 +615,12 @@ section {
 }
 
 @keyframes bounce-arrow {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(5px);
     }
