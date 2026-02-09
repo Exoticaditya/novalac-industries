@@ -384,6 +384,10 @@ const products = [
         colors: ['#D2691E', '#8B4513', '#A0522D', '#CD853F']
     },
     {
+        id: 26, name: 'Nova Care Texture Compound', category: 'texture', desc: 'Premium texture compound - No Curing Required',
+        image: 'images/products/texture compound.jpeg', badge: 'NEW', color: '#8B4513', tags: ['Texture', 'Compound', 'No Curing']
+    },
+    {
         id: 9, name: 'Shimmer Gloss Premium Paint & Primer', category: 'emulsion', desc: 'Premium shimmer gloss for wood, metal, and walls - amazing color and flawless finish',
         image: 'images/products/product-7.jpeg', badge: 'ELEGANT', color: '#1976D2', tags: ['Shimmer Gloss', 'Wood', 'Metal'],
         colors: ['#FFE4E1', '#FFF0F5', '#FFF5EE', '#FFFAF0']
