@@ -257,3 +257,36 @@
         padding-left: 0;
     }
 }
+
+/* Certificates Logo Grid */
+.certificates-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.cert-logo-item {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.cert-logo-item:hover {
+    transform: translateY(-10px);
+}
+
+.cert-logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
