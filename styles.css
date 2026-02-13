@@ -6497,3 +6497,454 @@ section {
         font-size: 0.875rem;
     }
 }
+
+/* ========== YOUTUBE AD SECTION ========== */
+.youtube-ad-section {
+    background: linear-gradient(135deg, var(--warm-white) 0%, #f5f5f5 100%);
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.youtube-ad-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(27, 73, 101, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(200, 150, 62, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.video-wrapper {
+    position: relative;
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 60px rgba(27, 73, 101, 0.15),
+        0 0 0 1px rgba(27, 73, 101, 0.05),
+        0 0 40px rgba(200, 150, 62, 0.1);
+    background: #000;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 30px 80px rgba(27, 73, 101, 0.2),
+        0 0 0 1px rgba(200, 150, 62, 0.2),
+        0 0 60px rgba(200, 150, 62, 0.15);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========== CONTRACTORS AND PAINTER MEETS SECTION ========== */
+.contractors-meets {
+    background: #fff;
+    padding: 6rem 0;
+    position: relative;
+}
+
+.meets-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.meets-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.meets-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.meets-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(27, 73, 101, 0.95), transparent);
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.meets-overlay i {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.meets-overlay p {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+}
+
+.meets-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 50px rgba(27, 73, 101, 0.2),
+        0 0 0 2px var(--secondary);
+}
+
+.meets-item:hover img {
+    transform: scale(1.1);
+}
+
+.meets-item:hover .meets-overlay {
+    transform: translateY(0);
+}
+
+.meets-cta {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.cta-content {
+    background: linear-gradient(135deg, var(--primary), var(--navy-light));
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 20px 50px rgba(27, 73, 101, 0.15);
+}
+
+.cta-content i {
+    font-size: 3.5rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.cta-content h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* ========== MAP TOGGLE IN CONTACT SECTION ========== */
+.map-toggle-card {
+    background: linear-gradient(135deg, var(--gradient-premium));
+}
+
+.map-toggle-card i,
+.map-toggle-card h3 {
+    color: #fff;
+}
+
+.btn-toggle-map {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: #fff;
+    color: var(--primary);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-toggle-map:hover {
+    background: var(--secondary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 150, 62, 0.3);
+}
+
+.btn-toggle-map i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-toggle-map:hover i {
+    transform: scale(1.1);
+}
+
+/* Map Section */
+.map-section {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 40px rgba(27, 73, 101, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    position: relative;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-close-map {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1.25rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(139, 38, 53, 0.3);
+}
+
+.btn-close-map:hover {
+    background: #6d1f2a;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(139, 38, 53, 0.4);
+}
+
+.offices-and-map {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.office-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.office-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.office-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(27, 73, 101, 0.15);
+}
+
+.office-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(27, 73, 101, 0.1);
+}
+
+.office-header i {
+    font-size: 1.8rem;
+    color: var(--primary);
+}
+
+.office-header h3 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin: 0;
+    font-weight: 700;
+}
+
+.office-info {
+    margin-bottom: 1.25rem;
+}
+
+.office-location {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+}
+
+.office-info p {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.office-info i {
+    color: var(--primary);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.btn-direction {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: var(--gradient-premium);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(27, 73, 101, 0.2);
+}
+
+.btn-direction:hover {
+    background: var(--gradient-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 150, 62, 0.3);
+}
+
+.interactive-map {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    min-height: 400px;
+}
+
+.interactive-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .meets-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .offices-and-map {
+        grid-template-columns: 1fr;
+    }
+
+    .interactive-map {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .youtube-ad-section {
+        padding: 4rem 0;
+    }
+
+    .video-wrapper {
+        margin-top: 2rem;
+    }
+
+    .meets-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .cta-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .cta-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .cta-content p {
+        font-size: 1rem;
+    }
+
+    .map-section {
+        padding: 1.5rem;
+    }
+
+    .btn-close-map {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .office-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .meets-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .meets-cta {
+        margin-top: 3rem;
+    }
+
+    .cta-content i {
+        font-size: 2.5rem;
+    }
+
+    .cta-content h3 {
+        font-size: 1.35rem;
+    }
+
+    .office-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .office-info p {
+        font-size: 0.85rem;
+    }
+}

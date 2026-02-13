@@ -625,3 +625,19 @@ faqItems.forEach(item => {
     });
 });
 
+// ========== MAP TOGGLE ==========
+function toggleMapSection() {
+    const mapSection = document.getElementById('mapSection');
+    if (mapSection.style.display === 'none' || mapSection.style.display === '') {
+        mapSection.style.display = 'block';
+        setTimeout(() => {
+            mapSection.classList.add('active');
+        }, 10);
+    } else {
+        mapSection.classList.remove('active');
+        setTimeout(() => {
+            mapSection.style.display = 'none';
+        }, 300);
+    }
+}
+
